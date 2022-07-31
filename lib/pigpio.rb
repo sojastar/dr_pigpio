@@ -1,4 +1,4 @@
-$gtk.ffi_misc.gtk_dlopen("c_PI_GPIO")
+$gtk.ffi_misc.gtk_dlopen("PIGPIO")
 
 module PIGPIO
   LOW   = 0
