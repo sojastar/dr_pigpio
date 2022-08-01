@@ -4,7 +4,7 @@
 #include <mruby/string.h>
 #include <mruby/data.h>
 #include <dragonruby.h>
-#include "lib/pigpio/pigpio-bridge.h"
+#include "lib/pigpio/pigpio-bridge.c"
 
 static drb_api_t *drb_api;
 
@@ -17,6 +17,106 @@ static int drb_ffi__ZTSi_FromRuby(mrb_state *state, mrb_value self) {
 }
 static mrb_value drb_ffi__ZTSi_ToRuby(mrb_state *state, int value) {
     return mrb_fixnum_value(value);
+}
+struct drb_foreign_object_ZTSPZ9nanosleepE8timespec {
+    drb_foreign_object_kind kind;
+    struct timespec *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPZ9nanosleepE8timespec = {"timespec*", drb_free_foreign_object_indirect};
+static struct timespec *drb_ffi__ZTSPZ9nanosleepE8timespec_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "TimespecPointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPZ9nanosleepE8timespec);
+    return ((struct drb_foreign_object_ZTSPZ9nanosleepE8timespec *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPZ9nanosleepE8timespec_ToRuby(mrb_state *state, struct timespec *value) {
+    struct drb_foreign_object_ZTSPZ9nanosleepE8timespec *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPZ9nanosleepE8timespec));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "TimespecPointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPZ9nanosleepE8timespec);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPZ15clock_nanosleepE8timespec {
+    drb_foreign_object_kind kind;
+    struct timespec *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPZ15clock_nanosleepE8timespec = {"timespec*", drb_free_foreign_object_indirect};
+static struct timespec *drb_ffi__ZTSPZ15clock_nanosleepE8timespec_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "TimespecPointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPZ15clock_nanosleepE8timespec);
+    return ((struct drb_foreign_object_ZTSPZ15clock_nanosleepE8timespec *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPZ15clock_nanosleepE8timespec_ToRuby(mrb_state *state, struct timespec *value) {
+    struct drb_foreign_object_ZTSPZ15clock_nanosleepE8timespec *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPZ15clock_nanosleepE8timespec));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "TimespecPointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPZ15clock_nanosleepE8timespec);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPv {
+    drb_foreign_object_kind kind;
+    void *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPv = {"void*", drb_free_foreign_object_indirect};
+static void *drb_ffi__ZTSPv_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "VoidPointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPv);
+    return ((struct drb_foreign_object_ZTSPv *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPv_ToRuby(mrb_state *state, void *value) {
+    struct drb_foreign_object_ZTSPv *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPv));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "VoidPointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPv);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPPv {
+    drb_foreign_object_kind kind;
+    void **value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPPv = {"void**", drb_free_foreign_object_indirect};
+static void **drb_ffi__ZTSPPv_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "VoidPointerPointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPPv);
+    return ((struct drb_foreign_object_ZTSPPv *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPPv_ToRuby(mrb_state *state, void **value) {
+    struct drb_foreign_object_ZTSPPv *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPPv));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "VoidPointerPointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPPv);
+    return mrb_obj_value(rdata);
 }
 struct drb_foreign_object_ZTSPi {
     drb_foreign_object_kind kind;
@@ -41,6 +141,113 @@ static mrb_value drb_ffi__ZTSPi_ToRuby(mrb_state *state, int *value) {
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
     struct RClass *klass = drb_api->mrb_class_get_under(state, module, "IntPointer");
     struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPi);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSP3$_0 {
+    drb_foreign_object_kind kind;
+    __pthread_unwind_buf_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSP3$_0 = {"*", drb_free_foreign_object_indirect};
+static __pthread_unwind_buf_t *drb_ffi__ZTSP3$_0_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_0);
+    return ((struct drb_foreign_object_ZTSP3$_0 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSP3$_0_ToRuby(mrb_state *state, __pthread_unwind_buf_t *value) {
+    struct drb_foreign_object_ZTSP3$_0 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_0));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_0);
+    return mrb_obj_value(rdata);
+}
+static unsigned int drb_ffi__ZTSj_FromRuby(mrb_state *state, mrb_value self) {
+    drb_api->drb_typecheck_int(state, self);
+    return mrb_fixnum(self);
+}
+static mrb_value drb_ffi__ZTSj_ToRuby(mrb_state *state, unsigned int value) {
+    return mrb_fixnum_value(value);
+}
+struct drb_foreign_object_ZTSPFviiiE {
+    drb_foreign_object_kind kind;
+    void (*value)(int, int, int);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFviiiE = {"Function_0*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFviiiE_FromRuby(mrb_state *state, mrb_value self))(int, int, int) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_0Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFviiiE);
+    return ((struct drb_foreign_object_ZTSPFviiiE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFviiiE_ToRuby(mrb_state *state, void (*value)(int, int, int)) {
+    struct drb_foreign_object_ZTSPFviiiE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiiE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_0Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFviiiE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFviiiPvE {
+    drb_foreign_object_kind kind;
+    void (*value)(int, int, int, void *);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFviiiPvE = {"Function_1*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFviiiPvE_FromRuby(mrb_state *state, mrb_value self))(int, int, int, void *) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_1Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFviiiPvE);
+    return ((struct drb_foreign_object_ZTSPFviiiPvE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFviiiPvE_ToRuby(mrb_state *state, void (*value)(int, int, int, void *)) {
+    struct drb_foreign_object_ZTSPFviiiPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiiPvE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_1Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFviiiPvE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSP3$_1 {
+    drb_foreign_object_kind kind;
+    gpioPulse_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSP3$_1 = {"*", drb_free_foreign_object_indirect};
+static gpioPulse_t *drb_ffi__ZTSP3$_1_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_1);
+    return ((struct drb_foreign_object_ZTSP3$_1 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSP3$_1_ToRuby(mrb_state *state, gpioPulse_t *value) {
+    struct drb_foreign_object_ZTSP3$_1 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_1));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_1);
     return mrb_obj_value(rdata);
 }
 struct drb_foreign_object_ZTSPc {
@@ -70,37 +277,377 @@ static mrb_value drb_ffi__ZTSPc_ToRuby(mrb_state *state, char *value) {
     struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPc);
     return mrb_obj_value(rdata);
 }
-struct drb_foreign_object_ZTSPv {
+struct drb_foreign_object_ZTSP3$_2 {
     drb_foreign_object_kind kind;
-    void *value;
+    pi_i2c_msg_t *value;
     int should_free;
 };
-static mrb_data_type ForeignObjectType_ZTSPv = {"void*", drb_free_foreign_object_indirect};
-static void *drb_ffi__ZTSPv_FromRuby(mrb_state *state, mrb_value self) {
+static mrb_data_type ForeignObjectType_ZTSP3$_2 = {"*", drb_free_foreign_object_indirect};
+static pi_i2c_msg_t *drb_ffi__ZTSP3$_2_FromRuby(mrb_state *state, mrb_value self) {
     if (mrb_nil_p(self))
         return 0;
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "VoidPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPv);
-    return ((struct drb_foreign_object_ZTSPv *)DATA_PTR(self))->value;
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_2);
+    return ((struct drb_foreign_object_ZTSP3$_2 *)DATA_PTR(self))->value;
 }
-static mrb_value drb_ffi__ZTSPv_ToRuby(mrb_state *state, void *value) {
-    struct drb_foreign_object_ZTSPv *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPv));
+static mrb_value drb_ffi__ZTSP3$_2_ToRuby(mrb_state *state, pi_i2c_msg_t *value) {
+    struct drb_foreign_object_ZTSP3$_2 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_2));
     ptr->value = value;
     ptr->kind = drb_foreign_object_kind_pointer;
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "VoidPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPv);
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_2);
     return mrb_obj_value(rdata);
 }
-static long drb_ffi__ZTSl_FromRuby(mrb_state *state, mrb_value self) {
-    drb_api->drb_typecheck_int(state, self);
-    return mrb_fixnum(self);
+struct drb_foreign_object_ZTSP3$_3 {
+    drb_foreign_object_kind kind;
+    bsc_xfer_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSP3$_3 = {"*", drb_free_foreign_object_indirect};
+static bsc_xfer_t *drb_ffi__ZTSP3$_3_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_3);
+    return ((struct drb_foreign_object_ZTSP3$_3 *)DATA_PTR(self))->value;
 }
-static mrb_value drb_ffi__ZTSl_ToRuby(mrb_state *state, long value) {
-    return mrb_fixnum_value(value);
+static mrb_value drb_ffi__ZTSP3$_3_ToRuby(mrb_state *state, bsc_xfer_t *value) {
+    struct drb_foreign_object_ZTSP3$_3 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_3));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_3);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFvPK3$_4iE {
+    drb_foreign_object_kind kind;
+    void (*value)(const gpioSample_t *, int);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFvPK3$_4iE = {"Function_2*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFvPK3$_4iE_FromRuby(mrb_state *state, mrb_value self))(const gpioSample_t *, int) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_2Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFvPK3$_4iE);
+    return ((struct drb_foreign_object_ZTSPFvPK3$_4iE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFvPK3$_4iE_ToRuby(mrb_state *state, void (*value)(const gpioSample_t *, int)) {
+    struct drb_foreign_object_ZTSPFvPK3$_4iE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvPK3$_4iE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_2Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFvPK3$_4iE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFvPK3$_4iPvE {
+    drb_foreign_object_kind kind;
+    void (*value)(const gpioSample_t *, int, void *);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFvPK3$_4iPvE = {"Function_3*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFvPK3$_4iPvE_FromRuby(mrb_state *state, mrb_value self))(const gpioSample_t *, int, void *) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_3Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFvPK3$_4iPvE);
+    return ((struct drb_foreign_object_ZTSPFvPK3$_4iPvE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFvPK3$_4iPvE_ToRuby(mrb_state *state, void (*value)(const gpioSample_t *, int, void *)) {
+    struct drb_foreign_object_ZTSPFvPK3$_4iPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvPK3$_4iPvE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_3Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFvPK3$_4iPvE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFvvE {
+    drb_foreign_object_kind kind;
+    void (*value)(void);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFvvE = {"Function_4*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFvvE_FromRuby(mrb_state *state, mrb_value self))(void) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_4Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFvvE);
+    return ((struct drb_foreign_object_ZTSPFvvE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFvvE_ToRuby(mrb_state *state, void (*value)(void)) {
+    struct drb_foreign_object_ZTSPFvvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvvE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_4Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFvvE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFvPvE {
+    drb_foreign_object_kind kind;
+    void (*value)(void *);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFvPvE = {"Function_5*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFvPvE_FromRuby(mrb_state *state, mrb_value self))(void *) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_5Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFvPvE);
+    return ((struct drb_foreign_object_ZTSPFvPvE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFvPvE_ToRuby(mrb_state *state, void (*value)(void *)) {
+    struct drb_foreign_object_ZTSPFvPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvPvE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_5Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFvPvE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFPvS_E {
+    drb_foreign_object_kind kind;
+    gpioThreadFunc_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFPvS_E = {"Function_6*", drb_free_foreign_object_indirect};
+static gpioThreadFunc_t *drb_ffi__ZTSPFPvS_E_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_6Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFPvS_E);
+    return ((struct drb_foreign_object_ZTSPFPvS_E *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFPvS_E_ToRuby(mrb_state *state, gpioThreadFunc_t *value) {
+    struct drb_foreign_object_ZTSPFPvS_E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFPvS_E));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_6Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFPvS_E);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFviE {
+    drb_foreign_object_kind kind;
+    void (*value)(int);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFviE = {"Function_7*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFviE_FromRuby(mrb_state *state, mrb_value self))(int) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_7Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFviE);
+    return ((struct drb_foreign_object_ZTSPFviE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFviE_ToRuby(mrb_state *state, void (*value)(int)) {
+    struct drb_foreign_object_ZTSPFviE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_7Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFviE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFviPvE {
+    drb_foreign_object_kind kind;
+    void (*value)(int, void *);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFviPvE = {"Function_8*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFviPvE_FromRuby(mrb_state *state, mrb_value self))(int, void *) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_8Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFviPvE);
+    return ((struct drb_foreign_object_ZTSPFviPvE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFviPvE_ToRuby(mrb_state *state, void (*value)(int, void *)) {
+    struct drb_foreign_object_ZTSPFviPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviPvE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_8Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFviPvE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFviiE {
+    drb_foreign_object_kind kind;
+    void (*value)(int, int);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFviiE = {"Function_9*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFviiE_FromRuby(mrb_state *state, mrb_value self))(int, int) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_9Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFviiE);
+    return ((struct drb_foreign_object_ZTSPFviiE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFviiE_ToRuby(mrb_state *state, void (*value)(int, int)) {
+    struct drb_foreign_object_ZTSPFviiE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_9Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFviiE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSPFviiPvE {
+    drb_foreign_object_kind kind;
+    void (*value)(int, int, void *);
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSPFviiPvE = {"Function_10*", drb_free_foreign_object_indirect};
+static void (*drb_ffi__ZTSPFviiPvE_FromRuby(mrb_state *state, mrb_value self))(int, int, void *) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_10Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFviiPvE);
+    return ((struct drb_foreign_object_ZTSPFviiPvE *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSPFviiPvE_ToRuby(mrb_state *state, void (*value)(int, int, void *)) {
+    struct drb_foreign_object_ZTSPFviiPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiPvE));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_10Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFviiPvE);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSP8rawSPI_t {
+    drb_foreign_object_kind kind;
+    rawSPI_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSP8rawSPI_t = {"*", drb_free_foreign_object_indirect};
+static rawSPI_t *drb_ffi__ZTSP8rawSPI_t_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP8rawSPI_t);
+    return ((struct drb_foreign_object_ZTSP8rawSPI_t *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSP8rawSPI_t_ToRuby(mrb_state *state, rawSPI_t *value) {
+    struct drb_foreign_object_ZTSP8rawSPI_t *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP8rawSPI_t));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP8rawSPI_t);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSP3$_5 {
+    drb_foreign_object_kind kind;
+    rawWave_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSP3$_5 = {"*", drb_free_foreign_object_indirect};
+static rawWave_t *drb_ffi__ZTSP3$_5_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_5);
+    return ((struct drb_foreign_object_ZTSP3$_5 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSP3$_5_ToRuby(mrb_state *state, rawWave_t *value) {
+    struct drb_foreign_object_ZTSP3$_5 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_5));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_5);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTSP3$_6 {
+    drb_foreign_object_kind kind;
+    rawCbs_t *value;
+    int should_free;
+};
+static mrb_data_type ForeignObjectType_ZTSP3$_6 = {"*", drb_free_foreign_object_indirect};
+static rawCbs_t *drb_ffi__ZTSP3$_6_FromRuby(mrb_state *state, mrb_value self) {
+    if (mrb_nil_p(self))
+        return 0;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_6);
+    return ((struct drb_foreign_object_ZTSP3$_6 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTSP3$_6_ToRuby(mrb_state *state, rawCbs_t *value) {
+    struct drb_foreign_object_ZTSP3$_6 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_6));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_pointer;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_6);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTS3$_7 {
+    drb_foreign_object_kind kind;
+    rawWaveInfo_t value;
+};
+static mrb_data_type ForeignObjectType_ZTS3$_7 = {"", drb_free_foreign_object_indirect};
+static rawWaveInfo_t drb_ffi__ZTS3$_7_FromRuby(mrb_state *state, mrb_value self) {
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_7);
+    return ((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTS3$_7_ToRuby(mrb_state *state, rawWaveInfo_t value) {
+    struct drb_foreign_object_ZTS3$_7 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_7));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_struct;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_7);
+    return mrb_obj_value(rdata);
 }
 static double drb_ffi__ZTSd_FromRuby(mrb_state *state, mrb_value self) {
     drb_api->drb_typecheck_float(state, self);
@@ -109,874 +656,19 @@ static double drb_ffi__ZTSd_FromRuby(mrb_state *state, mrb_value self) {
 static mrb_value drb_ffi__ZTSd_ToRuby(mrb_state *state, double value) {
     return drb_api->drb_float_value(state, value);
 }
-struct drb_foreign_object_ZTSPPc {
-    drb_foreign_object_kind kind;
-    char **value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPPc = {"char**", drb_free_foreign_object_indirect};
-static char **drb_ffi__ZTSPPc_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "CharPointerPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPPc);
-    return ((struct drb_foreign_object_ZTSPPc *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPPc_ToRuby(mrb_state *state, char **value) {
-    struct drb_foreign_object_ZTSPPc *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPPc));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "CharPointerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPPc);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS10mrb_value_ {
-    drb_foreign_object_kind kind;
-    union mrb_value_ value;
-};
-static mrb_data_type ForeignObjectType_ZTS10mrb_value_ = {"mrb_value_", drb_free_foreign_object_indirect};
-static union mrb_value_ drb_ffi__ZTS10mrb_value__FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_value_");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS10mrb_value_);
-    return ((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS10mrb_value__ToRuby(mrb_state *state, union mrb_value_ value) {
-    struct drb_foreign_object_ZTS10mrb_value_ *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS10mrb_value_));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_value_");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS10mrb_value_);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS9mrb_value {
-    drb_foreign_object_kind kind;
-    mrb_value value;
-};
-static mrb_data_type ForeignObjectType_ZTS9mrb_value = {"mrb_value", drb_free_foreign_object_indirect};
-static mrb_value drb_ffi__ZTS9mrb_value_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_value");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS9mrb_value);
-    return ((struct drb_foreign_object_ZTS9mrb_value *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS9mrb_value_ToRuby(mrb_state *state, mrb_value value) {
-    struct drb_foreign_object_ZTS9mrb_value *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS9mrb_value));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_value");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS9mrb_value);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP9mrb_state {
-    drb_foreign_object_kind kind;
-    struct mrb_state *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP9mrb_state = {"mrb_state*", drb_free_foreign_object_indirect};
-static struct mrb_state *drb_ffi__ZTSP9mrb_state_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_statePointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP9mrb_state);
-    return ((struct drb_foreign_object_ZTSP9mrb_state *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP9mrb_state_ToRuby(mrb_state *state, struct mrb_state *value) {
-    struct drb_foreign_object_ZTSP9mrb_state *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP9mrb_state));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_statePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP9mrb_state);
-    return mrb_obj_value(rdata);
-}
-static enum mrb_vtype drb_ffi__ZTS9mrb_vtype_FromRuby(mrb_state *state, mrb_value self) {
-    drb_api->drb_typecheck_int(state, self);
-    return mrb_fixnum(self);
-}
-static mrb_value drb_ffi__ZTS9mrb_vtype_ToRuby(mrb_state *state, enum mrb_vtype value) {
-    return mrb_fixnum_value(value);
-}
-struct drb_foreign_object_ZTSPFiP9mrb_stateP6RBasicPvE {
-    drb_foreign_object_kind kind;
-    mrb_each_object_callback *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPFiP9mrb_stateP6RBasicPvE = {"Function_0*", drb_free_foreign_object_indirect};
-static mrb_each_object_callback *drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_0Pointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFiP9mrb_stateP6RBasicPvE);
-    return ((struct drb_foreign_object_ZTSPFiP9mrb_stateP6RBasicPvE *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_ToRuby(mrb_state *state, mrb_each_object_callback *value) {
-    struct drb_foreign_object_ZTSPFiP9mrb_stateP6RBasicPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFiP9mrb_stateP6RBasicPvE));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_0Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFiP9mrb_stateP6RBasicPvE);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP11mrb_context {
-    drb_foreign_object_kind kind;
-    struct mrb_context *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP11mrb_context = {"mrb_context*", drb_free_foreign_object_indirect};
-static struct mrb_context *drb_ffi__ZTSP11mrb_context_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_contextPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP11mrb_context);
-    return ((struct drb_foreign_object_ZTSP11mrb_context *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP11mrb_context_ToRuby(mrb_state *state, struct mrb_context *value) {
-    struct drb_foreign_object_ZTSP11mrb_context *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP11mrb_context));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_contextPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP11mrb_context);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP6RBasic {
-    drb_foreign_object_kind kind;
-    struct RBasic *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP6RBasic = {"RBasic*", drb_free_foreign_object_indirect};
-static struct RBasic *drb_ffi__ZTSP6RBasic_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasicPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP6RBasic);
-    return ((struct drb_foreign_object_ZTSP6RBasic *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP6RBasic_ToRuby(mrb_state *state, struct RBasic *value) {
-    struct drb_foreign_object_ZTSP6RBasic *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RBasic));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasicPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP6RBasic);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP6RClass {
-    drb_foreign_object_kind kind;
-    struct RClass *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP6RClass = {"RClass*", drb_free_foreign_object_indirect};
-static struct RClass *drb_ffi__ZTSP6RClass_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RClassPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP6RClass);
-    return ((struct drb_foreign_object_ZTSP6RClass *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP6RClass_ToRuby(mrb_state *state, struct RClass *value) {
-    struct drb_foreign_object_ZTSP6RClass *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RClass));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RClassPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP6RClass);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSPF9mrb_valueP9mrb_stateS_E {
-    drb_foreign_object_kind kind;
-    mrb_value (*value)(struct mrb_state *, mrb_value);
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPF9mrb_valueP9mrb_stateS_E = {"Function_1*", drb_free_foreign_object_indirect};
-static mrb_value (*drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(mrb_state *state, mrb_value self))(struct mrb_state *, mrb_value) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_1Pointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPF9mrb_valueP9mrb_stateS_E);
-    return ((struct drb_foreign_object_ZTSPF9mrb_valueP9mrb_stateS_E *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_ToRuby(mrb_state *state, mrb_value (*value)(struct mrb_state *, mrb_value)) {
-    struct drb_foreign_object_ZTSPF9mrb_valueP9mrb_stateS_E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPF9mrb_valueP9mrb_stateS_E));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_1Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPF9mrb_valueP9mrb_stateS_E);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP7RObject {
-    drb_foreign_object_kind kind;
-    struct RObject *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP7RObject = {"RObject*", drb_free_foreign_object_indirect};
-static struct RObject *drb_ffi__ZTSP7RObject_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RObjectPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP7RObject);
-    return ((struct drb_foreign_object_ZTSP7RObject *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP7RObject_ToRuby(mrb_state *state, struct RObject *value) {
-    struct drb_foreign_object_ZTSP7RObject *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP7RObject));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RObjectPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP7RObject);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP9mrb_value {
-    drb_foreign_object_kind kind;
-    mrb_value *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP9mrb_value = {"mrb_value*", drb_free_foreign_object_indirect};
-static mrb_value *drb_ffi__ZTSP9mrb_value_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_valuePointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP9mrb_value);
-    return ((struct drb_foreign_object_ZTSP9mrb_value *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP9mrb_value_ToRuby(mrb_state *state, mrb_value *value) {
-    struct drb_foreign_object_ZTSP9mrb_value *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP9mrb_value));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_valuePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP9mrb_value);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSPFPvP9mrb_stateS_iS_E {
-    drb_foreign_object_kind kind;
-    void *(*value)(struct mrb_state *, void *, int, void *);
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPFPvP9mrb_stateS_iS_E = {"Function_2*", drb_free_foreign_object_indirect};
-static void *(*drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_FromRuby(mrb_state *state, mrb_value self))(struct mrb_state *, void *, int, void *) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_2Pointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFPvP9mrb_stateS_iS_E);
-    return ((struct drb_foreign_object_ZTSPFPvP9mrb_stateS_iS_E *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_ToRuby(mrb_state *state, void *(*value)(struct mrb_state *, void *, int, void *)) {
-    struct drb_foreign_object_ZTSPFPvP9mrb_stateS_iS_E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFPvP9mrb_stateS_iS_E));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_2Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFPvP9mrb_stateS_iS_E);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP5RProc {
-    drb_foreign_object_kind kind;
-    struct RProc *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP5RProc = {"RProc*", drb_free_foreign_object_indirect};
-static struct RProc *drb_ffi__ZTSP5RProc_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RProcPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP5RProc);
-    return ((struct drb_foreign_object_ZTSP5RProc *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP5RProc_ToRuby(mrb_state *state, struct RProc *value) {
-    struct drb_foreign_object_ZTSP5RProc *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP5RProc));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RProcPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP5RProc);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP8mrb_pool {
-    drb_foreign_object_kind kind;
-    struct mrb_pool *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP8mrb_pool = {"mrb_pool*", drb_free_foreign_object_indirect};
-static struct mrb_pool *drb_ffi__ZTSP8mrb_pool_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_poolPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP8mrb_pool);
-    return ((struct drb_foreign_object_ZTSP8mrb_pool *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP8mrb_pool_ToRuby(mrb_state *state, struct mrb_pool *value) {
-    struct drb_foreign_object_ZTSP8mrb_pool *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP8mrb_pool));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_poolPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP8mrb_pool);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSPFvP9mrb_stateE {
-    drb_foreign_object_kind kind;
-    void (*value)(struct mrb_state *);
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPFvP9mrb_stateE = {"Function_3*", drb_free_foreign_object_indirect};
-static void (*drb_ffi__ZTSPFvP9mrb_stateE_FromRuby(mrb_state *state, mrb_value self))(struct mrb_state *) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_3Pointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPFvP9mrb_stateE);
-    return ((struct drb_foreign_object_ZTSPFvP9mrb_stateE *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPFvP9mrb_stateE_ToRuby(mrb_state *state, void (*value)(struct mrb_state *)) {
-    struct drb_foreign_object_ZTSPFvP9mrb_stateE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvP9mrb_stateE));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_3Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPFvP9mrb_stateE);
-    return mrb_obj_value(rdata);
-}
-static char drb_ffi__ZTSc_FromRuby(mrb_state *state, mrb_value self) {
-    drb_api->drb_typecheck_int(state, self);
-    return mrb_fixnum(self);
-}
-static mrb_value drb_ffi__ZTSc_ToRuby(mrb_state *state, char value) {
-    return mrb_fixnum_value(value);
-}
-struct drb_foreign_object_ZTSP6RFloat {
-    drb_foreign_object_kind kind;
-    struct RFloat *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP6RFloat = {"RFloat*", drb_free_foreign_object_indirect};
-static struct RFloat *drb_ffi__ZTSP6RFloat_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFloatPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP6RFloat);
-    return ((struct drb_foreign_object_ZTSP6RFloat *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP6RFloat_ToRuby(mrb_state *state, struct RFloat *value) {
-    struct drb_foreign_object_ZTSP6RFloat *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RFloat));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFloatPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP6RFloat);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP8RInteger {
-    drb_foreign_object_kind kind;
-    struct RInteger *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP8RInteger = {"RInteger*", drb_free_foreign_object_indirect};
-static struct RInteger *drb_ffi__ZTSP8RInteger_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RIntegerPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP8RInteger);
-    return ((struct drb_foreign_object_ZTSP8RInteger *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP8RInteger_ToRuby(mrb_state *state, struct RInteger *value) {
-    struct drb_foreign_object_ZTSP8RInteger *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP8RInteger));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RIntegerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP8RInteger);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP5RCptr {
-    drb_foreign_object_kind kind;
-    struct RCptr *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP5RCptr = {"RCptr*", drb_free_foreign_object_indirect};
-static struct RCptr *drb_ffi__ZTSP5RCptr_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RCptrPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP5RCptr);
-    return ((struct drb_foreign_object_ZTSP5RCptr *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP5RCptr_ToRuby(mrb_state *state, struct RCptr *value) {
-    struct drb_foreign_object_ZTSP5RCptr *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP5RCptr));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RCptrPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP5RCptr);
-    return mrb_obj_value(rdata);
-}
-static uintptr_t drb_ffi__ZTSj_FromRuby(mrb_state *state, mrb_value self) {
-    drb_api->drb_typecheck_int(state, self);
-    return mrb_fixnum(self);
-}
-static mrb_value drb_ffi__ZTSj_ToRuby(mrb_state *state, uintptr_t value) {
-    return mrb_fixnum_value(value);
-}
-struct drb_foreign_object_ZTS9mrb_state {
-    drb_foreign_object_kind kind;
-    struct mrb_state value;
-};
-static mrb_data_type ForeignObjectType_ZTS9mrb_state = {"mrb_state", drb_free_foreign_object_indirect};
-static struct mrb_state drb_ffi__ZTS9mrb_state_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_state");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS9mrb_state);
-    return ((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS9mrb_state_ToRuby(mrb_state *state, struct mrb_state value) {
-    struct drb_foreign_object_ZTS9mrb_state *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS9mrb_state));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_state");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS9mrb_state);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS11mrb_context {
-    drb_foreign_object_kind kind;
-    struct mrb_context value;
-};
-static mrb_data_type ForeignObjectType_ZTS11mrb_context = {"mrb_context", drb_free_foreign_object_indirect};
-static struct mrb_context drb_ffi__ZTS11mrb_context_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_context");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS11mrb_context);
-    return ((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS11mrb_context_ToRuby(mrb_state *state, struct mrb_context value) {
-    struct drb_foreign_object_ZTS11mrb_context *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS11mrb_context));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_context");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS11mrb_context);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS6RBasic {
-    drb_foreign_object_kind kind;
-    struct RBasic value;
-};
-static mrb_data_type ForeignObjectType_ZTS6RBasic = {"RBasic", drb_free_foreign_object_indirect};
-static struct RBasic drb_ffi__ZTS6RBasic_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasic");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS6RBasic);
-    return ((struct drb_foreign_object_ZTS6RBasic *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS6RBasic_ToRuby(mrb_state *state, struct RBasic value) {
-    struct drb_foreign_object_ZTS6RBasic *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6RBasic));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasic");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6RBasic);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS7RObject {
-    drb_foreign_object_kind kind;
-    struct RObject value;
-};
-static mrb_data_type ForeignObjectType_ZTS7RObject = {"RObject", drb_free_foreign_object_indirect};
-static struct RObject drb_ffi__ZTS7RObject_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RObject");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS7RObject);
-    return ((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS7RObject_ToRuby(mrb_state *state, struct RObject value) {
-    struct drb_foreign_object_ZTS7RObject *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS7RObject));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RObject");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS7RObject);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS6RFloat {
-    drb_foreign_object_kind kind;
-    struct RFloat value;
-};
-static mrb_data_type ForeignObjectType_ZTS6RFloat = {"RFloat", drb_free_foreign_object_indirect};
-static struct RFloat drb_ffi__ZTS6RFloat_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFloat");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS6RFloat);
-    return ((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS6RFloat_ToRuby(mrb_state *state, struct RFloat value) {
-    struct drb_foreign_object_ZTS6RFloat *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6RFloat));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFloat");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6RFloat);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS8RInteger {
-    drb_foreign_object_kind kind;
-    struct RInteger value;
-};
-static mrb_data_type ForeignObjectType_ZTS8RInteger = {"RInteger", drb_free_foreign_object_indirect};
-static struct RInteger drb_ffi__ZTS8RInteger_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RInteger");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS8RInteger);
-    return ((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS8RInteger_ToRuby(mrb_state *state, struct RInteger value) {
-    struct drb_foreign_object_ZTS8RInteger *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS8RInteger));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RInteger");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS8RInteger);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS5RCptr {
-    drb_foreign_object_kind kind;
-    struct RCptr value;
-};
-static mrb_data_type ForeignObjectType_ZTS5RCptr = {"RCptr", drb_free_foreign_object_indirect};
-static struct RCptr drb_ffi__ZTS5RCptr_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RCptr");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS5RCptr);
-    return ((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS5RCptr_ToRuby(mrb_state *state, struct RCptr value) {
-    struct drb_foreign_object_ZTS5RCptr *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS5RCptr));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RCptr");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS5RCptr);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP10mrb_jmpbuf {
-    drb_foreign_object_kind kind;
-    struct mrb_jmpbuf *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP10mrb_jmpbuf = {"mrb_jmpbuf*", drb_free_foreign_object_indirect};
-static struct mrb_jmpbuf *drb_ffi__ZTSP10mrb_jmpbuf_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_jmpbufPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP10mrb_jmpbuf);
-    return ((struct drb_foreign_object_ZTSP10mrb_jmpbuf *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP10mrb_jmpbuf_ToRuby(mrb_state *state, struct mrb_jmpbuf *value) {
-    struct drb_foreign_object_ZTSP10mrb_jmpbuf *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP10mrb_jmpbuf));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_jmpbufPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP10mrb_jmpbuf);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP6iv_tbl {
-    drb_foreign_object_kind kind;
-    struct iv_tbl *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP6iv_tbl = {"iv_tbl*", drb_free_foreign_object_indirect};
-static struct iv_tbl *drb_ffi__ZTSP6iv_tbl_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Iv_tblPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP6iv_tbl);
-    return ((struct drb_foreign_object_ZTSP6iv_tbl *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP6iv_tbl_ToRuby(mrb_state *state, struct iv_tbl *value) {
-    struct drb_foreign_object_ZTSP6iv_tbl *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6iv_tbl));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Iv_tblPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP6iv_tbl);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS6mrb_gc {
-    drb_foreign_object_kind kind;
-    mrb_gc value;
-};
-static mrb_data_type ForeignObjectType_ZTS6mrb_gc = {"mrb_gc", drb_free_foreign_object_indirect};
-static mrb_gc drb_ffi__ZTS6mrb_gc_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_gc");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS6mrb_gc);
-    return ((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_ToRuby(mrb_state *state, mrb_gc value) {
-    struct drb_foreign_object_ZTS6mrb_gc *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6mrb_gc));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_gc");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6mrb_gc);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP11symbol_name {
-    drb_foreign_object_kind kind;
-    struct symbol_name *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP11symbol_name = {"symbol_name*", drb_free_foreign_object_indirect};
-static struct symbol_name *drb_ffi__ZTSP11symbol_name_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Symbol_namePointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP11symbol_name);
-    return ((struct drb_foreign_object_ZTSP11symbol_name *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP11symbol_name_ToRuby(mrb_state *state, struct symbol_name *value) {
-    struct drb_foreign_object_ZTSP11symbol_name *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP11symbol_name));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Symbol_namePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP11symbol_name);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSPPFvP9mrb_stateE {
-    drb_foreign_object_kind kind;
-    void (**value)(struct mrb_state *);
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPPFvP9mrb_stateE = {"Function_3**", drb_free_foreign_object_indirect};
-static void (**drb_ffi__ZTSPPFvP9mrb_stateE_FromRuby(mrb_state *state, mrb_value self))(struct mrb_state *) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_3PointerPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPPFvP9mrb_stateE);
-    return ((struct drb_foreign_object_ZTSPPFvP9mrb_stateE *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPPFvP9mrb_stateE_ToRuby(mrb_state *state, void (**value)(struct mrb_state *)) {
-    struct drb_foreign_object_ZTSPPFvP9mrb_stateE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPPFvP9mrb_stateE));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Function_3PointerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPPFvP9mrb_stateE);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP3$_0 {
-    drb_foreign_object_kind kind;
-    mrb_callinfo *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP3$_0 = {"*", drb_free_foreign_object_indirect};
-static mrb_callinfo *drb_ffi__ZTSP3$_0_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP3$_0);
-    return ((struct drb_foreign_object_ZTSP3$_0 *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP3$_0_ToRuby(mrb_state *state, mrb_callinfo *value) {
-    struct drb_foreign_object_ZTSP3$_0 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_0));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP3$_0);
-    return mrb_obj_value(rdata);
-}
-static enum mrb_fiber_state drb_ffi__ZTS15mrb_fiber_state_FromRuby(mrb_state *state, mrb_value self) {
-    drb_api->drb_typecheck_int(state, self);
-    return mrb_fixnum(self);
-}
-static mrb_value drb_ffi__ZTS15mrb_fiber_state_ToRuby(mrb_state *state, enum mrb_fiber_state value) {
-    return mrb_fixnum_value(value);
-}
-struct drb_foreign_object_ZTSP6RFiber {
-    drb_foreign_object_kind kind;
-    struct RFiber *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP6RFiber = {"RFiber*", drb_free_foreign_object_indirect};
-static struct RFiber *drb_ffi__ZTSP6RFiber_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFiberPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP6RFiber);
-    return ((struct drb_foreign_object_ZTSP6RFiber *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP6RFiber_ToRuby(mrb_state *state, struct RFiber *value) {
-    struct drb_foreign_object_ZTSP6RFiber *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RFiber));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFiberPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP6RFiber);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSP13mrb_heap_page {
-    drb_foreign_object_kind kind;
-    mrb_heap_page *value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSP13mrb_heap_page = {"mrb_heap_page*", drb_free_foreign_object_indirect};
-static mrb_heap_page *drb_ffi__ZTSP13mrb_heap_page_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_heap_pagePointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP13mrb_heap_page);
-    return ((struct drb_foreign_object_ZTSP13mrb_heap_page *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSP13mrb_heap_page_ToRuby(mrb_state *state, mrb_heap_page *value) {
-    struct drb_foreign_object_ZTSP13mrb_heap_page *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP13mrb_heap_page));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_heap_pagePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP13mrb_heap_page);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSPP6RBasic {
-    drb_foreign_object_kind kind;
-    struct RBasic **value;
-    int should_free;
-};
-static mrb_data_type ForeignObjectType_ZTSPP6RBasic = {"RBasic**", drb_free_foreign_object_indirect};
-static struct RBasic **drb_ffi__ZTSPP6RBasic_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasicPointerPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSPP6RBasic);
-    return ((struct drb_foreign_object_ZTSPP6RBasic *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTSPP6RBasic_ToRuby(mrb_state *state, struct RBasic **value) {
-    struct drb_foreign_object_ZTSPP6RBasic *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPP6RBasic));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasicPointerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSPP6RBasic);
-    return mrb_obj_value(rdata);
-}
-static mrb_gc_state drb_ffi__ZTS12mrb_gc_state_FromRuby(mrb_state *state, mrb_value self) {
-    drb_api->drb_typecheck_int(state, self);
-    return mrb_fixnum(self);
-}
-static mrb_value drb_ffi__ZTS12mrb_gc_state_ToRuby(mrb_state *state, mrb_gc_state value) {
-    return mrb_fixnum_value(value);
-}
 struct drb_foreign_object_ZTS3$_0 {
     drb_foreign_object_kind kind;
-    mrb_callinfo value;
+    __pthread_unwind_buf_t value;
 };
 static mrb_data_type ForeignObjectType_ZTS3$_0 = {"", drb_free_foreign_object_indirect};
-static mrb_callinfo drb_ffi__ZTS3$_0_FromRuby(mrb_state *state, mrb_value self) {
+static __pthread_unwind_buf_t drb_ffi__ZTS3$_0_FromRuby(mrb_state *state, mrb_value self) {
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
     struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
     drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_0);
     return ((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value;
 }
-static mrb_value drb_ffi__ZTS3$_0_ToRuby(mrb_state *state, mrb_callinfo value) {
+static mrb_value drb_ffi__ZTS3$_0_ToRuby(mrb_state *state, __pthread_unwind_buf_t value) {
     struct drb_foreign_object_ZTS3$_0 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_0));
     ptr->value = value;
     ptr->kind = drb_foreign_object_kind_struct;
@@ -986,96 +678,224 @@ static mrb_value drb_ffi__ZTS3$_0_ToRuby(mrb_state *state, mrb_callinfo value) {
     struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_0);
     return mrb_obj_value(rdata);
 }
-struct drb_foreign_object_ZTS6RFiber {
+struct drb_foreign_object_ZTS3$_1 {
     drb_foreign_object_kind kind;
-    struct RFiber value;
+    gpioPulse_t value;
 };
-static mrb_data_type ForeignObjectType_ZTS6RFiber = {"RFiber", drb_free_foreign_object_indirect};
-static struct RFiber drb_ffi__ZTS6RFiber_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFiber");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS6RFiber);
-    return ((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS6RFiber_ToRuby(mrb_state *state, struct RFiber value) {
-    struct drb_foreign_object_ZTS6RFiber *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6RFiber));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFiber");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6RFiber);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTS13mrb_heap_page {
-    drb_foreign_object_kind kind;
-    mrb_heap_page value;
-};
-static mrb_data_type ForeignObjectType_ZTS13mrb_heap_page = {"mrb_heap_page", drb_free_foreign_object_indirect};
-static mrb_heap_page drb_ffi__ZTS13mrb_heap_page_FromRuby(mrb_state *state, mrb_value self) {
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_heap_page");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS13mrb_heap_page);
-    return ((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value;
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_ToRuby(mrb_state *state, mrb_heap_page value) {
-    struct drb_foreign_object_ZTS13mrb_heap_page *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS13mrb_heap_page));
-    ptr->value = value;
-    ptr->kind = drb_foreign_object_kind_struct;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_heap_page");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS13mrb_heap_page);
-    return mrb_obj_value(rdata);
-}
-struct drb_foreign_object_ZTSN3$_03$_1E {
-    drb_foreign_object_kind kind;
-    union (anonymous union at ../include/mruby.h:158:3) value;
-};
-static mrb_data_type ForeignObjectType_ZTSN3$_03$_1E = {"", drb_free_foreign_object_indirect};
-static union (anonymous union at ../include/mruby.h:158:3) drb_ffi__ZTSN3$_03$_1E_FromRuby(mrb_state *state, mrb_value self) {
+static mrb_data_type ForeignObjectType_ZTS3$_1 = {"", drb_free_foreign_object_indirect};
+static gpioPulse_t drb_ffi__ZTS3$_1_FromRuby(mrb_state *state, mrb_value self) {
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
     struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSN3$_03$_1E);
-    return ((struct drb_foreign_object_ZTSN3$_03$_1E *)DATA_PTR(self))->value;
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_1);
+    return ((struct drb_foreign_object_ZTS3$_1 *)DATA_PTR(self))->value;
 }
-static mrb_value drb_ffi__ZTSN3$_03$_1E_ToRuby(mrb_state *state, union (anonymous union at ../include/mruby.h:158:3) value) {
-    struct drb_foreign_object_ZTSN3$_03$_1E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSN3$_03$_1E));
+static mrb_value drb_ffi__ZTS3$_1_ToRuby(mrb_state *state, gpioPulse_t value) {
+    struct drb_foreign_object_ZTS3$_1 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_1));
     ptr->value = value;
     ptr->kind = drb_foreign_object_kind_struct;
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
     struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSN3$_03$_1E);
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_1);
     return mrb_obj_value(rdata);
 }
-struct drb_foreign_object_ZTSP4REnv {
+static char drb_ffi__ZTSc_FromRuby(mrb_state *state, mrb_value self) {
+    drb_api->drb_typecheck_int(state, self);
+    return mrb_fixnum(self);
+}
+static mrb_value drb_ffi__ZTSc_ToRuby(mrb_state *state, char value) {
+    return mrb_fixnum_value(value);
+}
+struct drb_foreign_object_ZTS3$_2 {
     drb_foreign_object_kind kind;
-    struct REnv *value;
-    int should_free;
+    pi_i2c_msg_t value;
 };
-static mrb_data_type ForeignObjectType_ZTSP4REnv = {"REnv*", drb_free_foreign_object_indirect};
-static struct REnv *drb_ffi__ZTSP4REnv_FromRuby(mrb_state *state, mrb_value self) {
-    if (mrb_nil_p(self))
-        return 0;
+static mrb_data_type ForeignObjectType_ZTS3$_2 = {"", drb_free_foreign_object_indirect};
+static pi_i2c_msg_t drb_ffi__ZTS3$_2_FromRuby(mrb_state *state, mrb_value self) {
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "REnvPointer");
-    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTSP4REnv);
-    return ((struct drb_foreign_object_ZTSP4REnv *)DATA_PTR(self))->value;
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_2);
+    return ((struct drb_foreign_object_ZTS3$_2 *)DATA_PTR(self))->value;
 }
-static mrb_value drb_ffi__ZTSP4REnv_ToRuby(mrb_state *state, struct REnv *value) {
-    struct drb_foreign_object_ZTSP4REnv *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP4REnv));
+static mrb_value drb_ffi__ZTS3$_2_ToRuby(mrb_state *state, pi_i2c_msg_t value) {
+    struct drb_foreign_object_ZTS3$_2 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_2));
     ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_struct;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_2);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTS3$_3 {
+    drb_foreign_object_kind kind;
+    bsc_xfer_t value;
+};
+static mrb_data_type ForeignObjectType_ZTS3$_3 = {"", drb_free_foreign_object_indirect};
+static bsc_xfer_t drb_ffi__ZTS3$_3_FromRuby(mrb_state *state, mrb_value self) {
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_3);
+    return ((struct drb_foreign_object_ZTS3$_3 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTS3$_3_ToRuby(mrb_state *state, bsc_xfer_t value) {
+    struct drb_foreign_object_ZTS3$_3 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_3));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_struct;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_3);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTS8rawSPI_t {
+    drb_foreign_object_kind kind;
+    rawSPI_t value;
+};
+static mrb_data_type ForeignObjectType_ZTS8rawSPI_t = {"", drb_free_foreign_object_indirect};
+static rawSPI_t drb_ffi__ZTS8rawSPI_t_FromRuby(mrb_state *state, mrb_value self) {
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS8rawSPI_t);
+    return ((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_ToRuby(mrb_state *state, rawSPI_t value) {
+    struct drb_foreign_object_ZTS8rawSPI_t *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS8rawSPI_t));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_struct;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS8rawSPI_t);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTS3$_5 {
+    drb_foreign_object_kind kind;
+    rawWave_t value;
+};
+static mrb_data_type ForeignObjectType_ZTS3$_5 = {"", drb_free_foreign_object_indirect};
+static rawWave_t drb_ffi__ZTS3$_5_FromRuby(mrb_state *state, mrb_value self) {
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_5);
+    return ((struct drb_foreign_object_ZTS3$_5 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTS3$_5_ToRuby(mrb_state *state, rawWave_t value) {
+    struct drb_foreign_object_ZTS3$_5 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_5));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_struct;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_5);
+    return mrb_obj_value(rdata);
+}
+struct drb_foreign_object_ZTS3$_6 {
+    drb_foreign_object_kind kind;
+    rawCbs_t value;
+};
+static mrb_data_type ForeignObjectType_ZTS3$_6 = {"", drb_free_foreign_object_indirect};
+static rawCbs_t drb_ffi__ZTS3$_6_FromRuby(mrb_state *state, mrb_value self) {
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    drb_api->drb_typecheck_aggregate(state, self, klass, &ForeignObjectType_ZTS3$_6);
+    return ((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value;
+}
+static mrb_value drb_ffi__ZTS3$_6_ToRuby(mrb_state *state, rawCbs_t value) {
+    struct drb_foreign_object_ZTS3$_6 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_6));
+    ptr->value = value;
+    ptr->kind = drb_foreign_object_kind_struct;
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_6);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSPZ9nanosleepE8timespec_New(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ9nanosleepE8timespec_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ9nanosleepE8timespec_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPZ9nanosleepE8timespec_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSPZ9nanosleepE8timespec_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ9nanosleepE8timespec_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ15clock_nanosleepE8timespec_New(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ15clock_nanosleepE8timespec_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ15clock_nanosleepE8timespec_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPZ15clock_nanosleepE8timespec_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSPZ15clock_nanosleepE8timespec_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPZ15clock_nanosleepE8timespec_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPPv_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPPv *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPPv));
     ptr->kind = drb_foreign_object_kind_pointer;
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "REnvPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSP4REnv);
+    ptr->value = calloc(1, sizeof(void *));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "VoidPointerPointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPPv);
     return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSPPv_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTSPv_ToRuby(mrb, *drb_ffi__ZTSPPv_FromRuby(mrb, value));
+}
+static mrb_value drb_ffi__ZTSPPv_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPPv_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSPPv_GetAt(mrb_state *mrb, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    return drb_ffi__ZTSPv_ToRuby(mrb, drb_ffi__ZTSPPv_FromRuby(mrb, self)[index]);
+}
+static mrb_value drb_ffi__ZTSPPv_SetAt(mrb_state *mrb, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    void *new_value = drb_ffi__ZTSPv_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSPPv_FromRuby(mrb, self)[index] = new_value;
+    return mrb_nil_value();
 }
 static mrb_value drb_ffi__ZTSPi_New(mrb_state *mrb, mrb_value self) {
     struct drb_foreign_object_ZTSPi *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPi));
@@ -1111,6 +931,136 @@ static mrb_value drb_ffi__ZTSPi_SetAt(mrb_state *mrb, mrb_value self) {
     int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
     int new_value = drb_ffi__ZTSi_FromRuby(mrb, args[1]);
     drb_ffi__ZTSPi_FromRuby(mrb, self)[index] = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSP3$_0_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP3$_0 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_0));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(__pthread_unwind_buf_t));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_0);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSP3$_0_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS3$_0_ToRuby(mrb, *drb_ffi__ZTSP3$_0_FromRuby(mrb, value));
+}
+static mrb_value drb_ffi__ZTSP3$_0_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP3$_0_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSP3$_0_GetAt(mrb_state *mrb, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    return drb_ffi__ZTS3$_0_ToRuby(mrb, drb_ffi__ZTSP3$_0_FromRuby(mrb, self)[index]);
+}
+static mrb_value drb_ffi__ZTSP3$_0_SetAt(mrb_state *mrb, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    __pthread_unwind_buf_t new_value = drb_ffi__ZTS3$_0_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP3$_0_FromRuby(mrb, self)[index] = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFviiiE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiiE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (int, int, int)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_0Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFviiiE);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSPFviiiE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFviiiE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiPvE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFviiiPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiiPvE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (int, int, int, void *)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_1Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFviiiPvE);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSPFviiiPvE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiPvE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFviiiPvE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiPvE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviiiPvE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSP3$_1_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP3$_1 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_1));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(gpioPulse_t));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_1);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSP3$_1_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS3$_1_ToRuby(mrb, *drb_ffi__ZTSP3$_1_FromRuby(mrb, value));
+}
+static mrb_value drb_ffi__ZTSP3$_1_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP3$_1_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSP3$_1_GetAt(mrb_state *mrb, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    return drb_ffi__ZTS3$_1_ToRuby(mrb, drb_ffi__ZTSP3$_1_FromRuby(mrb, self)[index]);
+}
+static mrb_value drb_ffi__ZTSP3$_1_SetAt(mrb_state *mrb, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    gpioPulse_t new_value = drb_ffi__ZTS3$_1_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP3$_1_FromRuby(mrb, self)[index] = new_value;
     return mrb_nil_value();
 }
 static mrb_value drb_ffi__ZTSPc_New(mrb_state *mrb, mrb_value self) {
@@ -1152,2118 +1102,549 @@ static mrb_value drb_ffi__ZTSPc_SetAt(mrb_state *mrb, mrb_value self) {
 static mrb_value drb_ffi__ZTSPc_GetString(mrb_state *state, mrb_value self) {
     return drb_api->mrb_str_new_cstr(state, drb_ffi__ZTSPc_FromRuby(state, self));
 }
-static mrb_value drb_ffi__ZTSPPc_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPPc *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPPc));
+static mrb_value drb_ffi__ZTSP3$_2_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP3$_2 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_2));
     ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(char *));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "CharPointerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPPc);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSPPc_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTSPc_ToRuby(mrb, *drb_ffi__ZTSPPc_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSPPc_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPPc_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSPPc_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTSPc_ToRuby(mrb, drb_ffi__ZTSPPc_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSPPc_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    char *new_value = drb_ffi__ZTSPc_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSPPc_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP9mrb_state_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP9mrb_state *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP9mrb_state));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct mrb_state));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Mrb_statePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP9mrb_state);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP9mrb_state_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS9mrb_state_ToRuby(mrb, *drb_ffi__ZTSP9mrb_state_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP9mrb_state_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP9mrb_state_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP9mrb_state_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS9mrb_state_ToRuby(mrb, drb_ffi__ZTSP9mrb_state_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP9mrb_state_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct mrb_state new_value = drb_ffi__ZTS9mrb_state_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP9mrb_state_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPFiP9mrb_stateP6RBasicPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFiP9mrb_stateP6RBasicPvE));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(mrb_each_object_callback));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_0Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFiP9mrb_stateP6RBasicPvE);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP11mrb_context_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP11mrb_context *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP11mrb_context));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct mrb_context));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Mrb_contextPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP11mrb_context);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP11mrb_context_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS11mrb_context_ToRuby(mrb, *drb_ffi__ZTSP11mrb_context_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP11mrb_context_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP11mrb_context_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP11mrb_context_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS11mrb_context_ToRuby(mrb, drb_ffi__ZTSP11mrb_context_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP11mrb_context_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct mrb_context new_value = drb_ffi__ZTS11mrb_context_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP11mrb_context_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6RBasic_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP6RBasic *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RBasic));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RBasic));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RBasicPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP6RBasic);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP6RBasic_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS6RBasic_ToRuby(mrb, *drb_ffi__ZTSP6RBasic_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP6RBasic_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP6RBasic_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP6RBasic_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS6RBasic_ToRuby(mrb, drb_ffi__ZTSP6RBasic_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP6RBasic_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RBasic new_value = drb_ffi__ZTS6RBasic_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP6RBasic_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6RClass_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6RClass_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6RClass_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP6RClass_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP6RClass_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6RClass_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPF9mrb_valueP9mrb_stateS_E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPF9mrb_valueP9mrb_stateS_E));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(mrb_value (struct mrb_state *, mrb_value)));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_1Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPF9mrb_valueP9mrb_stateS_E);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP7RObject_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP7RObject *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP7RObject));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RObject));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RObjectPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP7RObject);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP7RObject_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS7RObject_ToRuby(mrb, *drb_ffi__ZTSP7RObject_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP7RObject_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP7RObject_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP7RObject_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS7RObject_ToRuby(mrb, drb_ffi__ZTSP7RObject_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP7RObject_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RObject new_value = drb_ffi__ZTS7RObject_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP7RObject_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP9mrb_value_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP9mrb_value *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP9mrb_value));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(mrb_value));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Mrb_valuePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP9mrb_value);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP9mrb_value_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS9mrb_value_ToRuby(mrb, *drb_ffi__ZTSP9mrb_value_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP9mrb_value_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP9mrb_value_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP9mrb_value_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS9mrb_value_ToRuby(mrb, drb_ffi__ZTSP9mrb_value_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP9mrb_value_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    mrb_value new_value = drb_ffi__ZTS9mrb_value_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP9mrb_value_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPFPvP9mrb_stateS_iS_E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFPvP9mrb_stateS_iS_E));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(void *(struct mrb_state *, void *, int, void *)));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_2Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFPvP9mrb_stateS_iS_E);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP5RProc_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP5RProc_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP5RProc_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP5RProc_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP5RProc_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP5RProc_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP8mrb_pool_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP8mrb_pool_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP8mrb_pool_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP8mrb_pool_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP8mrb_pool_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP8mrb_pool_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFvP9mrb_stateE_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPFvP9mrb_stateE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvP9mrb_stateE));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(void (struct mrb_state *)));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_3Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFvP9mrb_stateE);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSPFvP9mrb_stateE_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFvP9mrb_stateE_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPFvP9mrb_stateE_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSPFvP9mrb_stateE_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPFvP9mrb_stateE_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6RFloat_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP6RFloat *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RFloat));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RFloat));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RFloatPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP6RFloat);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP6RFloat_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS6RFloat_ToRuby(mrb, *drb_ffi__ZTSP6RFloat_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP6RFloat_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP6RFloat_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP6RFloat_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS6RFloat_ToRuby(mrb, drb_ffi__ZTSP6RFloat_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP6RFloat_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RFloat new_value = drb_ffi__ZTS6RFloat_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP6RFloat_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP8RInteger_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP8RInteger *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP8RInteger));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RInteger));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RIntegerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP8RInteger);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP8RInteger_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS8RInteger_ToRuby(mrb, *drb_ffi__ZTSP8RInteger_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP8RInteger_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP8RInteger_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP8RInteger_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS8RInteger_ToRuby(mrb, drb_ffi__ZTSP8RInteger_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP8RInteger_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RInteger new_value = drb_ffi__ZTS8RInteger_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP8RInteger_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP5RCptr_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP5RCptr *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP5RCptr));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RCptr));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RCptrPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP5RCptr);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSP5RCptr_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS5RCptr_ToRuby(mrb, *drb_ffi__ZTSP5RCptr_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSP5RCptr_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP5RCptr_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP5RCptr_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS5RCptr_ToRuby(mrb, drb_ffi__ZTSP5RCptr_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP5RCptr_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RCptr new_value = drb_ffi__ZTS5RCptr_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP5RCptr_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP10mrb_jmpbuf_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP10mrb_jmpbuf_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP10mrb_jmpbuf_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP10mrb_jmpbuf_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP10mrb_jmpbuf_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP10mrb_jmpbuf_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6iv_tbl_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6iv_tbl_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6iv_tbl_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP6iv_tbl_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP6iv_tbl_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP6iv_tbl_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP11symbol_name_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP11symbol_name_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP11symbol_name_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP11symbol_name_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSP11symbol_name_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP11symbol_name_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSPPFvP9mrb_stateE_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPPFvP9mrb_stateE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPPFvP9mrb_stateE));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(void (*)(struct mrb_state *)));
-    ptr->should_free = 1;
-    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_3PointerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPPFvP9mrb_stateE);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTSPPFvP9mrb_stateE_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTSPFvP9mrb_stateE_ToRuby(mrb, *drb_ffi__ZTSPPFvP9mrb_stateE_FromRuby(mrb, value));
-}
-static mrb_value drb_ffi__ZTSPPFvP9mrb_stateE_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPPFvP9mrb_stateE_FromRuby(state, self) == 0)
-        return mrb_true_value();
-    else
-        return mrb_false_value();
-}
-static mrb_value drb_ffi__ZTSPPFvP9mrb_stateE_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTSPFvP9mrb_stateE_ToRuby(mrb, drb_ffi__ZTSPPFvP9mrb_stateE_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSPPFvP9mrb_stateE_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    void (*new_value)(struct mrb_state *) = drb_ffi__ZTSPFvP9mrb_stateE_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSPPFvP9mrb_stateE_FromRuby(mrb, self)[index] = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSP3$_0_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP3$_0 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_0));
-    ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(mrb_callinfo));
+    ptr->value = calloc(1, sizeof(pi_i2c_msg_t));
     ptr->should_free = 1;
     struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
     struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_0);
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_2);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTSP3$_0_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS3$_0_ToRuby(mrb, *drb_ffi__ZTSP3$_0_FromRuby(mrb, value));
+static mrb_value drb_ffi__ZTSP3$_2_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS3$_2_ToRuby(mrb, *drb_ffi__ZTSP3$_2_FromRuby(mrb, value));
 }
-static mrb_value drb_ffi__ZTSP3$_0_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP3$_0_FromRuby(state, self) == 0)
+static mrb_value drb_ffi__ZTSP3$_2_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP3$_2_FromRuby(state, self) == 0)
         return mrb_true_value();
     else
         return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTSP3$_0_GetAt(mrb_state *mrb, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_2_GetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(mrb, "*", &args, &argc);
     int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS3$_0_ToRuby(mrb, drb_ffi__ZTSP3$_0_FromRuby(mrb, self)[index]);
+    return drb_ffi__ZTS3$_2_ToRuby(mrb, drb_ffi__ZTSP3$_2_FromRuby(mrb, self)[index]);
 }
-static mrb_value drb_ffi__ZTSP3$_0_SetAt(mrb_state *mrb, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_2_SetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(mrb, "*", &args, &argc);
     int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    mrb_callinfo new_value = drb_ffi__ZTS3$_0_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP3$_0_FromRuby(mrb, self)[index] = new_value;
+    pi_i2c_msg_t new_value = drb_ffi__ZTS3$_2_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP3$_2_FromRuby(mrb, self)[index] = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP6RFiber_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP6RFiber *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP6RFiber));
+static mrb_value drb_ffi__ZTSP3$_3_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP3$_3 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_3));
     ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RFiber));
+    ptr->value = calloc(1, sizeof(bsc_xfer_t));
     ptr->should_free = 1;
     struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RFiberPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP6RFiber);
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_3);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTSP6RFiber_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS6RFiber_ToRuby(mrb, *drb_ffi__ZTSP6RFiber_FromRuby(mrb, value));
+static mrb_value drb_ffi__ZTSP3$_3_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS3$_3_ToRuby(mrb, *drb_ffi__ZTSP3$_3_FromRuby(mrb, value));
 }
-static mrb_value drb_ffi__ZTSP6RFiber_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP6RFiber_FromRuby(state, self) == 0)
+static mrb_value drb_ffi__ZTSP3$_3_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP3$_3_FromRuby(state, self) == 0)
         return mrb_true_value();
     else
         return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTSP6RFiber_GetAt(mrb_state *mrb, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_3_GetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(mrb, "*", &args, &argc);
     int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS6RFiber_ToRuby(mrb, drb_ffi__ZTSP6RFiber_FromRuby(mrb, self)[index]);
+    return drb_ffi__ZTS3$_3_ToRuby(mrb, drb_ffi__ZTSP3$_3_FromRuby(mrb, self)[index]);
 }
-static mrb_value drb_ffi__ZTSP6RFiber_SetAt(mrb_state *mrb, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_3_SetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(mrb, "*", &args, &argc);
     int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RFiber new_value = drb_ffi__ZTS6RFiber_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP6RFiber_FromRuby(mrb, self)[index] = new_value;
+    bsc_xfer_t new_value = drb_ffi__ZTS3$_3_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP3$_3_FromRuby(mrb, self)[index] = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP13mrb_heap_page_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSP13mrb_heap_page *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP13mrb_heap_page));
+static mrb_value drb_ffi__ZTSPFvPK3$_4iE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFvPK3$_4iE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvPK3$_4iE));
     ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(mrb_heap_page));
+    ptr->value = calloc(1, sizeof(void (const gpioSample_t *, int)));
     ptr->should_free = 1;
     struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Mrb_heap_pagePointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP13mrb_heap_page);
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_2Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFvPK3$_4iE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTSP13mrb_heap_page_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTS13mrb_heap_page_ToRuby(mrb, *drb_ffi__ZTSP13mrb_heap_page_FromRuby(mrb, value));
+static mrb_value drb_ffi__ZTSPFvPK3$_4iE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP13mrb_heap_page_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, self) == 0)
+static mrb_value drb_ffi__ZTSPFvPK3$_4iE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFvPK3$_4iE_FromRuby(state, self) == 0)
         return mrb_true_value();
     else
         return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTSP13mrb_heap_page_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTS13mrb_heap_page_ToRuby(mrb, drb_ffi__ZTSP13mrb_heap_page_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSP13mrb_heap_page_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    mrb_heap_page new_value = drb_ffi__ZTS13mrb_heap_page_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSP13mrb_heap_page_FromRuby(mrb, self)[index] = new_value;
+static mrb_value drb_ffi__ZTSPFvPK3$_4iE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSPP6RBasic_New(mrb_state *mrb, mrb_value self) {
-    struct drb_foreign_object_ZTSPP6RBasic *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPP6RBasic));
+static mrb_value drb_ffi__ZTSPFvPK3$_4iE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFvPK3$_4iPvE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFvPK3$_4iPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvPK3$_4iPvE));
     ptr->kind = drb_foreign_object_kind_pointer;
-    ptr->value = calloc(1, sizeof(struct RBasic *));
+    ptr->value = calloc(1, sizeof(void (const gpioSample_t *, int, void *)));
     ptr->should_free = 1;
     struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "RBasicPointerPointer");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPP6RBasic);
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_3Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFvPK3$_4iPvE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTSPP6RBasic_GetValue(mrb_state *mrb, mrb_value value) {
-    return drb_ffi__ZTSP6RBasic_ToRuby(mrb, *drb_ffi__ZTSPP6RBasic_FromRuby(mrb, value));
+static mrb_value drb_ffi__ZTSPFvPK3$_4iPvE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSPP6RBasic_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSPP6RBasic_FromRuby(state, self) == 0)
+static mrb_value drb_ffi__ZTSPFvPK3$_4iPvE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFvPK3$_4iPvE_FromRuby(state, self) == 0)
         return mrb_true_value();
     else
         return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTSPP6RBasic_GetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    return drb_ffi__ZTSP6RBasic_ToRuby(mrb, drb_ffi__ZTSPP6RBasic_FromRuby(mrb, self)[index]);
-}
-static mrb_value drb_ffi__ZTSPP6RBasic_SetAt(mrb_state *mrb, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(mrb, "*", &args, &argc);
-    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(mrb, args[1]);
-    drb_ffi__ZTSPP6RBasic_FromRuby(mrb, self)[index] = new_value;
+static mrb_value drb_ffi__ZTSPFvPK3$_4iPvE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP4REnv_New(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot allocate pointer of incomplete type");
+static mrb_value drb_ffi__ZTSPFvPK3$_4iPvE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP4REnv_GetValue(mrb_state *mrb, mrb_value value) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
+static mrb_value drb_ffi__ZTSPFvvE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFvvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvvE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (void)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_4Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFvvE);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTSPFvvE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP4REnv_IsNil(mrb_state *state, mrb_value self) {
-    if (drb_ffi__ZTSP4REnv_FromRuby(state, self) == 0)
+static mrb_value drb_ffi__ZTSPFvvE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFvvE_FromRuby(state, self) == 0)
         return mrb_true_value();
     else
         return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTSP4REnv_GetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access value of incomplete type");
+static mrb_value drb_ffi__ZTSPFvvE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSP4REnv_SetAt(mrb_state *mrb, mrb_value self) {
-    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change value of incomplete type");
+static mrb_value drb_ffi__ZTSPFvvE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS10mrb_value__New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS10mrb_value_ *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS10mrb_value_ *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_value_");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS10mrb_value_);
+static mrb_value drb_ffi__ZTSPFvPvE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFvPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFvPvE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (void *)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_5Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFvPvE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS10mrb_value__p_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTSPv_ToRuby(state, record.p);
-}
-static mrb_value drb_ffi__ZTS10mrb_value__p_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    void *new_value = drb_ffi__ZTSPv_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->p = new_value;
+static mrb_value drb_ffi__ZTSPFvPvE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS10mrb_value__bp_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.bp);
+static mrb_value drb_ffi__ZTSPFvPvE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFvPvE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTS10mrb_value__bp_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->bp = new_value;
+static mrb_value drb_ffi__ZTSPFvPvE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS10mrb_value__fp_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTSP6RFloat_ToRuby(state, record.fp);
-}
-static mrb_value drb_ffi__ZTS10mrb_value__fp_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RFloat *new_value = drb_ffi__ZTSP6RFloat_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->fp = new_value;
+static mrb_value drb_ffi__ZTSPFvPvE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS10mrb_value__ip_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTSP8RInteger_ToRuby(state, record.ip);
-}
-static mrb_value drb_ffi__ZTS10mrb_value__ip_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RInteger *new_value = drb_ffi__ZTSP8RInteger_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->ip = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS10mrb_value__vp_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTSP5RCptr_ToRuby(state, record.vp);
-}
-static mrb_value drb_ffi__ZTS10mrb_value__vp_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RCptr *new_value = drb_ffi__ZTSP5RCptr_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->vp = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS10mrb_value__w_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTSj_ToRuby(state, record.w);
-}
-static mrb_value drb_ffi__ZTS10mrb_value__w_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uintptr_t new_value = drb_ffi__ZTSj_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->w = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS10mrb_value__value_Get(mrb_state *state, mrb_value self) {
-    union mrb_value_ record = drb_ffi__ZTS10mrb_value__FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, record.value);
-}
-static mrb_value drb_ffi__ZTS10mrb_value__value_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_value new_value = drb_ffi__ZTS9mrb_value_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS10mrb_value_ *)DATA_PTR(self))->value)->value = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_value_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS9mrb_value *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS9mrb_value *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_value");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS9mrb_value);
+static mrb_value drb_ffi__ZTSPFPvS_E_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFPvS_E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFPvS_E));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(gpioThreadFunc_t));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_6Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFPvS_E);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS9mrb_value_w_Get(mrb_state *state, mrb_value self) {
-    mrb_value record = drb_ffi__ZTS9mrb_value_FromRuby(state, self);
-    return drb_ffi__ZTSj_ToRuby(state, record.w);
-}
-static mrb_value drb_ffi__ZTS9mrb_value_w_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uintptr_t new_value = drb_ffi__ZTSj_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_value *)DATA_PTR(self))->value)->w = new_value;
+static mrb_value drb_ffi__ZTSPFPvS_E_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS9mrb_state_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS9mrb_state *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS9mrb_state *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_state");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS9mrb_state);
+static mrb_value drb_ffi__ZTSPFPvS_E_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFPvS_E_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSPFPvS_E_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFPvS_E_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTSPFviE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFviE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (int)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_7Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFviE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS9mrb_state_jmp_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP10mrb_jmpbuf_ToRuby(state, record.jmp);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_jmp_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_jmpbuf *new_value = drb_ffi__ZTSP10mrb_jmpbuf_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->jmp = new_value;
+static mrb_value drb_ffi__ZTSPFviE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS9mrb_state_allocf_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_ToRuby(state, record.allocf);
+static mrb_value drb_ffi__ZTSPFviE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFviE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTS9mrb_state_allocf_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    void *(*new_value)(struct mrb_state *, void *, int, void *) = drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->allocf = new_value;
+static mrb_value drb_ffi__ZTSPFviE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS9mrb_state_allocf_ud_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSPv_ToRuby(state, record.allocf_ud);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_allocf_ud_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    void *new_value = drb_ffi__ZTSPv_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->allocf_ud = new_value;
+static mrb_value drb_ffi__ZTSPFviE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS9mrb_state_c_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP11mrb_context_ToRuby(state, record.c);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_c_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_context *new_value = drb_ffi__ZTSP11mrb_context_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->c = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_root_c_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP11mrb_context_ToRuby(state, record.root_c);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_root_c_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_context *new_value = drb_ffi__ZTSP11mrb_context_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->root_c = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_globals_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6iv_tbl_ToRuby(state, record.globals);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_globals_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct iv_tbl *new_value = drb_ffi__ZTSP6iv_tbl_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->globals = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_exc_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP7RObject_ToRuby(state, record.exc);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_exc_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RObject *new_value = drb_ffi__ZTSP7RObject_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->exc = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_top_self_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP7RObject_ToRuby(state, record.top_self);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_top_self_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RObject *new_value = drb_ffi__ZTSP7RObject_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->top_self = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_object_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.object_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_object_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->object_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_class_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.class_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_class_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->class_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_module_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.module_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_module_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->module_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_proc_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.proc_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_proc_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->proc_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_string_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.string_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_string_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->string_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_array_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.array_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_array_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->array_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_hash_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.hash_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_hash_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->hash_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_range_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.range_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_range_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->range_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_float_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.float_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_float_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->float_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_integer_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.integer_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_integer_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->integer_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_true_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.true_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_true_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->true_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_false_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.false_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_false_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->false_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_nil_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.nil_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_nil_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->nil_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symbol_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.symbol_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symbol_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->symbol_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_kernel_module_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.kernel_module);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_kernel_module_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->kernel_module = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_gc_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTS6mrb_gc_ToRuby(state, record.gc);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_gc_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_gc new_value = drb_ffi__ZTS6mrb_gc_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->gc = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_cache_Get(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_cache_Set(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symidx_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.symidx);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symidx_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->symidx = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symtbl_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP11symbol_name_ToRuby(state, record.symtbl);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symtbl_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct symbol_name *new_value = drb_ffi__ZTSP11symbol_name_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->symtbl = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symhash_Get(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symhash_Set(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symcapa_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.symcapa);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symcapa_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->symcapa = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_sym_default_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.sym_default);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_sym_default_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->sym_default = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_sym_initialize_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.sym_initialize);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_sym_initialize_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->sym_initialize = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symbuf_Get(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_symbuf_Set(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_eException_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.eException_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_eException_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->eException_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_eStandardError_class_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.eStandardError_class);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_eStandardError_class_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->eStandardError_class = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_nomem_err_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP7RObject_ToRuby(state, record.nomem_err);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_nomem_err_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RObject *new_value = drb_ffi__ZTSP7RObject_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->nomem_err = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_stack_err_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSP7RObject_ToRuby(state, record.stack_err);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_stack_err_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RObject *new_value = drb_ffi__ZTSP7RObject_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->stack_err = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_ud_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSPv_ToRuby(state, record.ud);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_ud_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    void *new_value = drb_ffi__ZTSPv_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->ud = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_atexit_stack_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSPPFvP9mrb_stateE_ToRuby(state, record.atexit_stack);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_atexit_stack_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    void (**new_value)(struct mrb_state *) = drb_ffi__ZTSPPFvP9mrb_stateE_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->atexit_stack = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS9mrb_state_atexit_stack_len_Get(mrb_state *state, mrb_value self) {
-    struct mrb_state record = drb_ffi__ZTS9mrb_state_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.atexit_stack_len);
-}
-static mrb_value drb_ffi__ZTS9mrb_state_atexit_stack_len_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS9mrb_state *)DATA_PTR(self))->value)->atexit_stack_len = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS11mrb_context_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS11mrb_context *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS11mrb_context *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_context");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS11mrb_context);
+static mrb_value drb_ffi__ZTSPFviPvE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFviPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviPvE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (int, void *)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_8Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFviPvE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS11mrb_context_prev_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP11mrb_context_ToRuby(state, record.prev);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_prev_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_context *new_value = drb_ffi__ZTSP11mrb_context_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->prev = new_value;
+static mrb_value drb_ffi__ZTSPFviPvE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS11mrb_context_stbase_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP9mrb_value_ToRuby(state, record.stbase);
+static mrb_value drb_ffi__ZTSPFviPvE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFviPvE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTS11mrb_context_stbase_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_value *new_value = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->stbase = new_value;
+static mrb_value drb_ffi__ZTSPFviPvE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS11mrb_context_stend_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP9mrb_value_ToRuby(state, record.stend);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_stend_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_value *new_value = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->stend = new_value;
+static mrb_value drb_ffi__ZTSPFviPvE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS11mrb_context_ci_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP3$_0_ToRuby(state, record.ci);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_ci_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_callinfo *new_value = drb_ffi__ZTSP3$_0_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->ci = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS11mrb_context_cibase_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP3$_0_ToRuby(state, record.cibase);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_cibase_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_callinfo *new_value = drb_ffi__ZTSP3$_0_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->cibase = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS11mrb_context_ciend_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP3$_0_ToRuby(state, record.ciend);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_ciend_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_callinfo *new_value = drb_ffi__ZTSP3$_0_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->ciend = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS11mrb_context_status_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTS15mrb_fiber_state_ToRuby(state, record.status);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_status_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_fiber_state new_value = drb_ffi__ZTS15mrb_fiber_state_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->status = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS11mrb_context_vmexec_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.vmexec);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_vmexec_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->vmexec = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS11mrb_context_fib_Get(mrb_state *state, mrb_value self) {
-    struct mrb_context record = drb_ffi__ZTS11mrb_context_FromRuby(state, self);
-    return drb_ffi__ZTSP6RFiber_ToRuby(state, record.fib);
-}
-static mrb_value drb_ffi__ZTS11mrb_context_fib_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RFiber *new_value = drb_ffi__ZTSP6RFiber_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS11mrb_context *)DATA_PTR(self))->value)->fib = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RBasic_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS6RBasic *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6RBasic *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RBasic");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6RBasic);
+static mrb_value drb_ffi__ZTSPFviiE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFviiE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (int, int)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_9Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFviiE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS6RBasic_c_Get(mrb_state *state, mrb_value self) {
-    struct RBasic record = drb_ffi__ZTS6RBasic_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.c);
-}
-static mrb_value drb_ffi__ZTS6RBasic_c_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RBasic *)DATA_PTR(self))->value)->c = new_value;
+static mrb_value drb_ffi__ZTSPFviiE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6RBasic_gcnext_Get(mrb_state *state, mrb_value self) {
-    struct RBasic record = drb_ffi__ZTS6RBasic_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gcnext);
+static mrb_value drb_ffi__ZTSPFviiE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFviiE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTS6RBasic_gcnext_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RBasic *)DATA_PTR(self))->value)->gcnext = new_value;
+static mrb_value drb_ffi__ZTSPFviiE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6RBasic_tt_Get(mrb_state *state, mrb_value self) {
-    struct RBasic record = drb_ffi__ZTS6RBasic_FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, record.tt);
-}
-static mrb_value drb_ffi__ZTS6RBasic_tt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_vtype new_value = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RBasic *)DATA_PTR(self))->value)->tt = new_value;
+static mrb_value drb_ffi__ZTSPFviiE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6RBasic_color_Get(mrb_state *state, mrb_value self) {
-    struct RBasic record = drb_ffi__ZTS6RBasic_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.color);
-}
-static mrb_value drb_ffi__ZTS6RBasic_color_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RBasic *)DATA_PTR(self))->value)->color = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RBasic_flags_Get(mrb_state *state, mrb_value self) {
-    struct RBasic record = drb_ffi__ZTS6RBasic_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.flags);
-}
-static mrb_value drb_ffi__ZTS6RBasic_flags_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RBasic *)DATA_PTR(self))->value)->flags = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS7RObject_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS7RObject *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS7RObject *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RObject");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS7RObject);
+static mrb_value drb_ffi__ZTSPFviiPvE_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSPFviiPvE *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSPFviiPvE));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(void (int, int, void *)));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Function_10Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSPFviiPvE);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS7RObject_c_Get(mrb_state *state, mrb_value self) {
-    struct RObject record = drb_ffi__ZTS7RObject_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.c);
-}
-static mrb_value drb_ffi__ZTS7RObject_c_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value)->c = new_value;
+static mrb_value drb_ffi__ZTSPFviiPvE_GetValue(mrb_state *mrb, mrb_value value) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS7RObject_gcnext_Get(mrb_state *state, mrb_value self) {
-    struct RObject record = drb_ffi__ZTS7RObject_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gcnext);
+static mrb_value drb_ffi__ZTSPFviiPvE_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSPFviiPvE_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
 }
-static mrb_value drb_ffi__ZTS7RObject_gcnext_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value)->gcnext = new_value;
+static mrb_value drb_ffi__ZTSPFviiPvE_GetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot access underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS7RObject_tt_Get(mrb_state *state, mrb_value self) {
-    struct RObject record = drb_ffi__ZTS7RObject_FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, record.tt);
-}
-static mrb_value drb_ffi__ZTS7RObject_tt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_vtype new_value = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value)->tt = new_value;
+static mrb_value drb_ffi__ZTSPFviiPvE_SetAt(mrb_state *mrb, mrb_value self) {
+    drb_api->mrb_raise(mrb, drb_api->drb_getruntime_error(mrb), "Cannot change underlying value of the function pointer");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS7RObject_color_Get(mrb_state *state, mrb_value self) {
-    struct RObject record = drb_ffi__ZTS7RObject_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.color);
-}
-static mrb_value drb_ffi__ZTS7RObject_color_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value)->color = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS7RObject_flags_Get(mrb_state *state, mrb_value self) {
-    struct RObject record = drb_ffi__ZTS7RObject_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.flags);
-}
-static mrb_value drb_ffi__ZTS7RObject_flags_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value)->flags = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS7RObject_iv_Get(mrb_state *state, mrb_value self) {
-    struct RObject record = drb_ffi__ZTS7RObject_FromRuby(state, self);
-    return drb_ffi__ZTSP6iv_tbl_ToRuby(state, record.iv);
-}
-static mrb_value drb_ffi__ZTS7RObject_iv_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct iv_tbl *new_value = drb_ffi__ZTSP6iv_tbl_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS7RObject *)DATA_PTR(self))->value)->iv = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFloat_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS6RFloat *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6RFloat *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFloat");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6RFloat);
+static mrb_value drb_ffi__ZTSP8rawSPI_t_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP8rawSPI_t *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP8rawSPI_t));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(rawSPI_t));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP8rawSPI_t);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS6RFloat_c_Get(mrb_state *state, mrb_value self) {
-    struct RFloat record = drb_ffi__ZTS6RFloat_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.c);
+static mrb_value drb_ffi__ZTSP8rawSPI_t_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS8rawSPI_t_ToRuby(mrb, *drb_ffi__ZTSP8rawSPI_t_FromRuby(mrb, value));
 }
-static mrb_value drb_ffi__ZTS6RFloat_c_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTSP8rawSPI_t_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP8rawSPI_t_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSP8rawSPI_t_GetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value)->c = new_value;
-    return mrb_nil_value();
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    return drb_ffi__ZTS8rawSPI_t_ToRuby(mrb, drb_ffi__ZTSP8rawSPI_t_FromRuby(mrb, self)[index]);
 }
-static mrb_value drb_ffi__ZTS6RFloat_gcnext_Get(mrb_state *state, mrb_value self) {
-    struct RFloat record = drb_ffi__ZTS6RFloat_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gcnext);
-}
-static mrb_value drb_ffi__ZTS6RFloat_gcnext_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTSP8rawSPI_t_SetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value)->gcnext = new_value;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    rawSPI_t new_value = drb_ffi__ZTS8rawSPI_t_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP8rawSPI_t_FromRuby(mrb, self)[index] = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6RFloat_tt_Get(mrb_state *state, mrb_value self) {
-    struct RFloat record = drb_ffi__ZTS6RFloat_FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, record.tt);
-}
-static mrb_value drb_ffi__ZTS6RFloat_tt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_vtype new_value = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value)->tt = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFloat_color_Get(mrb_state *state, mrb_value self) {
-    struct RFloat record = drb_ffi__ZTS6RFloat_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.color);
-}
-static mrb_value drb_ffi__ZTS6RFloat_color_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value)->color = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFloat_flags_Get(mrb_state *state, mrb_value self) {
-    struct RFloat record = drb_ffi__ZTS6RFloat_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.flags);
-}
-static mrb_value drb_ffi__ZTS6RFloat_flags_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value)->flags = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFloat_f_Get(mrb_state *state, mrb_value self) {
-    struct RFloat record = drb_ffi__ZTS6RFloat_FromRuby(state, self);
-    return drb_ffi__ZTSd_ToRuby(state, record.f);
-}
-static mrb_value drb_ffi__ZTS6RFloat_f_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_float new_value = drb_ffi__ZTSd_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFloat *)DATA_PTR(self))->value)->f = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS8RInteger_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS8RInteger *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS8RInteger *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RInteger");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS8RInteger);
+static mrb_value drb_ffi__ZTSP3$_5_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP3$_5 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_5));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(rawWave_t));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_5);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS8RInteger_c_Get(mrb_state *state, mrb_value self) {
-    struct RInteger record = drb_ffi__ZTS8RInteger_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.c);
+static mrb_value drb_ffi__ZTSP3$_5_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS3$_5_ToRuby(mrb, *drb_ffi__ZTSP3$_5_FromRuby(mrb, value));
 }
-static mrb_value drb_ffi__ZTS8RInteger_c_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_5_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP3$_5_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSP3$_5_GetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value)->c = new_value;
-    return mrb_nil_value();
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    return drb_ffi__ZTS3$_5_ToRuby(mrb, drb_ffi__ZTSP3$_5_FromRuby(mrb, self)[index]);
 }
-static mrb_value drb_ffi__ZTS8RInteger_gcnext_Get(mrb_state *state, mrb_value self) {
-    struct RInteger record = drb_ffi__ZTS8RInteger_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gcnext);
-}
-static mrb_value drb_ffi__ZTS8RInteger_gcnext_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_5_SetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value)->gcnext = new_value;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    rawWave_t new_value = drb_ffi__ZTS3$_5_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP3$_5_FromRuby(mrb, self)[index] = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS8RInteger_tt_Get(mrb_state *state, mrb_value self) {
-    struct RInteger record = drb_ffi__ZTS8RInteger_FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, record.tt);
-}
-static mrb_value drb_ffi__ZTS8RInteger_tt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_vtype new_value = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value)->tt = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS8RInteger_color_Get(mrb_state *state, mrb_value self) {
-    struct RInteger record = drb_ffi__ZTS8RInteger_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.color);
-}
-static mrb_value drb_ffi__ZTS8RInteger_color_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value)->color = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS8RInteger_flags_Get(mrb_state *state, mrb_value self) {
-    struct RInteger record = drb_ffi__ZTS8RInteger_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.flags);
-}
-static mrb_value drb_ffi__ZTS8RInteger_flags_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value)->flags = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS8RInteger_i_Get(mrb_state *state, mrb_value self) {
-    struct RInteger record = drb_ffi__ZTS8RInteger_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.i);
-}
-static mrb_value drb_ffi__ZTS8RInteger_i_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS8RInteger *)DATA_PTR(self))->value)->i = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS5RCptr_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS5RCptr *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS5RCptr *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RCptr");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS5RCptr);
+static mrb_value drb_ffi__ZTSP3$_6_New(mrb_state *mrb, mrb_value self) {
+    struct drb_foreign_object_ZTSP3$_6 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSP3$_6));
+    ptr->kind = drb_foreign_object_kind_pointer;
+    ptr->value = calloc(1, sizeof(rawCbs_t));
+    ptr->should_free = 1;
+    struct RClass *FFI = drb_api->mrb_module_get(mrb, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(mrb, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(mrb, module, "Pointer");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(mrb, klass, ptr, &ForeignObjectType_ZTSP3$_6);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS5RCptr_c_Get(mrb_state *state, mrb_value self) {
-    struct RCptr record = drb_ffi__ZTS5RCptr_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.c);
+static mrb_value drb_ffi__ZTSP3$_6_GetValue(mrb_state *mrb, mrb_value value) {
+    return drb_ffi__ZTS3$_6_ToRuby(mrb, *drb_ffi__ZTSP3$_6_FromRuby(mrb, value));
 }
-static mrb_value drb_ffi__ZTS5RCptr_c_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_6_IsNil(mrb_state *state, mrb_value self) {
+    if (drb_ffi__ZTSP3$_6_FromRuby(state, self) == 0)
+        return mrb_true_value();
+    else
+        return mrb_false_value();
+}
+static mrb_value drb_ffi__ZTSP3$_6_GetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value)->c = new_value;
-    return mrb_nil_value();
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    return drb_ffi__ZTS3$_6_ToRuby(mrb, drb_ffi__ZTSP3$_6_FromRuby(mrb, self)[index]);
 }
-static mrb_value drb_ffi__ZTS5RCptr_gcnext_Get(mrb_state *state, mrb_value self) {
-    struct RCptr record = drb_ffi__ZTS5RCptr_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gcnext);
-}
-static mrb_value drb_ffi__ZTS5RCptr_gcnext_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTSP3$_6_SetAt(mrb_state *mrb, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value)->gcnext = new_value;
+    drb_api->mrb_get_args(mrb, "*", &args, &argc);
+    int index = drb_ffi__ZTSi_FromRuby(mrb, args[0]);
+    rawCbs_t new_value = drb_ffi__ZTS3$_6_FromRuby(mrb, args[1]);
+    drb_ffi__ZTSP3$_6_FromRuby(mrb, self)[index] = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS5RCptr_tt_Get(mrb_state *state, mrb_value self) {
-    struct RCptr record = drb_ffi__ZTS5RCptr_FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, record.tt);
-}
-static mrb_value drb_ffi__ZTS5RCptr_tt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_vtype new_value = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value)->tt = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS5RCptr_color_Get(mrb_state *state, mrb_value self) {
-    struct RCptr record = drb_ffi__ZTS5RCptr_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.color);
-}
-static mrb_value drb_ffi__ZTS5RCptr_color_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value)->color = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS5RCptr_flags_Get(mrb_state *state, mrb_value self) {
-    struct RCptr record = drb_ffi__ZTS5RCptr_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.flags);
-}
-static mrb_value drb_ffi__ZTS5RCptr_flags_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value)->flags = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS5RCptr_p_Get(mrb_state *state, mrb_value self) {
-    struct RCptr record = drb_ffi__ZTS5RCptr_FromRuby(state, self);
-    return drb_ffi__ZTSPv_ToRuby(state, record.p);
-}
-static mrb_value drb_ffi__ZTS5RCptr_p_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    void *new_value = drb_ffi__ZTSPv_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS5RCptr *)DATA_PTR(self))->value)->p = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS6mrb_gc *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6mrb_gc *));
+static mrb_value drb_ffi__ZTS3$_7_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS3$_7 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_7 *));
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_gc");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6mrb_gc);
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_7);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_heaps_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.heaps);
+static mrb_value drb_ffi__ZTS3$_7_botCB_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.botCB);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_heaps_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->heaps = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_sweeps_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.sweeps);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_sweeps_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->sweeps = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_free_heaps_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.free_heaps);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_free_heaps_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->free_heaps = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_live_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.live);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_live_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_botCB_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->live = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->botCB = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_arena_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSPP6RBasic_ToRuby(state, record.arena);
+static mrb_value drb_ffi__ZTS3$_7_topCB_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.topCB);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_arena_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic **new_value = drb_ffi__ZTSPP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->arena = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_arena_capa_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.arena_capa);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_arena_capa_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_topCB_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->arena_capa = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->topCB = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_arena_idx_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.arena_idx);
+static mrb_value drb_ffi__ZTS3$_7_botOOL_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.botOOL);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_arena_idx_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_botOOL_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->arena_idx = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->botOOL = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_state_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTS12mrb_gc_state_ToRuby(state, record.state);
+static mrb_value drb_ffi__ZTS3$_7_topOOL_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.topOOL);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_state_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_gc_state new_value = drb_ffi__ZTS12mrb_gc_state_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->state = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_current_white_part_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.current_white_part);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_current_white_part_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_topOOL_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->current_white_part = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->topOOL = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_gray_list_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gray_list);
+static mrb_value drb_ffi__ZTS3$_7_deleted_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.deleted);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_gray_list_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->gray_list = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_atomic_gray_list_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.atomic_gray_list);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_atomic_gray_list_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->atomic_gray_list = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_live_after_mark_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.live_after_mark);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_live_after_mark_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_deleted_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->live_after_mark = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->deleted = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_threshold_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.threshold);
+static mrb_value drb_ffi__ZTS3$_7_numCB_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.numCB);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_threshold_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_numCB_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->threshold = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->numCB = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_interval_ratio_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.interval_ratio);
+static mrb_value drb_ffi__ZTS3$_7_numBOOL_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.numBOOL);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_interval_ratio_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_numBOOL_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->interval_ratio = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->numBOOL = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_step_ratio_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.step_ratio);
+static mrb_value drb_ffi__ZTS3$_7_numTOOL_Get(mrb_state *state, mrb_value self) {
+    rawWaveInfo_t record = drb_ffi__ZTS3$_7_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.numTOOL);
 }
-static mrb_value drb_ffi__ZTS6mrb_gc_step_ratio_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_7_numTOOL_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->step_ratio = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_iterating_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.iterating);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_iterating_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->iterating = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_disabled_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.disabled);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_disabled_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->disabled = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_full_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.full);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_full_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->full = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_generational_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.generational);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_generational_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->generational = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_out_of_memory_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.out_of_memory);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_out_of_memory_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->out_of_memory = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_majorgc_old_threshold_Get(mrb_state *state, mrb_value self) {
-    mrb_gc record = drb_ffi__ZTS6mrb_gc_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.majorgc_old_threshold);
-}
-static mrb_value drb_ffi__ZTS6mrb_gc_majorgc_old_threshold_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6mrb_gc *)DATA_PTR(self))->value)->majorgc_old_threshold = new_value;
+    (&((struct drb_foreign_object_ZTS3$_7 *)DATA_PTR(self))->value)->numTOOL = new_value;
     return mrb_nil_value();
 }
 static mrb_value drb_ffi__ZTS3$_0_New(mrb_state *state, mrb_value self) {
@@ -3274,2556 +1655,2328 @@ static mrb_value drb_ffi__ZTS3$_0_New(mrb_state *state, mrb_value self) {
     struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_0);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTS3$_0_mid_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.mid);
-}
-static mrb_value drb_ffi__ZTS3$_0_mid_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->mid = new_value;
+static mrb_value drb_ffi__ZTS3$_0___cancel_jmp_buf_Get(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS3$_0_argc_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.argc);
-}
-static mrb_value drb_ffi__ZTS3$_0_argc_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->argc = new_value;
+static mrb_value drb_ffi__ZTS3$_0___cancel_jmp_buf_Set(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS3$_0_acc_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.acc);
-}
-static mrb_value drb_ffi__ZTS3$_0_acc_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->acc = new_value;
+static mrb_value drb_ffi__ZTS3$_0___pad_Get(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS3$_0_proc_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSP5RProc_ToRuby(state, record.proc);
-}
-static mrb_value drb_ffi__ZTS3$_0_proc_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RProc *new_value = drb_ffi__ZTSP5RProc_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->proc = new_value;
+static mrb_value drb_ffi__ZTS3$_0___pad_Set(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTS3$_0_stack_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSP9mrb_value_ToRuby(state, record.stack);
-}
-static mrb_value drb_ffi__ZTS3$_0_stack_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_value *new_value = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->stack = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS3$_0_pc_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSPi_ToRuby(state, record.pc);
-}
-static mrb_value drb_ffi__ZTS3$_0_pc_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_code *new_value = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->pc = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS3$_0_u_Get(mrb_state *state, mrb_value self) {
-    mrb_callinfo record = drb_ffi__ZTS3$_0_FromRuby(state, self);
-    return drb_ffi__ZTSN3$_03$_1E_ToRuby(state, record.u);
-}
-static mrb_value drb_ffi__ZTS3$_0_u_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    union (anonymous union at ../include/mruby.h:158:3) new_value = drb_ffi__ZTSN3$_03$_1E_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS3$_0 *)DATA_PTR(self))->value)->u = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFiber_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS6RFiber *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS6RFiber *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "RFiber");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS6RFiber);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTS6RFiber_c_Get(mrb_state *state, mrb_value self) {
-    struct RFiber record = drb_ffi__ZTS6RFiber_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.c);
-}
-static mrb_value drb_ffi__ZTS6RFiber_c_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value)->c = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFiber_gcnext_Get(mrb_state *state, mrb_value self) {
-    struct RFiber record = drb_ffi__ZTS6RFiber_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.gcnext);
-}
-static mrb_value drb_ffi__ZTS6RFiber_gcnext_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value)->gcnext = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFiber_tt_Get(mrb_state *state, mrb_value self) {
-    struct RFiber record = drb_ffi__ZTS6RFiber_FromRuby(state, self);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, record.tt);
-}
-static mrb_value drb_ffi__ZTS6RFiber_tt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    enum mrb_vtype new_value = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value)->tt = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFiber_color_Get(mrb_state *state, mrb_value self) {
-    struct RFiber record = drb_ffi__ZTS6RFiber_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.color);
-}
-static mrb_value drb_ffi__ZTS6RFiber_color_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value)->color = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFiber_flags_Get(mrb_state *state, mrb_value self) {
-    struct RFiber record = drb_ffi__ZTS6RFiber_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.flags);
-}
-static mrb_value drb_ffi__ZTS6RFiber_flags_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    uint32_t new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value)->flags = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS6RFiber_cxt_Get(mrb_state *state, mrb_value self) {
-    struct RFiber record = drb_ffi__ZTS6RFiber_FromRuby(state, self);
-    return drb_ffi__ZTSP11mrb_context_ToRuby(state, record.cxt);
-}
-static mrb_value drb_ffi__ZTS6RFiber_cxt_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_context *new_value = drb_ffi__ZTSP11mrb_context_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS6RFiber *)DATA_PTR(self))->value)->cxt = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTS13mrb_heap_page *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS13mrb_heap_page *));
-    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
-    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
-    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "Mrb_heap_page");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS13mrb_heap_page);
-    return mrb_obj_value(rdata);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_freelist_Get(mrb_state *state, mrb_value self) {
-    mrb_heap_page record = drb_ffi__ZTS13mrb_heap_page_FromRuby(state, self);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, record.freelist);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_freelist_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RBasic *new_value = drb_ffi__ZTSP6RBasic_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value)->freelist = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_prev_Get(mrb_state *state, mrb_value self) {
-    mrb_heap_page record = drb_ffi__ZTS13mrb_heap_page_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.prev);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_prev_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value)->prev = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_next_Get(mrb_state *state, mrb_value self) {
-    mrb_heap_page record = drb_ffi__ZTS13mrb_heap_page_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.next);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_next_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value)->next = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_free_next_Get(mrb_state *state, mrb_value self) {
-    mrb_heap_page record = drb_ffi__ZTS13mrb_heap_page_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.free_next);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_free_next_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value)->free_next = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_free_prev_Get(mrb_state *state, mrb_value self) {
-    mrb_heap_page record = drb_ffi__ZTS13mrb_heap_page_FromRuby(state, self);
-    return drb_ffi__ZTSP13mrb_heap_page_ToRuby(state, record.free_prev);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_free_prev_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct mrb_heap_page *new_value = drb_ffi__ZTSP13mrb_heap_page_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value)->free_prev = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_old_Get(mrb_state *state, mrb_value self) {
-    mrb_heap_page record = drb_ffi__ZTS13mrb_heap_page_FromRuby(state, self);
-    return drb_ffi__ZTSi_ToRuby(state, record.old);
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_old_Set(mrb_state *state, mrb_value self) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    mrb_bool new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTS13mrb_heap_page *)DATA_PTR(self))->value)->old = new_value;
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_objects_Get(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get incomplete array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTS13mrb_heap_page_objects_Set(mrb_state *state, mrb_value self) {
-    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set incomplete array field");
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi__ZTSN3$_03$_1E_New(mrb_state *state, mrb_value self) {
-    struct drb_foreign_object_ZTSN3$_03$_1E *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTSN3$_03$_1E *));
+static mrb_value drb_ffi__ZTS3$_1_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS3$_1 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_1 *));
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
     struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
-    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTSN3$_03$_1E);
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_1);
     return mrb_obj_value(rdata);
 }
-static mrb_value drb_ffi__ZTSN3$_03$_1E_env_Get(mrb_state *state, mrb_value self) {
-    union (anonymous union at ../include/mruby.h:158:3) record = drb_ffi__ZTSN3$_03$_1E_FromRuby(state, self);
-    return drb_ffi__ZTSP4REnv_ToRuby(state, record.env);
+static mrb_value drb_ffi__ZTS3$_1_gpioOn_Get(mrb_state *state, mrb_value self) {
+    gpioPulse_t record = drb_ffi__ZTS3$_1_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.gpioOn);
 }
-static mrb_value drb_ffi__ZTSN3$_03$_1E_env_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_1_gpioOn_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct REnv *new_value = drb_ffi__ZTSP4REnv_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTSN3$_03$_1E *)DATA_PTR(self))->value)->env = new_value;
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_1 *)DATA_PTR(self))->value)->gpioOn = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi__ZTSN3$_03$_1E_target_class_Get(mrb_state *state, mrb_value self) {
-    union (anonymous union at ../include/mruby.h:158:3) record = drb_ffi__ZTSN3$_03$_1E_FromRuby(state, self);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, record.target_class);
+static mrb_value drb_ffi__ZTS3$_1_gpioOff_Get(mrb_state *state, mrb_value self) {
+    gpioPulse_t record = drb_ffi__ZTS3$_1_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.gpioOff);
 }
-static mrb_value drb_ffi__ZTSN3$_03$_1E_target_class_Set(mrb_state *state, mrb_value self) {
+static mrb_value drb_ffi__ZTS3$_1_gpioOff_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    struct RClass *new_value = drb_ffi__ZTSP6RClass_FromRuby(state, args[0]);
-    (&((struct drb_foreign_object_ZTSN3$_03$_1E *)DATA_PTR(self))->value)->target_class = new_value;
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_1 *)DATA_PTR(self))->value)->gpioOff = new_value;
     return mrb_nil_value();
 }
-static mrb_value drb_ffi_fclose_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi__ZTS3$_1_usDelay_Get(mrb_state *state, mrb_value self) {
+    gpioPulse_t record = drb_ffi__ZTS3$_1_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.usDelay);
+}
+static mrb_value drb_ffi__ZTS3$_1_usDelay_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fclose': wrong number of arguments (%d for 1)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int ret_val = fclose(__stream_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_1 *)DATA_PTR(self))->value)->usDelay = new_value;
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi_fflush_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi__ZTS3$_2_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS3$_2 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_2 *));
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_2);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTS3$_2_addr_Get(mrb_state *state, mrb_value self) {
+    pi_i2c_msg_t record = drb_ffi__ZTS3$_2_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.addr);
+}
+static mrb_value drb_ffi__ZTS3$_2_addr_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fflush': wrong number of arguments (%d for 1)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int ret_val = fflush(__stream_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_2 *)DATA_PTR(self))->value)->addr = new_value;
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi_vfprintf_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi__ZTS3$_2_flags_Get(mrb_state *state, mrb_value self) {
+    pi_i2c_msg_t record = drb_ffi__ZTS3$_2_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.flags);
+}
+static mrb_value drb_ffi__ZTS3$_2_flags_Set(mrb_state *state, mrb_value self) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'vfprintf': wrong number of arguments (%d for 3)", argc);
-    int *__s_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    char *__format_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int __arg_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int ret_val = vfprintf(__s_0, __format_1, __arg_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_2 *)DATA_PTR(self))->value)->flags = new_value;
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi_vprintf_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi__ZTS3$_2_len_Get(mrb_state *state, mrb_value self) {
+    pi_i2c_msg_t record = drb_ffi__ZTS3$_2_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.len);
+}
+static mrb_value drb_ffi__ZTS3$_2_len_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_2 *)DATA_PTR(self))->value)->len = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_2_buf_Get(mrb_state *state, mrb_value self) {
+    pi_i2c_msg_t record = drb_ffi__ZTS3$_2_FromRuby(state, self);
+    return drb_ffi__ZTSPi_ToRuby(state, record.buf);
+}
+static mrb_value drb_ffi__ZTS3$_2_buf_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int *new_value = drb_ffi__ZTSPi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_2 *)DATA_PTR(self))->value)->buf = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS3$_3 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_3 *));
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_3);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTS3$_3_control_Get(mrb_state *state, mrb_value self) {
+    bsc_xfer_t record = drb_ffi__ZTS3$_3_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.control);
+}
+static mrb_value drb_ffi__ZTS3$_3_control_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_3 *)DATA_PTR(self))->value)->control = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_rxCnt_Get(mrb_state *state, mrb_value self) {
+    bsc_xfer_t record = drb_ffi__ZTS3$_3_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.rxCnt);
+}
+static mrb_value drb_ffi__ZTS3$_3_rxCnt_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_3 *)DATA_PTR(self))->value)->rxCnt = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_rxBuf_Get(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_rxBuf_Set(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_txCnt_Get(mrb_state *state, mrb_value self) {
+    bsc_xfer_t record = drb_ffi__ZTS3$_3_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.txCnt);
+}
+static mrb_value drb_ffi__ZTS3$_3_txCnt_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_3 *)DATA_PTR(self))->value)->txCnt = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_txBuf_Get(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_3_txBuf_Set(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS8rawSPI_t *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS8rawSPI_t *));
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS8rawSPI_t);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.clk);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->clk = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_mosi_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.mosi);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_mosi_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->mosi = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_miso_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.miso);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_miso_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->miso = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_ss_pol_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.ss_pol);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_ss_pol_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->ss_pol = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_ss_us_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.ss_us);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_ss_us_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->ss_us = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_pol_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.clk_pol);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_pol_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->clk_pol = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_pha_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.clk_pha);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_pha_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->clk_pha = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_us_Get(mrb_state *state, mrb_value self) {
+    rawSPI_t record = drb_ffi__ZTS8rawSPI_t_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.clk_us);
+}
+static mrb_value drb_ffi__ZTS8rawSPI_t_clk_us_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS8rawSPI_t *)DATA_PTR(self))->value)->clk_us = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_5_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS3$_5 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_5 *));
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_5);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTS3$_5_gpioOn_Get(mrb_state *state, mrb_value self) {
+    rawWave_t record = drb_ffi__ZTS3$_5_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.gpioOn);
+}
+static mrb_value drb_ffi__ZTS3$_5_gpioOn_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_5 *)DATA_PTR(self))->value)->gpioOn = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_5_gpioOff_Get(mrb_state *state, mrb_value self) {
+    rawWave_t record = drb_ffi__ZTS3$_5_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.gpioOff);
+}
+static mrb_value drb_ffi__ZTS3$_5_gpioOff_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_5 *)DATA_PTR(self))->value)->gpioOff = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_5_usDelay_Get(mrb_state *state, mrb_value self) {
+    rawWave_t record = drb_ffi__ZTS3$_5_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.usDelay);
+}
+static mrb_value drb_ffi__ZTS3$_5_usDelay_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_5 *)DATA_PTR(self))->value)->usDelay = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_5_flags_Get(mrb_state *state, mrb_value self) {
+    rawWave_t record = drb_ffi__ZTS3$_5_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.flags);
+}
+static mrb_value drb_ffi__ZTS3$_5_flags_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_5 *)DATA_PTR(self))->value)->flags = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_New(mrb_state *state, mrb_value self) {
+    struct drb_foreign_object_ZTS3$_6 *ptr = calloc(1, sizeof(struct drb_foreign_object_ZTS3$_6 *));
+    struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
+    struct RClass *module = drb_api->mrb_module_get_under(state, FFI, "PIGPIO");
+    struct RClass *klass = drb_api->mrb_class_get_under(state, module, "");
+    struct RData *rdata = drb_api->mrb_data_object_alloc(state, klass, ptr, &ForeignObjectType_ZTS3$_6);
+    return mrb_obj_value(rdata);
+}
+static mrb_value drb_ffi__ZTS3$_6_info_Get(mrb_state *state, mrb_value self) {
+    rawCbs_t record = drb_ffi__ZTS3$_6_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.info);
+}
+static mrb_value drb_ffi__ZTS3$_6_info_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value)->info = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_src_Get(mrb_state *state, mrb_value self) {
+    rawCbs_t record = drb_ffi__ZTS3$_6_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.src);
+}
+static mrb_value drb_ffi__ZTS3$_6_src_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value)->src = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_dst_Get(mrb_state *state, mrb_value self) {
+    rawCbs_t record = drb_ffi__ZTS3$_6_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.dst);
+}
+static mrb_value drb_ffi__ZTS3$_6_dst_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value)->dst = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_length_Get(mrb_state *state, mrb_value self) {
+    rawCbs_t record = drb_ffi__ZTS3$_6_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.length);
+}
+static mrb_value drb_ffi__ZTS3$_6_length_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value)->length = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_stride_Get(mrb_state *state, mrb_value self) {
+    rawCbs_t record = drb_ffi__ZTS3$_6_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.stride);
+}
+static mrb_value drb_ffi__ZTS3$_6_stride_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value)->stride = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_next_Get(mrb_state *state, mrb_value self) {
+    rawCbs_t record = drb_ffi__ZTS3$_6_FromRuby(state, self);
+    return drb_ffi__ZTSi_ToRuby(state, record.next);
+}
+static mrb_value drb_ffi__ZTS3$_6_next_Set(mrb_state *state, mrb_value self) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    int new_value = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    (&((struct drb_foreign_object_ZTS3$_6 *)DATA_PTR(self))->value)->next = new_value;
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_pad_Get(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot get constant array field");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi__ZTS3$_6_pad_Set(mrb_state *state, mrb_value self) {
+    drb_api->mrb_raise(state, drb_api->drb_getruntime_error(state), "Cannot set constant array field");
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_nanosleep_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'vprintf': wrong number of arguments (%d for 2)", argc);
-    char *__format_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
-    int __arg_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    int ret_val = vprintf(__format_0, __arg_1);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'nanosleep': wrong number of arguments (%d for 2)", argc);
+    struct timespec *__requested_time_0 = drb_ffi__ZTSPZ9nanosleepE8timespec_FromRuby(state, args[0]);
+    struct timespec *__remaining_1 = drb_ffi__ZTSPZ9nanosleepE8timespec_FromRuby(state, args[1]);
+    int ret_val = nanosleep(__requested_time_0, __remaining_1);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_fgetc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fgetc': wrong number of arguments (%d for 1)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int ret_val = fgetc(__stream_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_getc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'getc': wrong number of arguments (%d for 1)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int ret_val = getc(__stream_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_getchar_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'getchar': wrong number of arguments (%d for 0)", argc);
-    int ret_val = getchar();
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_fputc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fputc': wrong number of arguments (%d for 2)", argc);
-    int __c_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    int *__stream_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
-    int ret_val = fputc(__c_0, __stream_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_putc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'putc': wrong number of arguments (%d for 2)", argc);
-    int __c_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    int *__stream_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
-    int ret_val = putc(__c_0, __stream_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_putchar_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'putchar': wrong number of arguments (%d for 1)", argc);
-    int __c_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    int ret_val = putchar(__c_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_fputs_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fputs': wrong number of arguments (%d for 2)", argc);
-    char *__s_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
-    int *__stream_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
-    int ret_val = fputs(__s_0, __stream_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_puts_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'puts': wrong number of arguments (%d for 1)", argc);
-    char *__s_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
-    int ret_val = puts(__s_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_ungetc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'ungetc': wrong number of arguments (%d for 2)", argc);
-    int __c_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    int *__stream_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
-    int ret_val = ungetc(__c_0, __stream_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_fwrite_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_clock_nanosleep_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fwrite': wrong number of arguments (%d for 4)", argc);
-    void *__ptr_0 = drb_ffi__ZTSPv_FromRuby(state, args[0]);
-    int __size_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    int __n_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int *__s_3 = drb_ffi__ZTSPi_FromRuby(state, args[3]);
-    int ret_val = fwrite(__ptr_0, __size_1, __n_2, __s_3);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'clock_nanosleep': wrong number of arguments (%d for 4)", argc);
+    int __clock_id_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int __flags_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    struct timespec *__req_2 = drb_ffi__ZTSPZ15clock_nanosleepE8timespec_FromRuby(state, args[2]);
+    struct timespec *__rem_3 = drb_ffi__ZTSPZ15clock_nanosleepE8timespec_FromRuby(state, args[3]);
+    int ret_val = clock_nanosleep(__clock_id_0, __flags_1, __req_2, __rem_3);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_fseek_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_pthread_exit_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'pthread_exit': wrong number of arguments (%d for 1)", argc);
+    void *__retval_0 = drb_ffi__ZTSPv_FromRuby(state, args[0]);
+    pthread_exit(__retval_0);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_pthread_join_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'pthread_join': wrong number of arguments (%d for 2)", argc);
+    int __th_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    void **__thread_return_1 = drb_ffi__ZTSPPv_FromRuby(state, args[1]);
+    int ret_val = pthread_join(__th_0, __thread_return_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_pthread_setcancelstate_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'pthread_setcancelstate': wrong number of arguments (%d for 2)", argc);
+    int __state_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int *__oldstate_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
+    int ret_val = pthread_setcancelstate(__state_0, __oldstate_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_pthread_setcanceltype_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'pthread_setcanceltype': wrong number of arguments (%d for 2)", argc);
+    int __type_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int *__oldtype_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
+    int ret_val = pthread_setcanceltype(__type_0, __oldtype_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_pthread_cancel_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'pthread_cancel': wrong number of arguments (%d for 1)", argc);
+    int __th_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = pthread_cancel(__th_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_pthread_testcancel_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'pthread_testcancel': wrong number of arguments (%d for 0)", argc);
+    pthread_testcancel();
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi___pthread_register_cancel_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'__pthread_register_cancel': wrong number of arguments (%d for 1)", argc);
+    __pthread_unwind_buf_t *__buf_0 = drb_ffi__ZTSP3$_0_FromRuby(state, args[0]);
+    __pthread_register_cancel(__buf_0);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi___pthread_unregister_cancel_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'__pthread_unregister_cancel': wrong number of arguments (%d for 1)", argc);
+    __pthread_unwind_buf_t *__buf_0 = drb_ffi__ZTSP3$_0_FromRuby(state, args[0]);
+    __pthread_unregister_cancel(__buf_0);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi___pthread_unwind_next_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'__pthread_unwind_next': wrong number of arguments (%d for 1)", argc);
+    __pthread_unwind_buf_t *__buf_0 = drb_ffi__ZTSP3$_0_FromRuby(state, args[0]);
+    __pthread_unwind_next(__buf_0);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_gpioInitialise_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioInitialise': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioInitialise();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioTerminate_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioTerminate': wrong number of arguments (%d for 0)", argc);
+    gpioTerminate();
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_gpioSetMode_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetMode': wrong number of arguments (%d for 2)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int mode_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSetMode(gpio_0, mode_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetMode_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetMode': wrong number of arguments (%d for 1)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetMode(gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetPullUpDown_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetPullUpDown': wrong number of arguments (%d for 2)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int pud_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSetPullUpDown(gpio_0, pud_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioRead_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioRead': wrong number of arguments (%d for 1)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioRead(gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWrite_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWrite': wrong number of arguments (%d for 2)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int level_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioWrite(gpio_0, level_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioPWM_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioPWM': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int dutycycle_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioPWM(user_gpio_0, dutycycle_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetPWMdutycycle_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetPWMdutycycle': wrong number of arguments (%d for 1)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetPWMdutycycle(user_gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetPWMrange_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetPWMrange': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int range_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSetPWMrange(user_gpio_0, range_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetPWMrange_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetPWMrange': wrong number of arguments (%d for 1)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetPWMrange(user_gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetPWMrealRange_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetPWMrealRange': wrong number of arguments (%d for 1)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetPWMrealRange(user_gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetPWMfrequency_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetPWMfrequency': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int frequency_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSetPWMfrequency(user_gpio_0, frequency_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetPWMfrequency_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetPWMfrequency': wrong number of arguments (%d for 1)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetPWMfrequency(user_gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioServo_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioServo': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int pulsewidth_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioServo(user_gpio_0, pulsewidth_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetServoPulsewidth_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetServoPulsewidth': wrong number of arguments (%d for 1)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetServoPulsewidth(user_gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetAlertFunc_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetAlertFunc': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void (*f_1)(int, int, int) = drb_ffi__ZTSPFviiiE_FromRuby(state, args[1]);
+    int ret_val = gpioSetAlertFunc(user_gpio_0, f_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetAlertFuncEx_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fseek': wrong number of arguments (%d for 3)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    long __off_1 = drb_ffi__ZTSl_FromRuby(state, args[1]);
-    int __whence_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int ret_val = fseek(__stream_0, __off_1, __whence_2);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetAlertFuncEx': wrong number of arguments (%d for 3)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void (*f_1)(int, int, int, void *) = drb_ffi__ZTSPFviiiPvE_FromRuby(state, args[1]);
+    void *userdata_2 = drb_ffi__ZTSPv_FromRuby(state, args[2]);
+    int ret_val = gpioSetAlertFuncEx(user_gpio_0, f_1, userdata_2);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_rewind_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_gpioSetISRFunc_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetISRFunc': wrong number of arguments (%d for 4)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int edge_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int timeout_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    void (*f_3)(int, int, int) = drb_ffi__ZTSPFviiiE_FromRuby(state, args[3]);
+    int ret_val = gpioSetISRFunc(gpio_0, edge_1, timeout_2, f_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetISRFuncEx_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 5)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetISRFuncEx': wrong number of arguments (%d for 5)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int edge_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int timeout_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    void (*f_3)(int, int, int, void *) = drb_ffi__ZTSPFviiiPvE_FromRuby(state, args[3]);
+    void *userdata_4 = drb_ffi__ZTSPv_FromRuby(state, args[4]);
+    int ret_val = gpioSetISRFuncEx(gpio_0, edge_1, timeout_2, f_3, userdata_4);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioNotifyOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioNotifyOpen': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioNotifyOpen();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioNotifyOpenWithSize_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rewind': wrong number of arguments (%d for 1)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    rewind(__stream_0);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioNotifyOpenWithSize': wrong number of arguments (%d for 1)", argc);
+    int bufSize_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioNotifyOpenWithSize(bufSize_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioNotifyBegin_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioNotifyBegin': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int bits_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    int ret_val = gpioNotifyBegin(handle_0, bits_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioNotifyPause_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioNotifyPause': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioNotifyPause(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioNotifyClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioNotifyClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioNotifyClose(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveClear_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveClear': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveClear();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveAddNew_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveAddNew': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveAddNew();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveAddGeneric_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveAddGeneric': wrong number of arguments (%d for 2)", argc);
+    unsigned int numPulses_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    gpioPulse_t *pulses_1 = drb_ffi__ZTSP3$_1_FromRuby(state, args[1]);
+    int ret_val = gpioWaveAddGeneric(numPulses_0, pulses_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveAddSerial_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 7)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveAddSerial': wrong number of arguments (%d for 7)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int baud_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int data_bits_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    unsigned int stop_bits_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    unsigned int offset_4 = drb_ffi__ZTSj_FromRuby(state, args[4]);
+    unsigned int numBytes_5 = drb_ffi__ZTSj_FromRuby(state, args[5]);
+    char *str_6 = drb_ffi__ZTSPc_FromRuby(state, args[6]);
+    int ret_val = gpioWaveAddSerial(user_gpio_0, baud_1, data_bits_2, stop_bits_3, offset_4, numBytes_5, str_6);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveCreate_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveCreate': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveCreate();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveCreatePad_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveCreatePad': wrong number of arguments (%d for 3)", argc);
+    int pctCB_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int pctBOOL_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    int pctTOOL_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    int ret_val = gpioWaveCreatePad(pctCB_0, pctBOOL_1, pctTOOL_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveDelete_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveDelete': wrong number of arguments (%d for 1)", argc);
+    unsigned int wave_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioWaveDelete(wave_id_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveTxSend_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveTxSend': wrong number of arguments (%d for 2)", argc);
+    unsigned int wave_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int wave_mode_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioWaveTxSend(wave_id_0, wave_mode_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveChain_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveChain': wrong number of arguments (%d for 2)", argc);
+    char *buf_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
+    unsigned int bufSize_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioWaveChain(buf_0, bufSize_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveTxAt_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveTxAt': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveTxAt();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveTxBusy_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveTxBusy': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveTxBusy();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveTxStop_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveTxStop': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveTxStop();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetMicros_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetMicros': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetMicros();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetHighMicros_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetHighMicros': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetHighMicros();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetMaxMicros_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetMaxMicros': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetMaxMicros();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetPulses_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetPulses': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetPulses();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetHighPulses_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetHighPulses': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetHighPulses();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetMaxPulses_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetMaxPulses': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetMaxPulses();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetCbs_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetCbs': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetCbs();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetHighCbs_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetHighCbs': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetHighCbs();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWaveGetMaxCbs_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWaveGetMaxCbs': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioWaveGetMaxCbs();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSerialReadOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSerialReadOpen': wrong number of arguments (%d for 3)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int baud_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int data_bits_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = gpioSerialReadOpen(user_gpio_0, baud_1, data_bits_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSerialReadInvert_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSerialReadInvert': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int invert_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSerialReadInvert(user_gpio_0, invert_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSerialRead_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSerialRead': wrong number of arguments (%d for 3)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void *buf_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
+    int bufSize_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    int ret_val = gpioSerialRead(user_gpio_0, buf_1, bufSize_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSerialReadClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSerialReadClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioSerialReadClose(user_gpio_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cOpen': wrong number of arguments (%d for 3)", argc);
+    unsigned int i2cBus_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cAddr_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int i2cFlags_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cOpen(i2cBus_0, i2cAddr_1, i2cFlags_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = i2cClose(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteQuick_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteQuick': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int bit_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = i2cWriteQuick(handle_0, bit_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteByte_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteByte': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int bVal_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = i2cWriteByte(handle_0, bVal_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cReadByte_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cReadByte': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = i2cReadByte(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteByteData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteByteData': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int bVal_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cWriteByteData(handle_0, i2cReg_1, bVal_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteWordData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteWordData': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int wVal_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cWriteWordData(handle_0, i2cReg_1, wVal_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cReadByteData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cReadByteData': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = i2cReadByteData(handle_0, i2cReg_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cReadWordData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cReadWordData': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = i2cReadWordData(handle_0, i2cReg_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cProcessCall_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cProcessCall': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int wVal_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cProcessCall(handle_0, i2cReg_1, wVal_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteBlockData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteBlockData': wrong number of arguments (%d for 4)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    char *buf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int count_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = i2cWriteBlockData(handle_0, i2cReg_1, buf_2, count_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cReadBlockData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cReadBlockData': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    char *buf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    int ret_val = i2cReadBlockData(handle_0, i2cReg_1, buf_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cBlockProcessCall_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cBlockProcessCall': wrong number of arguments (%d for 4)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    char *buf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int count_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = i2cBlockProcessCall(handle_0, i2cReg_1, buf_2, count_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cReadI2CBlockData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cReadI2CBlockData': wrong number of arguments (%d for 4)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    char *buf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int count_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = i2cReadI2CBlockData(handle_0, i2cReg_1, buf_2, count_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteI2CBlockData_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteI2CBlockData': wrong number of arguments (%d for 4)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int i2cReg_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    char *buf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int count_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = i2cWriteI2CBlockData(handle_0, i2cReg_1, buf_2, count_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cReadDevice_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cReadDevice': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cReadDevice(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cWriteDevice_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cWriteDevice': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cWriteDevice(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_i2cSwitchCombined_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cSwitchCombined': wrong number of arguments (%d for 1)", argc);
+    int setting_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    i2cSwitchCombined(setting_0);
     return mrb_nil_value();
 }
-static mrb_value drb_ffi_fgetpos_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_i2cSegments_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fgetpos': wrong number of arguments (%d for 2)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int *__pos_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
-    int ret_val = fgetpos(__stream_0, __pos_1);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cSegments': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    pi_i2c_msg_t *segs_1 = drb_ffi__ZTSP3$_2_FromRuby(state, args[1]);
+    unsigned int numSegs_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = i2cSegments(handle_0, segs_1, numSegs_2);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_fsetpos_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_i2cZip_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fsetpos': wrong number of arguments (%d for 2)", argc);
-    int *__stream_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int *__pos_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
-    int ret_val = fsetpos(__stream_0, __pos_1);
+    if (argc != 5)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'i2cZip': wrong number of arguments (%d for 5)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *inBuf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int inLen_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    char *outBuf_3 = drb_ffi__ZTSPc_FromRuby(state, args[3]);
+    unsigned int outLen_4 = drb_ffi__ZTSj_FromRuby(state, args[4]);
+    int ret_val = i2cZip(handle_0, inBuf_1, inLen_2, outBuf_3, outLen_4);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_perror_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_bbI2COpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bbI2COpen': wrong number of arguments (%d for 3)", argc);
+    unsigned int SDA_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int SCL_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int baud_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = bbI2COpen(SDA_0, SCL_1, baud_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_bbI2CClose_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'perror': wrong number of arguments (%d for 1)", argc);
-    char *__s_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
-    perror(__s_0);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bbI2CClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int SDA_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = bbI2CClose(SDA_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_bbI2CZip_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 5)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bbI2CZip': wrong number of arguments (%d for 5)", argc);
+    unsigned int SDA_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *inBuf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int inLen_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    char *outBuf_3 = drb_ffi__ZTSPc_FromRuby(state, args[3]);
+    unsigned int outLen_4 = drb_ffi__ZTSj_FromRuby(state, args[4]);
+    int ret_val = bbI2CZip(SDA_0, inBuf_1, inLen_2, outBuf_3, outLen_4);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_bscXfer_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bscXfer': wrong number of arguments (%d for 1)", argc);
+    bsc_xfer_t *bsc_xfer_0 = drb_ffi__ZTSP3$_3_FromRuby(state, args[0]);
+    int ret_val = bscXfer(bsc_xfer_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_bbSPIOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 6)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bbSPIOpen': wrong number of arguments (%d for 6)", argc);
+    unsigned int CS_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int MISO_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int MOSI_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    unsigned int SCLK_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    unsigned int baud_4 = drb_ffi__ZTSj_FromRuby(state, args[4]);
+    unsigned int spiFlags_5 = drb_ffi__ZTSj_FromRuby(state, args[5]);
+    int ret_val = bbSPIOpen(CS_0, MISO_1, MOSI_2, SCLK_3, baud_4, spiFlags_5);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_bbSPIClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bbSPIClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int CS_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = bbSPIClose(CS_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_bbSPIXfer_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bbSPIXfer': wrong number of arguments (%d for 4)", argc);
+    unsigned int CS_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *inBuf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    char *outBuf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int count_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = bbSPIXfer(CS_0, inBuf_1, outBuf_2, count_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_spiOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'spiOpen': wrong number of arguments (%d for 3)", argc);
+    unsigned int spiChan_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int baud_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int spiFlags_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = spiOpen(spiChan_0, baud_1, spiFlags_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_spiClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'spiClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = spiClose(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_spiRead_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'spiRead': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = spiRead(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_spiWrite_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'spiWrite': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = spiWrite(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_spiXfer_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'spiXfer': wrong number of arguments (%d for 4)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *txBuf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    char *rxBuf_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int count_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = spiXfer(handle_0, txBuf_1, rxBuf_2, count_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serOpen': wrong number of arguments (%d for 3)", argc);
+    char *sertty_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
+    unsigned int baud_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int serFlags_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = serOpen(sertty_0, baud_1, serFlags_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = serClose(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serWriteByte_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serWriteByte': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int bVal_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = serWriteByte(handle_0, bVal_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serReadByte_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serReadByte': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = serReadByte(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serWrite_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serWrite': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = serWrite(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serRead_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serRead': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = serRead(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_serDataAvailable_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'serDataAvailable': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = serDataAvailable(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioTrigger_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioTrigger': wrong number of arguments (%d for 3)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int pulseLen_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int level_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = gpioTrigger(user_gpio_0, pulseLen_1, level_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetWatchdog_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetWatchdog': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int timeout_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSetWatchdog(user_gpio_0, timeout_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioNoiseFilter_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioNoiseFilter': wrong number of arguments (%d for 3)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int steady_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int active_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = gpioNoiseFilter(user_gpio_0, steady_1, active_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGlitchFilter_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGlitchFilter': wrong number of arguments (%d for 2)", argc);
+    unsigned int user_gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int steady_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioGlitchFilter(user_gpio_0, steady_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetGetSamplesFunc_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetGetSamplesFunc': wrong number of arguments (%d for 2)", argc);
+    void (*f_0)(const gpioSample_t *, int) = drb_ffi__ZTSPFvPK3$_4iE_FromRuby(state, args[0]);
+    int bits_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    int ret_val = gpioSetGetSamplesFunc(f_0, bits_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetGetSamplesFuncEx_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetGetSamplesFuncEx': wrong number of arguments (%d for 3)", argc);
+    void (*f_0)(const gpioSample_t *, int, void *) = drb_ffi__ZTSPFvPK3$_4iPvE_FromRuby(state, args[0]);
+    int bits_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    void *userdata_2 = drb_ffi__ZTSPv_FromRuby(state, args[2]);
+    int ret_val = gpioSetGetSamplesFuncEx(f_0, bits_1, userdata_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetTimerFunc_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetTimerFunc': wrong number of arguments (%d for 3)", argc);
+    unsigned int timer_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int millis_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    void (*f_2)(void) = drb_ffi__ZTSPFvvE_FromRuby(state, args[2]);
+    int ret_val = gpioSetTimerFunc(timer_0, millis_1, f_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetTimerFuncEx_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetTimerFuncEx': wrong number of arguments (%d for 4)", argc);
+    unsigned int timer_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int millis_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    void (*f_2)(void *) = drb_ffi__ZTSPFvPvE_FromRuby(state, args[2]);
+    void *userdata_3 = drb_ffi__ZTSPv_FromRuby(state, args[3]);
+    int ret_val = gpioSetTimerFuncEx(timer_0, millis_1, f_2, userdata_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioStartThread_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioStartThread': wrong number of arguments (%d for 2)", argc);
+    gpioThreadFunc_t *f_0 = drb_ffi__ZTSPFPvS_E_FromRuby(state, args[0]);
+    void *userdata_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
+    int *ret_val = gpioStartThread(f_0, userdata_1);
+    return drb_ffi__ZTSPi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioStopThread_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioStopThread': wrong number of arguments (%d for 1)", argc);
+    int *pth_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
+    gpioStopThread(pth_0);
     return mrb_nil_value();
 }
-static mrb_value drb_ffi___uflow_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_gpioStoreScript_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'__uflow': wrong number of arguments (%d for 1)", argc);
-    int *_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int ret_val = __uflow(_0);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioStoreScript': wrong number of arguments (%d for 1)", argc);
+    char *script_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
+    int ret_val = gpioStoreScript(script_0);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi___overflow_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_gpioRunScript_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioRunScript': wrong number of arguments (%d for 3)", argc);
+    unsigned int script_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int numPar_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int *param_2 = drb_ffi__ZTSPi_FromRuby(state, args[2]);
+    int ret_val = gpioRunScript(script_id_0, numPar_1, param_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioUpdateScript_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioUpdateScript': wrong number of arguments (%d for 3)", argc);
+    unsigned int script_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int numPar_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int *param_2 = drb_ffi__ZTSPi_FromRuby(state, args[2]);
+    int ret_val = gpioUpdateScript(script_id_0, numPar_1, param_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioScriptStatus_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'__overflow': wrong number of arguments (%d for 2)", argc);
-    int *_0 = drb_ffi__ZTSPi_FromRuby(state, args[0]);
-    int _1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    int ret_val = __overflow(_0, _1);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioScriptStatus': wrong number of arguments (%d for 2)", argc);
+    unsigned int script_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int *param_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
+    int ret_val = gpioScriptStatus(script_id_0, param_1);
     return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_mrb_float_read_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_gpioStopScript_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioStopScript': wrong number of arguments (%d for 1)", argc);
+    unsigned int script_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioStopScript(script_id_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioDeleteScript_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioDeleteScript': wrong number of arguments (%d for 1)", argc);
+    unsigned int script_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioDeleteScript(script_id_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetSignalFunc_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_float_read': wrong number of arguments (%d for 2)", argc);
-    char *_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
-    char **_1 = drb_ffi__ZTSPPc_FromRuby(state, args[1]);
-    double ret_val = mrb_float_read(_0, _1);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetSignalFunc': wrong number of arguments (%d for 2)", argc);
+    unsigned int signum_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void (*f_1)(int) = drb_ffi__ZTSPFviE_FromRuby(state, args[1]);
+    int ret_val = gpioSetSignalFunc(signum_0, f_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetSignalFuncEx_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetSignalFuncEx': wrong number of arguments (%d for 3)", argc);
+    unsigned int signum_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void (*f_1)(int, void *) = drb_ffi__ZTSPFviPvE_FromRuby(state, args[1]);
+    void *userdata_2 = drb_ffi__ZTSPv_FromRuby(state, args[2]);
+    int ret_val = gpioSetSignalFuncEx(signum_0, f_1, userdata_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioRead_Bits_0_31_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioRead_Bits_0_31': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioRead_Bits_0_31();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioRead_Bits_32_53_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioRead_Bits_32_53': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioRead_Bits_32_53();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWrite_Bits_0_31_Clear_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWrite_Bits_0_31_Clear': wrong number of arguments (%d for 1)", argc);
+    int bits_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioWrite_Bits_0_31_Clear(bits_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWrite_Bits_32_53_Clear_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWrite_Bits_32_53_Clear': wrong number of arguments (%d for 1)", argc);
+    int bits_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioWrite_Bits_32_53_Clear(bits_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWrite_Bits_0_31_Set_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWrite_Bits_0_31_Set': wrong number of arguments (%d for 1)", argc);
+    int bits_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioWrite_Bits_0_31_Set(bits_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioWrite_Bits_32_53_Set_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioWrite_Bits_32_53_Set': wrong number of arguments (%d for 1)", argc);
+    int bits_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioWrite_Bits_32_53_Set(bits_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioHardwareClock_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioHardwareClock': wrong number of arguments (%d for 2)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int clkfreq_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioHardwareClock(gpio_0, clkfreq_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioHardwarePWM_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioHardwarePWM': wrong number of arguments (%d for 3)", argc);
+    unsigned int gpio_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int PWMfreq_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int PWMduty_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = gpioHardwarePWM(gpio_0, PWMfreq_1, PWMduty_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioTime_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioTime': wrong number of arguments (%d for 3)", argc);
+    unsigned int timetype_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int *seconds_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
+    int *micros_2 = drb_ffi__ZTSPi_FromRuby(state, args[2]);
+    int ret_val = gpioTime(timetype_0, seconds_1, micros_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSleep_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSleep': wrong number of arguments (%d for 3)", argc);
+    unsigned int timetype_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int seconds_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    int micros_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    int ret_val = gpioSleep(timetype_0, seconds_1, micros_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioDelay_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioDelay': wrong number of arguments (%d for 1)", argc);
+    int micros_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioDelay(micros_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioTick_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioTick': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioTick();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioHardwareRevision_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioHardwareRevision': wrong number of arguments (%d for 0)", argc);
+    unsigned int ret_val = gpioHardwareRevision();
+    return drb_ffi__ZTSj_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioVersion_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioVersion': wrong number of arguments (%d for 0)", argc);
+    unsigned int ret_val = gpioVersion();
+    return drb_ffi__ZTSj_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioGetPad_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioGetPad': wrong number of arguments (%d for 1)", argc);
+    unsigned int pad_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioGetPad(pad_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioSetPad_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioSetPad': wrong number of arguments (%d for 2)", argc);
+    unsigned int pad_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int padStrength_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioSetPad(pad_0, padStrength_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_eventMonitor_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'eventMonitor': wrong number of arguments (%d for 2)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int bits_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    int ret_val = eventMonitor(handle_0, bits_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_eventSetFunc_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'eventSetFunc': wrong number of arguments (%d for 2)", argc);
+    unsigned int event_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void (*f_1)(int, int) = drb_ffi__ZTSPFviiE_FromRuby(state, args[1]);
+    int ret_val = eventSetFunc(event_0, f_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_eventSetFuncEx_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'eventSetFuncEx': wrong number of arguments (%d for 3)", argc);
+    unsigned int event_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    void (*f_1)(int, int, void *) = drb_ffi__ZTSPFviiPvE_FromRuby(state, args[1]);
+    void *userdata_2 = drb_ffi__ZTSPv_FromRuby(state, args[2]);
+    int ret_val = eventSetFuncEx(event_0, f_1, userdata_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_eventTrigger_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'eventTrigger': wrong number of arguments (%d for 1)", argc);
+    unsigned int event_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = eventTrigger(event_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_shell_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'shell': wrong number of arguments (%d for 2)", argc);
+    char *scriptName_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
+    char *scriptString_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    int ret_val = shell(scriptName_0, scriptString_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_fileOpen_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fileOpen': wrong number of arguments (%d for 2)", argc);
+    char *file_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
+    unsigned int mode_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = fileOpen(file_0, mode_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_fileClose_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fileClose': wrong number of arguments (%d for 1)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = fileClose(handle_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_fileWrite_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fileWrite': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = fileWrite(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_fileRead_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fileRead': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = fileRead(handle_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_fileSeek_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fileSeek': wrong number of arguments (%d for 3)", argc);
+    unsigned int handle_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int seekOffset_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    int seekFrom_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    int ret_val = fileSeek(handle_0, seekOffset_1, seekFrom_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_fileList_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'fileList': wrong number of arguments (%d for 3)", argc);
+    char *fpat_0 = drb_ffi__ZTSPc_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int count_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = fileList(fpat_0, buf_1, count_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgBufferSize_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgBufferSize': wrong number of arguments (%d for 1)", argc);
+    unsigned int cfgMillis_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioCfgBufferSize(cfgMillis_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgClock_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgClock': wrong number of arguments (%d for 3)", argc);
+    unsigned int cfgMicros_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int cfgPeripheral_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int cfgSource_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    int ret_val = gpioCfgClock(cfgMicros_0, cfgPeripheral_1, cfgSource_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgDMAchannel_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgDMAchannel': wrong number of arguments (%d for 1)", argc);
+    unsigned int DMAchannel_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioCfgDMAchannel(DMAchannel_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgDMAchannels_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgDMAchannels': wrong number of arguments (%d for 2)", argc);
+    unsigned int primaryChannel_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int secondaryChannel_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    int ret_val = gpioCfgDMAchannels(primaryChannel_0, secondaryChannel_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgPermissions_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgPermissions': wrong number of arguments (%d for 1)", argc);
+    int updateMask_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioCfgPermissions(updateMask_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgSocketPort_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgSocketPort': wrong number of arguments (%d for 1)", argc);
+    unsigned int port_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioCfgSocketPort(port_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgInterfaces_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgInterfaces': wrong number of arguments (%d for 1)", argc);
+    unsigned int ifFlags_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioCfgInterfaces(ifFlags_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgMemAlloc_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgMemAlloc': wrong number of arguments (%d for 1)", argc);
+    unsigned int memAllocMode_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    int ret_val = gpioCfgMemAlloc(memAllocMode_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgNetAddr_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgNetAddr': wrong number of arguments (%d for 2)", argc);
+    int numSockAddr_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int *sockAddr_1 = drb_ffi__ZTSPi_FromRuby(state, args[1]);
+    int ret_val = gpioCfgNetAddr(numSockAddr_0, sockAddr_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgGetInternals_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgGetInternals': wrong number of arguments (%d for 0)", argc);
+    int ret_val = gpioCfgGetInternals();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCfgSetInternals_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCfgSetInternals': wrong number of arguments (%d for 1)", argc);
+    int cfgVal_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = gpioCfgSetInternals(cfgVal_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCustom1_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 4)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCustom1': wrong number of arguments (%d for 4)", argc);
+    unsigned int arg1_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    unsigned int arg2_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    char *argx_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
+    unsigned int argc_3 = drb_ffi__ZTSj_FromRuby(state, args[3]);
+    int ret_val = gpioCustom1(arg1_0, arg2_1, argx_2, argc_3);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_gpioCustom2_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 5)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'gpioCustom2': wrong number of arguments (%d for 5)", argc);
+    unsigned int arg1_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    char *argx_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    unsigned int argc_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    char *retBuf_3 = drb_ffi__ZTSPc_FromRuby(state, args[3]);
+    unsigned int retMax_4 = drb_ffi__ZTSj_FromRuby(state, args[4]);
+    int ret_val = gpioCustom2(arg1_0, argx_1, argc_2, retBuf_3, retMax_4);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveAddSPI_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 8)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveAddSPI': wrong number of arguments (%d for 8)", argc);
+    rawSPI_t *spi_0 = drb_ffi__ZTSP8rawSPI_t_FromRuby(state, args[0]);
+    unsigned int offset_1 = drb_ffi__ZTSj_FromRuby(state, args[1]);
+    unsigned int spiSS_2 = drb_ffi__ZTSj_FromRuby(state, args[2]);
+    char *buf_3 = drb_ffi__ZTSPc_FromRuby(state, args[3]);
+    unsigned int spiTxBits_4 = drb_ffi__ZTSj_FromRuby(state, args[4]);
+    unsigned int spiBitFirst_5 = drb_ffi__ZTSj_FromRuby(state, args[5]);
+    unsigned int spiBitLast_6 = drb_ffi__ZTSj_FromRuby(state, args[6]);
+    unsigned int spiBits_7 = drb_ffi__ZTSj_FromRuby(state, args[7]);
+    int ret_val = rawWaveAddSPI(spi_0, offset_1, spiSS_2, buf_3, spiTxBits_4, spiBitFirst_5, spiBitLast_6, spiBits_7);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveAddGeneric_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveAddGeneric': wrong number of arguments (%d for 2)", argc);
+    unsigned int numPulses_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    rawWave_t *pulses_1 = drb_ffi__ZTSP3$_5_FromRuby(state, args[1]);
+    int ret_val = rawWaveAddGeneric(numPulses_0, pulses_1);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveCB_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveCB': wrong number of arguments (%d for 0)", argc);
+    unsigned int ret_val = rawWaveCB();
+    return drb_ffi__ZTSj_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveCBAdr_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveCBAdr': wrong number of arguments (%d for 1)", argc);
+    int cbNum_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    rawCbs_t *ret_val = rawWaveCBAdr(cbNum_0);
+    return drb_ffi__ZTSP3$_6_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveGetOOL_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveGetOOL': wrong number of arguments (%d for 1)", argc);
+    int pos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = rawWaveGetOOL(pos_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveSetOOL_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveSetOOL': wrong number of arguments (%d for 2)", argc);
+    int pos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int lVal_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    rawWaveSetOOL(pos_0, lVal_1);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_rawWaveGetOut_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveGetOut': wrong number of arguments (%d for 1)", argc);
+    int pos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = rawWaveGetOut(pos_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveSetOut_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveSetOut': wrong number of arguments (%d for 2)", argc);
+    int pos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int lVal_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    rawWaveSetOut(pos_0, lVal_1);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_rawWaveGetIn_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveGetIn': wrong number of arguments (%d for 1)", argc);
+    int pos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int ret_val = rawWaveGetIn(pos_0);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_rawWaveSetIn_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 2)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveSetIn': wrong number of arguments (%d for 2)", argc);
+    int pos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    int lVal_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
+    rawWaveSetIn(pos_0, lVal_1);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_rawWaveInfo_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 1)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawWaveInfo': wrong number of arguments (%d for 1)", argc);
+    int wave_id_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    rawWaveInfo_t ret_val = rawWaveInfo(wave_id_0);
+    return drb_ffi__ZTS3$_7_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_getBitInBytes_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'getBitInBytes': wrong number of arguments (%d for 3)", argc);
+    int bitPos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    int numBits_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    int ret_val = getBitInBytes(bitPos_0, buf_1, numBits_2);
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
+}
+static mrb_value drb_ffi_putBitInBytes_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 3)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'putBitInBytes': wrong number of arguments (%d for 3)", argc);
+    int bitPos_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
+    char *buf_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
+    int bit_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
+    putBitInBytes(bitPos_0, buf_1, bit_2);
+    return mrb_nil_value();
+}
+static mrb_value drb_ffi_time_time_Binding(mrb_state *state, mrb_value value) {
+    mrb_value *args = 0;
+    mrb_int argc = 0;
+    drb_api->mrb_get_args(state, "*", &args, &argc);
+    if (argc != 0)
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'time_time': wrong number of arguments (%d for 0)", argc);
+    double ret_val = time_time();
     return drb_ffi__ZTSd_ToRuby(state, ret_val);
 }
-static mrb_value drb_ffi_mrb_val_union_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_time_sleep_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_val_union': wrong number of arguments (%d for 1)", argc);
-    mrb_value v_0 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[0]);
-    union mrb_value_ ret_val = mrb_val_union(v_0);
-    return drb_ffi__ZTS10mrb_value__ToRuby(state, ret_val);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'time_sleep': wrong number of arguments (%d for 1)", argc);
+    double seconds_0 = drb_ffi__ZTSd_FromRuby(state, args[0]);
+    time_sleep(seconds_0);
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi_mrb_word_boxing_cptr_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_word_boxing_cptr_value': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_word_boxing_cptr_value(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_word_boxing_float_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_word_boxing_float_value': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_float _1 = drb_ffi__ZTSd_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_word_boxing_float_value(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_word_boxing_int_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_word_boxing_int_value': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int mrb_int_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_word_boxing_int_value(_0, mrb_int_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_integer_func_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_integer_func': wrong number of arguments (%d for 1)", argc);
-    mrb_value o_0 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[0]);
-    int ret_val = mrb_integer_func(o_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_type_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_type': wrong number of arguments (%d for 1)", argc);
-    mrb_value o_0 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[0]);
-    enum mrb_vtype ret_val = mrb_type(o_0);
-    return drb_ffi__ZTS9mrb_vtype_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_float_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_float_value': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_float f_1 = drb_ffi__ZTSd_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_float_value(mrb_0, f_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_cptr_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_cptr_value': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *p_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_cptr_value(mrb_0, p_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_int_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_int_value': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int i_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_int_value(mrb_0, i_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_fixnum_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_fixnum_value': wrong number of arguments (%d for 1)", argc);
-    int i_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    mrb_value ret_val = mrb_fixnum_value(i_0);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_symbol_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_symbol_value': wrong number of arguments (%d for 1)", argc);
-    int i_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    mrb_value ret_val = mrb_symbol_value(i_0);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_value': wrong number of arguments (%d for 1)", argc);
-    void *p_0 = drb_ffi__ZTSPv_FromRuby(state, args[0]);
-    mrb_value ret_val = mrb_obj_value(p_0);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_nil_value_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_rawDumpWave_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_nil_value': wrong number of arguments (%d for 0)", argc);
-    mrb_value ret_val = mrb_nil_value();
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawDumpWave': wrong number of arguments (%d for 0)", argc);
+    rawDumpWave();
+    return mrb_nil_value();
 }
-static mrb_value drb_ffi_mrb_false_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_false_value': wrong number of arguments (%d for 0)", argc);
-    mrb_value ret_val = mrb_false_value();
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_true_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_true_value': wrong number of arguments (%d for 0)", argc);
-    mrb_value ret_val = mrb_true_value();
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_bool_value_Binding(mrb_state *state, mrb_value value) {
+static mrb_value drb_ffi_rawDumpScript_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
     mrb_int argc = 0;
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_bool_value': wrong number of arguments (%d for 1)", argc);
-    mrb_bool boolean_0 = drb_ffi__ZTSi_FromRuby(state, args[0]);
-    mrb_value ret_val = mrb_bool_value(boolean_0);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_undef_value_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_undef_value': wrong number of arguments (%d for 0)", argc);
-    mrb_value ret_val = mrb_undef_value();
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_objspace_each_objects_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_objspace_each_objects': wrong number of arguments (%d for 3)", argc);
-    struct mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_each_object_callback *callback_1 = drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_FromRuby(state, args[1]);
-    void *data_2 = drb_ffi__ZTSPv_FromRuby(state, args[2]);
-    mrb_objspace_each_objects(mrb_0, callback_1, data_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_objspace_page_slot_size_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_objspace_page_slot_size': wrong number of arguments (%d for 0)", argc);
-    int ret_val = mrb_objspace_page_slot_size();
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_free_context_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_free_context': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct mrb_context *c_1 = drb_ffi__ZTSP11mrb_context_FromRuby(state, args[1]);
-    mrb_free_context(mrb_0, c_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_object_dead_p_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_object_dead_p': wrong number of arguments (%d for 2)", argc);
-    struct mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RBasic *object_1 = drb_ffi__ZTSP6RBasic_FromRuby(state, args[1]);
-    mrb_bool ret_val = mrb_object_dead_p(mrb_0, object_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_class_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_class': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *name_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    struct RClass *super_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_define_class(mrb_0, name_1, super_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_class_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_class_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int name_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    struct RClass *super_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_define_class_id(mrb_0, name_1, super_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_module_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_module': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *name_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_define_module(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_module_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_module_id': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int name_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_define_module_id(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_singleton_class_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_singleton_class': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_singleton_class(mrb_0, val_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_singleton_class_ptr_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_singleton_class_ptr': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_singleton_class_ptr(mrb_0, val_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_include_module_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_include_module': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    struct RClass *included_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    mrb_include_module(mrb_0, cla_1, included_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_prepend_module_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_prepend_module': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    struct RClass *prepended_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    mrb_prepend_module(mrb_0, cla_1, prepended_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_method_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_method': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_value (*func_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_method(mrb_0, cla_1, name_2, func_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_method_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_method_id': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int mid_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value (*func_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_method_id(mrb_0, c_1, mid_2, func_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_class_method_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_class_method': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_value (*fun_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_class_method(mrb_0, cla_1, name_2, fun_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_class_method_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_class_method_id': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value (*fun_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_class_method_id(mrb_0, cla_1, name_2, fun_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_singleton_method_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_singleton_method': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RObject *cla_1 = drb_ffi__ZTSP7RObject_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_value (*fun_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_singleton_method(mrb_0, cla_1, name_2, fun_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_singleton_method_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_singleton_method_id': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RObject *cla_1 = drb_ffi__ZTSP7RObject_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value (*fun_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_singleton_method_id(mrb_0, cla_1, name_2, fun_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_module_function_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_module_function': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_value (*fun_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_module_function(mrb_0, cla_1, name_2, fun_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_module_function_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_module_function_id': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value (*fun_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_aspec aspec_4 = drb_ffi__ZTSi_FromRuby(state, args[4]);
-    mrb_define_module_function_id(mrb_0, cla_1, name_2, fun_3, aspec_4);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_const_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_const': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_value val_3 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[3]);
-    mrb_define_const(mrb_0, cla_1, name_2, val_3);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_const_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_const_id': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value val_3 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[3]);
-    mrb_define_const_id(mrb_0, cla_1, name_2, val_3);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_undef_method_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_undef_method': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cla_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_undef_method(mrb_0, cla_1, name_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_undef_method_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_undef_method_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int mrb_sym_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_undef_method_id(_0, _1, mrb_sym_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_undef_class_method_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_undef_class_method': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cls_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_undef_class_method(mrb_0, cls_1, name_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_undef_class_method_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_undef_class_method_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *cls_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_undef_class_method_id(mrb_0, cls_1, name_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_obj_new_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_new': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int argc_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value *argv_3 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_obj_new(mrb_0, c_1, argc_2, argv_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_new_instance_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_new_instance': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int argc_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_value *argv_2 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[2]);
-    struct RClass *c_3 = drb_ffi__ZTSP6RClass_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_class_new_instance(mrb_0, argc_1, argv_2, c_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_new_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_new': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *super_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_class_new(mrb_0, super_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_module_new_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_module_new': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *ret_val = mrb_module_new(mrb_0);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_defined_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_defined': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *name_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    mrb_bool ret_val = mrb_class_defined(mrb_0, name_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_defined_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_defined_id': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int name_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_bool ret_val = mrb_class_defined_id(mrb_0, name_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_get_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_get': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *name_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_class_get(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_get_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_get_id': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int name_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_class_get_id(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_exc_get_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_exc_get_id': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int name_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_exc_get_id(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_defined_under_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_defined_under': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_class_defined_under(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_defined_under_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_defined_under_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_class_defined_under_id(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_get_under_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_get_under': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_class_get_under(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_get_under_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_get_under_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_class_get_under_id(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_module_get_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_module_get': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *name_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_module_get(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_module_get_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_module_get_id': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int name_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_module_get_id(mrb_0, name_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_module_get_under_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_module_get_under': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_module_get_under(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_module_get_under_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_module_get_under_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_module_get_under_id(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_notimplement_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_notimplement': wrong number of arguments (%d for 1)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_notimplement(_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_notimplement_m_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_notimplement_m': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value _1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_notimplement_m(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_dup_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_dup': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_obj_dup(mrb_0, obj_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_respond_to_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_respond_to': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int mid_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_obj_respond_to(mrb_0, c_1, mid_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_class_under_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_class_under': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    struct RClass *super_3 = drb_ffi__ZTSP6RClass_FromRuby(state, args[3]);
-    struct RClass *ret_val = mrb_define_class_under(mrb_0, outer_1, name_2, super_3);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_class_under_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_class_under_id': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    struct RClass *super_3 = drb_ffi__ZTSP6RClass_FromRuby(state, args[3]);
-    struct RClass *ret_val = mrb_define_class_under_id(mrb_0, outer_1, name_2, super_3);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_module_under_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_module_under': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *name_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_define_module_under(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_module_under_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_module_under_id': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *outer_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    struct RClass *ret_val = mrb_define_module_under_id(mrb_0, outer_1, name_2);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_get_mid_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_get_mid': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int ret_val = mrb_get_mid(mrb_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_get_argc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_get_argc': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int ret_val = mrb_get_argc(mrb_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_get_argv_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_get_argv': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value *ret_val = mrb_get_argv(mrb_0);
-    return drb_ffi__ZTSP9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_get_arg1_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_get_arg1': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value ret_val = mrb_get_arg1(mrb_0);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_funcall_argv_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_funcall_argv': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int argc_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value *argv_4 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[4]);
-    mrb_value ret_val = mrb_funcall_argv(mrb_0, val_1, name_2, argc_3, argv_4);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_funcall_with_block_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 6)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_funcall_with_block': wrong number of arguments (%d for 6)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int name_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int argc_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value *argv_4 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[4]);
-    mrb_value block_5 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[5]);
-    mrb_value ret_val = mrb_funcall_with_block(mrb_0, val_1, name_2, argc_3, argv_4, block_5);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_cstr_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern_cstr': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *str_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int ret_val = mrb_intern_cstr(mrb_0, str_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int ret_val = mrb_intern(_0, _1, size_t_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_static_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern_static': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int ret_val = mrb_intern_static(_0, _1, size_t_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_str_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern_str': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value _1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int ret_val = mrb_intern_str(_0, _1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_check_cstr_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern_check_cstr': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int ret_val = mrb_intern_check_cstr(_0, _1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_check_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern_check': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int ret_val = mrb_intern_check(_0, _1, size_t_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_intern_check_str_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_intern_check_str': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value _1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int ret_val = mrb_intern_check_str(_0, _1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_check_intern_cstr_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_check_intern_cstr': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_check_intern_cstr(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_check_intern_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_check_intern': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_check_intern(_0, _1, size_t_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_check_intern_str_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_check_intern_str': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value _1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_check_intern_str(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_sym_name_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_sym_name': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int mrb_sym_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    char *ret_val = mrb_sym_name(_0, mrb_sym_1);
-    return drb_ffi__ZTSPc_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_sym_name_len_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_sym_name_len': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int mrb_sym_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    int *_2 = drb_ffi__ZTSPi_FromRuby(state, args[2]);
-    char *ret_val = mrb_sym_name_len(_0, mrb_sym_1, _2);
-    return drb_ffi__ZTSPc_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_sym_dump_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_sym_dump': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int mrb_sym_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    char *ret_val = mrb_sym_dump(_0, mrb_sym_1);
-    return drb_ffi__ZTSPc_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_sym_str_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_sym_str': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int mrb_sym_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_sym_str(_0, mrb_sym_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_malloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_malloc': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int size_t_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    void *ret_val = mrb_malloc(_0, size_t_1);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_calloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_calloc': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int size_t_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    int _2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    void *ret_val = mrb_calloc(_0, size_t_1, _2);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_realloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_realloc': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    void *ret_val = mrb_realloc(_0, _1, size_t_2);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_realloc_simple_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_realloc_simple': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    void *ret_val = mrb_realloc_simple(_0, _1, size_t_2);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_malloc_simple_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_malloc_simple': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int size_t_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    void *ret_val = mrb_malloc_simple(_0, size_t_1);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_alloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_alloc': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    enum mrb_vtype _1 = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[1]);
-    struct RClass *_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    struct RBasic *ret_val = mrb_obj_alloc(_0, _1, _2);
-    return drb_ffi__ZTSP6RBasic_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_free_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_free': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_free(_0, _1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_str_new_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_str_new': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *p_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int len_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_str_new(mrb_0, p_1, len_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_str_new_cstr_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_str_new_cstr': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_str_new_cstr(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_str_new_static_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_str_new_static': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *p_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int len_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_str_new_static(mrb_0, p_1, len_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_freeze_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_freeze': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value _1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_obj_freeze(_0, _1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_open_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 0)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_open': wrong number of arguments (%d for 0)", argc);
-    mrb_state *ret_val = mrb_open();
-    return drb_ffi__ZTSP9mrb_state_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_open_allocf_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_open_allocf': wrong number of arguments (%d for 2)", argc);
-    void *(*f_0)(struct mrb_state *, void *, int, void *) = drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_FromRuby(state, args[0]);
-    void *ud_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_state *ret_val = mrb_open_allocf(f_0, ud_1);
-    return drb_ffi__ZTSP9mrb_state_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_open_core_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_open_core': wrong number of arguments (%d for 2)", argc);
-    void *(*f_0)(struct mrb_state *, void *, int, void *) = drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_FromRuby(state, args[0]);
-    void *ud_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_state *ret_val = mrb_open_core(f_0, ud_1);
-    return drb_ffi__ZTSP9mrb_state_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_close_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_close': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_close(mrb_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_default_allocf_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_default_allocf': wrong number of arguments (%d for 4)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    void *_3 = drb_ffi__ZTSPv_FromRuby(state, args[3]);
-    void *ret_val = mrb_default_allocf(_0, _1, size_t_2, _3);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_top_self_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_top_self': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value ret_val = mrb_top_self(mrb_0);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_top_run_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_top_run': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RProc *proc_1 = drb_ffi__ZTSP5RProc_FromRuby(state, args[1]);
-    mrb_value self_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    int stack_keep_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_top_run(mrb_0, proc_1, self_2, stack_keep_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_vm_run_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_vm_run': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RProc *proc_1 = drb_ffi__ZTSP5RProc_FromRuby(state, args[1]);
-    mrb_value self_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    int stack_keep_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_vm_run(mrb_0, proc_1, self_2, stack_keep_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_vm_exec_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_vm_exec': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RProc *proc_1 = drb_ffi__ZTSP5RProc_FromRuby(state, args[1]);
-    mrb_code *iseq_2 = drb_ffi__ZTSPi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_vm_exec(mrb_0, proc_1, iseq_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_p_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_p': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value _1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_p(_0, _1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_obj_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_id': wrong number of arguments (%d for 1)", argc);
-    mrb_value obj_0 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[0]);
-    int ret_val = mrb_obj_id(obj_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_to_sym_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_to_sym': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value name_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int ret_val = mrb_obj_to_sym(mrb_0, name_1);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_eq_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_eq': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value a_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value b_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_obj_eq(mrb_0, a_1, b_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_equal_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_equal': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value a_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value b_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_obj_equal(mrb_0, a_1, b_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_equal_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_equal': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj1_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value obj2_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_equal(mrb_0, obj1_1, obj2_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_convert_to_integer_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_convert_to_integer': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int base_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_convert_to_integer(mrb_0, val_1, base_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_Integer_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_Integer': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_Integer(mrb_0, val_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_Float_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_Float': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_Float(mrb_0, val_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_inspect_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_inspect': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_inspect(mrb_0, obj_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_eql_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_eql': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj1_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value obj2_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_eql(mrb_0, obj1_1, obj2_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_cmp_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_cmp': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj1_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value obj2_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    int ret_val = mrb_cmp(mrb_0, obj1_1, obj2_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_gc_arena_save_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_gc_arena_save': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int ret_val = mrb_gc_arena_save(mrb_0);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_gc_arena_restore_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_gc_arena_restore': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int idx_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_gc_arena_restore(mrb_0, idx_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_garbage_collect_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_garbage_collect': wrong number of arguments (%d for 1)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_garbage_collect(_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_full_gc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_full_gc': wrong number of arguments (%d for 1)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_full_gc(_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_incremental_gc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_incremental_gc': wrong number of arguments (%d for 1)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_incremental_gc(_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_gc_mark_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_gc_mark': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RBasic *_1 = drb_ffi__ZTSP6RBasic_FromRuby(state, args[1]);
-    mrb_gc_mark(_0, _1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_field_write_barrier_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_field_write_barrier': wrong number of arguments (%d for 3)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RBasic *_1 = drb_ffi__ZTSP6RBasic_FromRuby(state, args[1]);
-    struct RBasic *_2 = drb_ffi__ZTSP6RBasic_FromRuby(state, args[2]);
-    mrb_field_write_barrier(_0, _1, _2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_write_barrier_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_write_barrier': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RBasic *_1 = drb_ffi__ZTSP6RBasic_FromRuby(state, args[1]);
-    mrb_write_barrier(_0, _1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_type_convert_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_type_convert': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    enum mrb_vtype type_2 = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[2]);
-    int method_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_type_convert(mrb_0, val_1, type_2, method_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_type_convert_check_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_type_convert_check': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    enum mrb_vtype type_2 = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[2]);
-    int method_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_type_convert_check(mrb_0, val_1, type_2, method_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_any_to_s_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_any_to_s': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_any_to_s(mrb_0, obj_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_classname_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_classname': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    char *ret_val = mrb_obj_classname(mrb_0, obj_1);
-    return drb_ffi__ZTSPc_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_class_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_class': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    struct RClass *ret_val = mrb_obj_class(mrb_0, obj_1);
-    return drb_ffi__ZTSP6RClass_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_class_path_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_path': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_class_path(mrb_0, c_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_is_kind_of_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_is_kind_of': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    struct RClass *c_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_obj_is_kind_of(mrb_0, obj_1, c_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_inspect_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_inspect': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value self_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_obj_inspect(mrb_0, self_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_clone_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_clone': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value self_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_obj_clone(mrb_0, self_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_exc_new_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_exc_new': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *ptr_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    int len_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_exc_new(mrb_0, c_1, ptr_2, len_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_exc_raise_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_exc_raise': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value exc_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_exc_raise(mrb_0, exc_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_raise_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_raise': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *msg_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    mrb_raise(mrb_0, c_1, msg_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_frozen_error_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_frozen_error': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *frozen_obj_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_frozen_error(mrb_0, frozen_obj_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_argnum_error_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_argnum_error': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int argc_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    int min_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int max_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_argnum_error(mrb_0, argc_1, min_2, max_3);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_print_backtrace_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_print_backtrace': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_print_backtrace(mrb_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_print_error_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_print_error': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_print_error(mrb_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_vformat_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_vformat': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *format_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    int ap_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_vformat(mrb_0, format_1, ap_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_yield_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_yield': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value b_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value arg_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_yield(mrb_0, b_1, arg_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_yield_argv_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_yield_argv': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value b_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int argc_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value *argv_3 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_yield_argv(mrb_0, b_1, argc_2, argv_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_yield_with_class_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 6)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_yield_with_class': wrong number of arguments (%d for 6)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value b_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int argc_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value *argv_3 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[3]);
-    mrb_value self_4 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[4]);
-    struct RClass *c_5 = drb_ffi__ZTSP6RClass_FromRuby(state, args[5]);
-    mrb_value ret_val = mrb_yield_with_class(mrb_0, b_1, argc_2, argv_3, self_4, c_5);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_yield_cont_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 5)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_yield_cont': wrong number of arguments (%d for 5)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value b_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value self_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    int argc_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_value *argv_4 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[4]);
-    mrb_value ret_val = mrb_yield_cont(mrb_0, b_1, self_2, argc_3, argv_4);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_gc_protect_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_gc_protect': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_gc_protect(mrb_0, obj_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_gc_register_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_gc_register': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_gc_register(mrb_0, obj_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_gc_unregister_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_gc_unregister': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_gc_unregister(mrb_0, obj_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_to_int_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_to_int': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_to_int(mrb_0, val_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_to_str_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_to_str': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value val_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_to_str(mrb_0, val_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_check_type_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_check_type': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value x_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    enum mrb_vtype t_2 = drb_ffi__ZTS9mrb_vtype_FromRuby(state, args[2]);
-    mrb_check_type(mrb_0, x_1, t_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_check_frozen_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_check_frozen': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void *o_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    mrb_check_frozen(mrb_0, o_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_alias_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_alias': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *a_2 = drb_ffi__ZTSPc_FromRuby(state, args[2]);
-    char *b_3 = drb_ffi__ZTSPc_FromRuby(state, args[3]);
-    mrb_define_alias(mrb_0, c_1, a_2, b_3);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_define_alias_id_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_alias_id': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *c_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    int a_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int b_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    mrb_define_alias_id(mrb_0, c_1, a_2, b_3);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_class_name_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_class_name': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct RClass *klass_1 = drb_ffi__ZTSP6RClass_FromRuby(state, args[1]);
-    char *ret_val = mrb_class_name(mrb_0, klass_1);
-    return drb_ffi__ZTSPc_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_define_global_const_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_define_global_const': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    char *name_1 = drb_ffi__ZTSPc_FromRuby(state, args[1]);
-    mrb_value val_2 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[2]);
-    mrb_define_global_const(mrb_0, name_1, val_2);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_attr_get_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_attr_get': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int id_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_attr_get(mrb_0, obj_1, id_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_respond_to_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_respond_to': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int mid_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_respond_to(mrb_0, obj_1, mid_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_obj_is_instance_of_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_obj_is_instance_of': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    struct RClass *c_2 = drb_ffi__ZTSP6RClass_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_obj_is_instance_of(mrb_0, obj_1, c_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_func_basic_p_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_func_basic_p': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value obj_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int mid_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value (*func_3)(struct mrb_state *, mrb_value) = drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_FromRuby(state, args[3]);
-    mrb_bool ret_val = mrb_func_basic_p(mrb_0, obj_1, mid_2, func_3);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_fiber_resume_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_fiber_resume': wrong number of arguments (%d for 4)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value fib_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    int argc_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_value *argv_3 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[3]);
-    mrb_value ret_val = mrb_fiber_resume(mrb_0, fib_1, argc_2, argv_3);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_fiber_yield_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_fiber_yield': wrong number of arguments (%d for 3)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int argc_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_value *argv_2 = drb_ffi__ZTSP9mrb_value_FromRuby(state, args[2]);
-    mrb_value ret_val = mrb_fiber_yield(mrb_0, argc_1, argv_2);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_fiber_alive_p_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_fiber_alive_p': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_value fib_1 = drb_ffi__ZTS9mrb_value_FromRuby(state, args[1]);
-    mrb_value ret_val = mrb_fiber_alive_p(mrb_0, fib_1);
-    return drb_ffi__ZTS9mrb_value_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_stack_extend_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_stack_extend': wrong number of arguments (%d for 2)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int mrb_int_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    mrb_stack_extend(_0, mrb_int_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_pool_open_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_pool_open': wrong number of arguments (%d for 1)", argc);
-    mrb_state *_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    struct mrb_pool *ret_val = mrb_pool_open(_0);
-    return drb_ffi__ZTSP8mrb_pool_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_pool_close_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_pool_close': wrong number of arguments (%d for 1)", argc);
-    struct mrb_pool *_0 = drb_ffi__ZTSP8mrb_pool_FromRuby(state, args[0]);
-    mrb_pool_close(_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_pool_alloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_pool_alloc': wrong number of arguments (%d for 2)", argc);
-    struct mrb_pool *_0 = drb_ffi__ZTSP8mrb_pool_FromRuby(state, args[0]);
-    int size_t_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    void *ret_val = mrb_pool_alloc(_0, size_t_1);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_pool_realloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 4)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_pool_realloc': wrong number of arguments (%d for 4)", argc);
-    struct mrb_pool *_0 = drb_ffi__ZTSP8mrb_pool_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    int oldlen_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    int newlen_3 = drb_ffi__ZTSi_FromRuby(state, args[3]);
-    void *ret_val = mrb_pool_realloc(_0, _1, oldlen_2, newlen_3);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_pool_can_realloc_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 3)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_pool_can_realloc': wrong number of arguments (%d for 3)", argc);
-    struct mrb_pool *_0 = drb_ffi__ZTSP8mrb_pool_FromRuby(state, args[0]);
-    void *_1 = drb_ffi__ZTSPv_FromRuby(state, args[1]);
-    int size_t_2 = drb_ffi__ZTSi_FromRuby(state, args[2]);
-    mrb_bool ret_val = mrb_pool_can_realloc(_0, _1, size_t_2);
-    return drb_ffi__ZTSi_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_alloca_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_alloca': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    int size_t_1 = drb_ffi__ZTSi_FromRuby(state, args[1]);
-    void *ret_val = mrb_alloca(mrb_0, size_t_1);
-    return drb_ffi__ZTSPv_ToRuby(state, ret_val);
-}
-static mrb_value drb_ffi_mrb_state_atexit_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 2)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_state_atexit': wrong number of arguments (%d for 2)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    void (*func_1)(struct mrb_state *) = drb_ffi__ZTSPFvP9mrb_stateE_FromRuby(state, args[1]);
-    mrb_state_atexit(mrb_0, func_1);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_show_version_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_show_version': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_show_version(mrb_0);
-    return mrb_nil_value();
-}
-static mrb_value drb_ffi_mrb_show_copyright_Binding(mrb_state *state, mrb_value value) {
-    mrb_value *args = 0;
-    mrb_int argc = 0;
-    drb_api->mrb_get_args(state, "*", &args, &argc);
-    if (argc != 1)
-        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'mrb_show_copyright': wrong number of arguments (%d for 1)", argc);
-    mrb_state *mrb_0 = drb_ffi__ZTSP9mrb_state_FromRuby(state, args[0]);
-    mrb_show_copyright(mrb_0);
+        drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'rawDumpScript': wrong number of arguments (%d for 1)", argc);
+    unsigned int script_id_0 = drb_ffi__ZTSj_FromRuby(state, args[0]);
+    rawDumpScript(script_id_0);
     return mrb_nil_value();
 }
 static mrb_value drb_ffi_bridge_gpio_initialise_Binding(mrb_state *state, mrb_value value) {
@@ -5841,8 +3994,8 @@ static mrb_value drb_ffi_bridge_gpio_terminate_Binding(mrb_state *state, mrb_val
     drb_api->mrb_get_args(state, "*", &args, &argc);
     if (argc != 0)
         drb_api->mrb_raisef(state, drb_api->drb_getargument_error(state), "'bridge_gpio_terminate': wrong number of arguments (%d for 0)", argc);
-    bridge_gpio_terminate();
-    return mrb_nil_value();
+    int ret_val = bridge_gpio_terminate();
+    return drb_ffi__ZTSi_ToRuby(state, ret_val);
 }
 static mrb_value drb_ffi_bridge_gpio_set_mode_Binding(mrb_state *state, mrb_value value) {
     mrb_value *args = 0;
@@ -5904,205 +4057,181 @@ void drb_register_c_extensions_with_api(mrb_state *state, struct drb_api_t *api)
     struct RClass *FFI = drb_api->mrb_module_get(state, "FFI");
     struct RClass *module = drb_api->mrb_define_module_under(state, FFI, "PIGPIO");
     struct RClass *object_class = state->object_class;
-    drb_api->mrb_define_module_function(state, module, "fclose", drb_ffi_fclose_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "fflush", drb_ffi_fflush_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "vfprintf", drb_ffi_vfprintf_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "vprintf", drb_ffi_vprintf_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "fgetc", drb_ffi_fgetc_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "getc", drb_ffi_getc_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "getchar", drb_ffi_getchar_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "fputc", drb_ffi_fputc_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "putc", drb_ffi_putc_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "putchar", drb_ffi_putchar_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "fputs", drb_ffi_fputs_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "puts", drb_ffi_puts_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "ungetc", drb_ffi_ungetc_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "fwrite", drb_ffi_fwrite_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "fseek", drb_ffi_fseek_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "rewind", drb_ffi_rewind_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "fgetpos", drb_ffi_fgetpos_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "fsetpos", drb_ffi_fsetpos_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "perror", drb_ffi_perror_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "__uflow", drb_ffi___uflow_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "__overflow", drb_ffi___overflow_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_float_read", drb_ffi_mrb_float_read_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_val_union", drb_ffi_mrb_val_union_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_word_boxing_cptr_value", drb_ffi_mrb_word_boxing_cptr_value_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_word_boxing_float_value", drb_ffi_mrb_word_boxing_float_value_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_word_boxing_int_value", drb_ffi_mrb_word_boxing_int_value_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_integer_func", drb_ffi_mrb_integer_func_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_type", drb_ffi_mrb_type_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_float_value", drb_ffi_mrb_float_value_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_cptr_value", drb_ffi_mrb_cptr_value_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_int_value", drb_ffi_mrb_int_value_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_fixnum_value", drb_ffi_mrb_fixnum_value_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_symbol_value", drb_ffi_mrb_symbol_value_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_value", drb_ffi_mrb_obj_value_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_nil_value", drb_ffi_mrb_nil_value_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "mrb_false_value", drb_ffi_mrb_false_value_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "mrb_true_value", drb_ffi_mrb_true_value_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "mrb_bool_value", drb_ffi_mrb_bool_value_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_undef_value", drb_ffi_mrb_undef_value_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "mrb_objspace_each_objects", drb_ffi_mrb_objspace_each_objects_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_objspace_page_slot_size", drb_ffi_mrb_objspace_page_slot_size_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "mrb_free_context", drb_ffi_mrb_free_context_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_object_dead_p", drb_ffi_mrb_object_dead_p_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_class", drb_ffi_mrb_define_class_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_class_id", drb_ffi_mrb_define_class_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_module", drb_ffi_mrb_define_module_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_module_id", drb_ffi_mrb_define_module_id_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_singleton_class", drb_ffi_mrb_singleton_class_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_singleton_class_ptr", drb_ffi_mrb_singleton_class_ptr_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_include_module", drb_ffi_mrb_include_module_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_prepend_module", drb_ffi_mrb_prepend_module_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_method", drb_ffi_mrb_define_method_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_method_id", drb_ffi_mrb_define_method_id_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_class_method", drb_ffi_mrb_define_class_method_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_class_method_id", drb_ffi_mrb_define_class_method_id_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_singleton_method", drb_ffi_mrb_define_singleton_method_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_singleton_method_id", drb_ffi_mrb_define_singleton_method_id_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_module_function", drb_ffi_mrb_define_module_function_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_module_function_id", drb_ffi_mrb_define_module_function_id_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_const", drb_ffi_mrb_define_const_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_const_id", drb_ffi_mrb_define_const_id_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_undef_method", drb_ffi_mrb_undef_method_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_undef_method_id", drb_ffi_mrb_undef_method_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_undef_class_method", drb_ffi_mrb_undef_class_method_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_undef_class_method_id", drb_ffi_mrb_undef_class_method_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_new", drb_ffi_mrb_obj_new_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_new_instance", drb_ffi_mrb_class_new_instance_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_new", drb_ffi_mrb_class_new_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_module_new", drb_ffi_mrb_module_new_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_defined", drb_ffi_mrb_class_defined_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_defined_id", drb_ffi_mrb_class_defined_id_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_get", drb_ffi_mrb_class_get_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_get_id", drb_ffi_mrb_class_get_id_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_exc_get_id", drb_ffi_mrb_exc_get_id_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_defined_under", drb_ffi_mrb_class_defined_under_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_defined_under_id", drb_ffi_mrb_class_defined_under_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_get_under", drb_ffi_mrb_class_get_under_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_get_under_id", drb_ffi_mrb_class_get_under_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_module_get", drb_ffi_mrb_module_get_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_module_get_id", drb_ffi_mrb_module_get_id_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_module_get_under", drb_ffi_mrb_module_get_under_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_module_get_under_id", drb_ffi_mrb_module_get_under_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_notimplement", drb_ffi_mrb_notimplement_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_notimplement_m", drb_ffi_mrb_notimplement_m_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_dup", drb_ffi_mrb_obj_dup_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_respond_to", drb_ffi_mrb_obj_respond_to_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_class_under", drb_ffi_mrb_define_class_under_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_class_under_id", drb_ffi_mrb_define_class_under_id_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_module_under", drb_ffi_mrb_define_module_under_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_module_under_id", drb_ffi_mrb_define_module_under_id_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_get_mid", drb_ffi_mrb_get_mid_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_get_argc", drb_ffi_mrb_get_argc_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_get_argv", drb_ffi_mrb_get_argv_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_get_arg1", drb_ffi_mrb_get_arg1_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_funcall_argv", drb_ffi_mrb_funcall_argv_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_funcall_with_block", drb_ffi_mrb_funcall_with_block_Binding, MRB_ARGS_REQ(6));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern_cstr", drb_ffi_mrb_intern_cstr_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern", drb_ffi_mrb_intern_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern_static", drb_ffi_mrb_intern_static_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern_str", drb_ffi_mrb_intern_str_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern_check_cstr", drb_ffi_mrb_intern_check_cstr_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern_check", drb_ffi_mrb_intern_check_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_intern_check_str", drb_ffi_mrb_intern_check_str_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_check_intern_cstr", drb_ffi_mrb_check_intern_cstr_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_check_intern", drb_ffi_mrb_check_intern_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_check_intern_str", drb_ffi_mrb_check_intern_str_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_sym_name", drb_ffi_mrb_sym_name_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_sym_name_len", drb_ffi_mrb_sym_name_len_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_sym_dump", drb_ffi_mrb_sym_dump_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_sym_str", drb_ffi_mrb_sym_str_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_malloc", drb_ffi_mrb_malloc_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_calloc", drb_ffi_mrb_calloc_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_realloc", drb_ffi_mrb_realloc_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_realloc_simple", drb_ffi_mrb_realloc_simple_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_malloc_simple", drb_ffi_mrb_malloc_simple_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_alloc", drb_ffi_mrb_obj_alloc_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_free", drb_ffi_mrb_free_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_str_new", drb_ffi_mrb_str_new_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_str_new_cstr", drb_ffi_mrb_str_new_cstr_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_str_new_static", drb_ffi_mrb_str_new_static_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_freeze", drb_ffi_mrb_obj_freeze_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_open", drb_ffi_mrb_open_Binding, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_module_function(state, module, "mrb_open_allocf", drb_ffi_mrb_open_allocf_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_open_core", drb_ffi_mrb_open_core_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_close", drb_ffi_mrb_close_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_default_allocf", drb_ffi_mrb_default_allocf_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_top_self", drb_ffi_mrb_top_self_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_top_run", drb_ffi_mrb_top_run_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_vm_run", drb_ffi_mrb_vm_run_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_vm_exec", drb_ffi_mrb_vm_exec_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_p", drb_ffi_mrb_p_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_id", drb_ffi_mrb_obj_id_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_to_sym", drb_ffi_mrb_obj_to_sym_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_eq", drb_ffi_mrb_obj_eq_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_equal", drb_ffi_mrb_obj_equal_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_equal", drb_ffi_mrb_equal_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_convert_to_integer", drb_ffi_mrb_convert_to_integer_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_Integer", drb_ffi_mrb_Integer_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_Float", drb_ffi_mrb_Float_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_inspect", drb_ffi_mrb_inspect_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_eql", drb_ffi_mrb_eql_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_cmp", drb_ffi_mrb_cmp_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_gc_arena_save", drb_ffi_mrb_gc_arena_save_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_gc_arena_restore", drb_ffi_mrb_gc_arena_restore_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_garbage_collect", drb_ffi_mrb_garbage_collect_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_full_gc", drb_ffi_mrb_full_gc_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_incremental_gc", drb_ffi_mrb_incremental_gc_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_gc_mark", drb_ffi_mrb_gc_mark_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_field_write_barrier", drb_ffi_mrb_field_write_barrier_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_write_barrier", drb_ffi_mrb_write_barrier_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_type_convert", drb_ffi_mrb_type_convert_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_type_convert_check", drb_ffi_mrb_type_convert_check_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_any_to_s", drb_ffi_mrb_any_to_s_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_classname", drb_ffi_mrb_obj_classname_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_class", drb_ffi_mrb_obj_class_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_path", drb_ffi_mrb_class_path_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_is_kind_of", drb_ffi_mrb_obj_is_kind_of_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_inspect", drb_ffi_mrb_obj_inspect_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_clone", drb_ffi_mrb_obj_clone_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_exc_new", drb_ffi_mrb_exc_new_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_exc_raise", drb_ffi_mrb_exc_raise_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_raise", drb_ffi_mrb_raise_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_frozen_error", drb_ffi_mrb_frozen_error_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_argnum_error", drb_ffi_mrb_argnum_error_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_print_backtrace", drb_ffi_mrb_print_backtrace_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_print_error", drb_ffi_mrb_print_error_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_vformat", drb_ffi_mrb_vformat_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_yield", drb_ffi_mrb_yield_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_yield_argv", drb_ffi_mrb_yield_argv_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_yield_with_class", drb_ffi_mrb_yield_with_class_Binding, MRB_ARGS_REQ(6));
-    drb_api->mrb_define_module_function(state, module, "mrb_yield_cont", drb_ffi_mrb_yield_cont_Binding, MRB_ARGS_REQ(5));
-    drb_api->mrb_define_module_function(state, module, "mrb_gc_protect", drb_ffi_mrb_gc_protect_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_gc_register", drb_ffi_mrb_gc_register_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_gc_unregister", drb_ffi_mrb_gc_unregister_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_to_int", drb_ffi_mrb_to_int_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_to_str", drb_ffi_mrb_to_str_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_check_type", drb_ffi_mrb_check_type_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_check_frozen", drb_ffi_mrb_check_frozen_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_alias", drb_ffi_mrb_define_alias_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_alias_id", drb_ffi_mrb_define_alias_id_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_class_name", drb_ffi_mrb_class_name_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_define_global_const", drb_ffi_mrb_define_global_const_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_attr_get", drb_ffi_mrb_attr_get_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_respond_to", drb_ffi_mrb_respond_to_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_obj_is_instance_of", drb_ffi_mrb_obj_is_instance_of_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_func_basic_p", drb_ffi_mrb_func_basic_p_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_fiber_resume", drb_ffi_mrb_fiber_resume_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_fiber_yield", drb_ffi_mrb_fiber_yield_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_fiber_alive_p", drb_ffi_mrb_fiber_alive_p_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_stack_extend", drb_ffi_mrb_stack_extend_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_pool_open", drb_ffi_mrb_pool_open_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_pool_close", drb_ffi_mrb_pool_close_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_pool_alloc", drb_ffi_mrb_pool_alloc_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_pool_realloc", drb_ffi_mrb_pool_realloc_Binding, MRB_ARGS_REQ(4));
-    drb_api->mrb_define_module_function(state, module, "mrb_pool_can_realloc", drb_ffi_mrb_pool_can_realloc_Binding, MRB_ARGS_REQ(3));
-    drb_api->mrb_define_module_function(state, module, "mrb_alloca", drb_ffi_mrb_alloca_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_state_atexit", drb_ffi_mrb_state_atexit_Binding, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_module_function(state, module, "mrb_show_version", drb_ffi_mrb_show_version_Binding, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_module_function(state, module, "mrb_show_copyright", drb_ffi_mrb_show_copyright_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "nanosleep", drb_ffi_nanosleep_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "clock_nanosleep", drb_ffi_clock_nanosleep_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "pthread_exit", drb_ffi_pthread_exit_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "pthread_join", drb_ffi_pthread_join_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "pthread_setcancelstate", drb_ffi_pthread_setcancelstate_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "pthread_setcanceltype", drb_ffi_pthread_setcanceltype_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "pthread_cancel", drb_ffi_pthread_cancel_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "pthread_testcancel", drb_ffi_pthread_testcancel_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "__pthread_register_cancel", drb_ffi___pthread_register_cancel_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "__pthread_unregister_cancel", drb_ffi___pthread_unregister_cancel_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "__pthread_unwind_next", drb_ffi___pthread_unwind_next_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioInitialise", drb_ffi_gpioInitialise_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioTerminate", drb_ffi_gpioTerminate_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioSetMode", drb_ffi_gpioSetMode_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioGetMode", drb_ffi_gpioGetMode_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioSetPullUpDown", drb_ffi_gpioSetPullUpDown_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioRead", drb_ffi_gpioRead_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioWrite", drb_ffi_gpioWrite_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioPWM", drb_ffi_gpioPWM_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioGetPWMdutycycle", drb_ffi_gpioGetPWMdutycycle_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioSetPWMrange", drb_ffi_gpioSetPWMrange_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioGetPWMrange", drb_ffi_gpioGetPWMrange_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioGetPWMrealRange", drb_ffi_gpioGetPWMrealRange_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioSetPWMfrequency", drb_ffi_gpioSetPWMfrequency_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioGetPWMfrequency", drb_ffi_gpioGetPWMfrequency_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioServo", drb_ffi_gpioServo_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioGetServoPulsewidth", drb_ffi_gpioGetServoPulsewidth_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioSetAlertFunc", drb_ffi_gpioSetAlertFunc_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioSetAlertFuncEx", drb_ffi_gpioSetAlertFuncEx_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSetISRFunc", drb_ffi_gpioSetISRFunc_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "gpioSetISRFuncEx", drb_ffi_gpioSetISRFuncEx_Binding, MRB_ARGS_REQ(5));
+    drb_api->mrb_define_module_function(state, module, "gpioNotifyOpen", drb_ffi_gpioNotifyOpen_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioNotifyOpenWithSize", drb_ffi_gpioNotifyOpenWithSize_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioNotifyBegin", drb_ffi_gpioNotifyBegin_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioNotifyPause", drb_ffi_gpioNotifyPause_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioNotifyClose", drb_ffi_gpioNotifyClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveClear", drb_ffi_gpioWaveClear_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveAddNew", drb_ffi_gpioWaveAddNew_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveAddGeneric", drb_ffi_gpioWaveAddGeneric_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveAddSerial", drb_ffi_gpioWaveAddSerial_Binding, MRB_ARGS_REQ(7));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveCreate", drb_ffi_gpioWaveCreate_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveCreatePad", drb_ffi_gpioWaveCreatePad_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveDelete", drb_ffi_gpioWaveDelete_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveTxSend", drb_ffi_gpioWaveTxSend_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveChain", drb_ffi_gpioWaveChain_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveTxAt", drb_ffi_gpioWaveTxAt_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveTxBusy", drb_ffi_gpioWaveTxBusy_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveTxStop", drb_ffi_gpioWaveTxStop_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetMicros", drb_ffi_gpioWaveGetMicros_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetHighMicros", drb_ffi_gpioWaveGetHighMicros_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetMaxMicros", drb_ffi_gpioWaveGetMaxMicros_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetPulses", drb_ffi_gpioWaveGetPulses_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetHighPulses", drb_ffi_gpioWaveGetHighPulses_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetMaxPulses", drb_ffi_gpioWaveGetMaxPulses_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetCbs", drb_ffi_gpioWaveGetCbs_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetHighCbs", drb_ffi_gpioWaveGetHighCbs_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWaveGetMaxCbs", drb_ffi_gpioWaveGetMaxCbs_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioSerialReadOpen", drb_ffi_gpioSerialReadOpen_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSerialReadInvert", drb_ffi_gpioSerialReadInvert_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioSerialRead", drb_ffi_gpioSerialRead_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSerialReadClose", drb_ffi_gpioSerialReadClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "i2cOpen", drb_ffi_i2cOpen_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cClose", drb_ffi_i2cClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteQuick", drb_ffi_i2cWriteQuick_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteByte", drb_ffi_i2cWriteByte_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "i2cReadByte", drb_ffi_i2cReadByte_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteByteData", drb_ffi_i2cWriteByteData_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteWordData", drb_ffi_i2cWriteWordData_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cReadByteData", drb_ffi_i2cReadByteData_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "i2cReadWordData", drb_ffi_i2cReadWordData_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "i2cProcessCall", drb_ffi_i2cProcessCall_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteBlockData", drb_ffi_i2cWriteBlockData_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "i2cReadBlockData", drb_ffi_i2cReadBlockData_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cBlockProcessCall", drb_ffi_i2cBlockProcessCall_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "i2cReadI2CBlockData", drb_ffi_i2cReadI2CBlockData_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteI2CBlockData", drb_ffi_i2cWriteI2CBlockData_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "i2cReadDevice", drb_ffi_i2cReadDevice_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cWriteDevice", drb_ffi_i2cWriteDevice_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cSwitchCombined", drb_ffi_i2cSwitchCombined_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "i2cSegments", drb_ffi_i2cSegments_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "i2cZip", drb_ffi_i2cZip_Binding, MRB_ARGS_REQ(5));
+    drb_api->mrb_define_module_function(state, module, "bbI2COpen", drb_ffi_bbI2COpen_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "bbI2CClose", drb_ffi_bbI2CClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "bbI2CZip", drb_ffi_bbI2CZip_Binding, MRB_ARGS_REQ(5));
+    drb_api->mrb_define_module_function(state, module, "bscXfer", drb_ffi_bscXfer_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "bbSPIOpen", drb_ffi_bbSPIOpen_Binding, MRB_ARGS_REQ(6));
+    drb_api->mrb_define_module_function(state, module, "bbSPIClose", drb_ffi_bbSPIClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "bbSPIXfer", drb_ffi_bbSPIXfer_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "spiOpen", drb_ffi_spiOpen_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "spiClose", drb_ffi_spiClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "spiRead", drb_ffi_spiRead_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "spiWrite", drb_ffi_spiWrite_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "spiXfer", drb_ffi_spiXfer_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "serOpen", drb_ffi_serOpen_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "serClose", drb_ffi_serClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "serWriteByte", drb_ffi_serWriteByte_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "serReadByte", drb_ffi_serReadByte_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "serWrite", drb_ffi_serWrite_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "serRead", drb_ffi_serRead_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "serDataAvailable", drb_ffi_serDataAvailable_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioTrigger", drb_ffi_gpioTrigger_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSetWatchdog", drb_ffi_gpioSetWatchdog_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioNoiseFilter", drb_ffi_gpioNoiseFilter_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioGlitchFilter", drb_ffi_gpioGlitchFilter_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioSetGetSamplesFunc", drb_ffi_gpioSetGetSamplesFunc_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioSetGetSamplesFuncEx", drb_ffi_gpioSetGetSamplesFuncEx_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSetTimerFunc", drb_ffi_gpioSetTimerFunc_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSetTimerFuncEx", drb_ffi_gpioSetTimerFuncEx_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "gpioStartThread", drb_ffi_gpioStartThread_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioStopThread", drb_ffi_gpioStopThread_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioStoreScript", drb_ffi_gpioStoreScript_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioRunScript", drb_ffi_gpioRunScript_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioUpdateScript", drb_ffi_gpioUpdateScript_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioScriptStatus", drb_ffi_gpioScriptStatus_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioStopScript", drb_ffi_gpioStopScript_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioDeleteScript", drb_ffi_gpioDeleteScript_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioSetSignalFunc", drb_ffi_gpioSetSignalFunc_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioSetSignalFuncEx", drb_ffi_gpioSetSignalFuncEx_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioRead_Bits_0_31", drb_ffi_gpioRead_Bits_0_31_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioRead_Bits_32_53", drb_ffi_gpioRead_Bits_32_53_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioWrite_Bits_0_31_Clear", drb_ffi_gpioWrite_Bits_0_31_Clear_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioWrite_Bits_32_53_Clear", drb_ffi_gpioWrite_Bits_32_53_Clear_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioWrite_Bits_0_31_Set", drb_ffi_gpioWrite_Bits_0_31_Set_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioWrite_Bits_32_53_Set", drb_ffi_gpioWrite_Bits_32_53_Set_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioHardwareClock", drb_ffi_gpioHardwareClock_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioHardwarePWM", drb_ffi_gpioHardwarePWM_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioTime", drb_ffi_gpioTime_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioSleep", drb_ffi_gpioSleep_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioDelay", drb_ffi_gpioDelay_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioTick", drb_ffi_gpioTick_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioHardwareRevision", drb_ffi_gpioHardwareRevision_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioVersion", drb_ffi_gpioVersion_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioGetPad", drb_ffi_gpioGetPad_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioSetPad", drb_ffi_gpioSetPad_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "eventMonitor", drb_ffi_eventMonitor_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "eventSetFunc", drb_ffi_eventSetFunc_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "eventSetFuncEx", drb_ffi_eventSetFuncEx_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "eventTrigger", drb_ffi_eventTrigger_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "shell", drb_ffi_shell_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "fileOpen", drb_ffi_fileOpen_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "fileClose", drb_ffi_fileClose_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "fileWrite", drb_ffi_fileWrite_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "fileRead", drb_ffi_fileRead_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "fileSeek", drb_ffi_fileSeek_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "fileList", drb_ffi_fileList_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgBufferSize", drb_ffi_gpioCfgBufferSize_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgClock", drb_ffi_gpioCfgClock_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgDMAchannel", drb_ffi_gpioCfgDMAchannel_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgDMAchannels", drb_ffi_gpioCfgDMAchannels_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgPermissions", drb_ffi_gpioCfgPermissions_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgSocketPort", drb_ffi_gpioCfgSocketPort_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgInterfaces", drb_ffi_gpioCfgInterfaces_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgMemAlloc", drb_ffi_gpioCfgMemAlloc_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgNetAddr", drb_ffi_gpioCfgNetAddr_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgGetInternals", drb_ffi_gpioCfgGetInternals_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "gpioCfgSetInternals", drb_ffi_gpioCfgSetInternals_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "gpioCustom1", drb_ffi_gpioCustom1_Binding, MRB_ARGS_REQ(4));
+    drb_api->mrb_define_module_function(state, module, "gpioCustom2", drb_ffi_gpioCustom2_Binding, MRB_ARGS_REQ(5));
+    drb_api->mrb_define_module_function(state, module, "rawWaveAddSPI", drb_ffi_rawWaveAddSPI_Binding, MRB_ARGS_REQ(8));
+    drb_api->mrb_define_module_function(state, module, "rawWaveAddGeneric", drb_ffi_rawWaveAddGeneric_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "rawWaveCB", drb_ffi_rawWaveCB_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "rawWaveCBAdr", drb_ffi_rawWaveCBAdr_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "rawWaveGetOOL", drb_ffi_rawWaveGetOOL_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "rawWaveSetOOL", drb_ffi_rawWaveSetOOL_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "rawWaveGetOut", drb_ffi_rawWaveGetOut_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "rawWaveSetOut", drb_ffi_rawWaveSetOut_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "rawWaveGetIn", drb_ffi_rawWaveGetIn_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "rawWaveSetIn", drb_ffi_rawWaveSetIn_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "rawWaveInfo", drb_ffi_rawWaveInfo_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "getBitInBytes", drb_ffi_getBitInBytes_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "putBitInBytes", drb_ffi_putBitInBytes_Binding, MRB_ARGS_REQ(3));
+    drb_api->mrb_define_module_function(state, module, "time_time", drb_ffi_time_time_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "time_sleep", drb_ffi_time_sleep_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "rawDumpWave", drb_ffi_rawDumpWave_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "rawDumpScript", drb_ffi_rawDumpScript_Binding, MRB_ARGS_REQ(1));
     drb_api->mrb_define_module_function(state, module, "bridge_gpio_initialise", drb_ffi_bridge_gpio_initialise_Binding, MRB_ARGS_REQ(0));
     drb_api->mrb_define_module_function(state, module, "bridge_gpio_terminate", drb_ffi_bridge_gpio_terminate_Binding, MRB_ARGS_REQ(0));
     drb_api->mrb_define_module_function(state, module, "bridge_gpio_set_mode", drb_ffi_bridge_gpio_set_mode_Binding, MRB_ARGS_REQ(2));
@@ -6110,12 +4239,50 @@ void drb_register_c_extensions_with_api(mrb_state *state, struct drb_api_t *api)
     drb_api->mrb_define_module_function(state, module, "bridge_gpio_glitch_filter", drb_ffi_bridge_gpio_glitch_filter_Binding, MRB_ARGS_REQ(2));
     drb_api->mrb_define_module_function(state, module, "bridge_gpio_read", drb_ffi_bridge_gpio_read_Binding, MRB_ARGS_REQ(1));
     drb_api->mrb_define_module_function(state, module, "bridge_gpio_write", drb_ffi_bridge_gpio_write_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_initialise", drb_ffi_bridge_gpio_initialise_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_terminate", drb_ffi_bridge_gpio_terminate_Binding, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_set_mode", drb_ffi_bridge_gpio_set_mode_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_set_pull_up_down", drb_ffi_bridge_gpio_set_pull_up_down_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_glitch_filter", drb_ffi_bridge_gpio_glitch_filter_Binding, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_read", drb_ffi_bridge_gpio_read_Binding, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_module_function(state, module, "bridge_gpio_write", drb_ffi_bridge_gpio_write_Binding, MRB_ARGS_REQ(2));
+    struct RClass *TimespecPointerClass = drb_api->mrb_define_class_under(state, module, "TimespecPointer", object_class);
+    drb_api->mrb_define_class_method(state, TimespecPointerClass, "new", drb_ffi__ZTSPZ9nanosleepE8timespec_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, TimespecPointerClass, "value", drb_ffi__ZTSPZ9nanosleepE8timespec_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, TimespecPointerClass, "[]", drb_ffi__ZTSPZ9nanosleepE8timespec_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, TimespecPointerClass, "[]=", drb_ffi__ZTSPZ9nanosleepE8timespec_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, TimespecPointerClass, "nil?", drb_ffi__ZTSPZ9nanosleepE8timespec_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *VoidPointerClass = drb_api->mrb_define_class_under(state, module, "VoidPointer", object_class);
+    struct RClass *VoidPointerPointerClass = drb_api->mrb_define_class_under(state, module, "VoidPointerPointer", object_class);
+    drb_api->mrb_define_class_method(state, VoidPointerPointerClass, "new", drb_ffi__ZTSPPv_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, VoidPointerPointerClass, "value", drb_ffi__ZTSPPv_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, VoidPointerPointerClass, "[]", drb_ffi__ZTSPPv_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, VoidPointerPointerClass, "[]=", drb_ffi__ZTSPPv_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, VoidPointerPointerClass, "nil?", drb_ffi__ZTSPPv_IsNil, MRB_ARGS_REQ(0));
     struct RClass *IntPointerClass = drb_api->mrb_define_class_under(state, module, "IntPointer", object_class);
     drb_api->mrb_define_class_method(state, IntPointerClass, "new", drb_ffi__ZTSPi_New, MRB_ARGS_REQ(0));
     drb_api->mrb_define_method(state, IntPointerClass, "value", drb_ffi__ZTSPi_GetValue, MRB_ARGS_REQ(0));
     drb_api->mrb_define_method(state, IntPointerClass, "[]", drb_ffi__ZTSPi_GetAt, MRB_ARGS_REQ(1));
     drb_api->mrb_define_method(state, IntPointerClass, "[]=", drb_ffi__ZTSPi_SetAt, MRB_ARGS_REQ(2));
     drb_api->mrb_define_method(state, IntPointerClass, "nil?", drb_ffi__ZTSPi_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *PointerClass = drb_api->mrb_define_class_under(state, module, "Pointer", object_class);
+    drb_api->mrb_define_class_method(state, PointerClass, "new", drb_ffi__ZTSP3$_0_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, PointerClass, "value", drb_ffi__ZTSP3$_0_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, PointerClass, "[]", drb_ffi__ZTSP3$_0_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, PointerClass, "[]=", drb_ffi__ZTSP3$_0_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, PointerClass, "nil?", drb_ffi__ZTSP3$_0_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_0PointerClass = drb_api->mrb_define_class_under(state, module, "Function_0Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_0PointerClass, "new", drb_ffi__ZTSPFviiiE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_0PointerClass, "value", drb_ffi__ZTSPFviiiE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_0PointerClass, "[]", drb_ffi__ZTSPFviiiE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_0PointerClass, "[]=", drb_ffi__ZTSPFviiiE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_0PointerClass, "nil?", drb_ffi__ZTSPFviiiE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_1PointerClass = drb_api->mrb_define_class_under(state, module, "Function_1Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_1PointerClass, "new", drb_ffi__ZTSPFviiiPvE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_1PointerClass, "value", drb_ffi__ZTSPFviiiPvE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_1PointerClass, "[]", drb_ffi__ZTSPFviiiPvE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_1PointerClass, "[]=", drb_ffi__ZTSPFviiiPvE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_1PointerClass, "nil?", drb_ffi__ZTSPFviiiPvE_IsNil, MRB_ARGS_REQ(0));
     struct RClass *CharPointerClass = drb_api->mrb_define_class_under(state, module, "CharPointer", object_class);
     drb_api->mrb_define_class_method(state, CharPointerClass, "new", drb_ffi__ZTSPc_New, MRB_ARGS_REQ(0));
     drb_api->mrb_define_method(state, CharPointerClass, "value", drb_ffi__ZTSPc_GetValue, MRB_ARGS_REQ(0));
@@ -6123,433 +4290,76 @@ void drb_register_c_extensions_with_api(mrb_state *state, struct drb_api_t *api)
     drb_api->mrb_define_method(state, CharPointerClass, "[]=", drb_ffi__ZTSPc_SetAt, MRB_ARGS_REQ(2));
     drb_api->mrb_define_method(state, CharPointerClass, "nil?", drb_ffi__ZTSPc_IsNil, MRB_ARGS_REQ(0));
     drb_api->mrb_define_method(state, CharPointerClass, "str", drb_ffi__ZTSPc_GetString, MRB_ARGS_REQ(0));
-    struct RClass *VoidPointerClass = drb_api->mrb_define_class_under(state, module, "VoidPointer", object_class);
-    struct RClass *CharPointerPointerClass = drb_api->mrb_define_class_under(state, module, "CharPointerPointer", object_class);
-    drb_api->mrb_define_class_method(state, CharPointerPointerClass, "new", drb_ffi__ZTSPPc_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, CharPointerPointerClass, "value", drb_ffi__ZTSPPc_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, CharPointerPointerClass, "[]", drb_ffi__ZTSPPc_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, CharPointerPointerClass, "[]=", drb_ffi__ZTSPPc_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, CharPointerPointerClass, "nil?", drb_ffi__ZTSPPc_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_statePointerClass = drb_api->mrb_define_class_under(state, module, "Mrb_statePointer", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_statePointerClass, "new", drb_ffi__ZTSP9mrb_state_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_statePointerClass, "value", drb_ffi__ZTSP9mrb_state_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_statePointerClass, "[]", drb_ffi__ZTSP9mrb_state_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_statePointerClass, "[]=", drb_ffi__ZTSP9mrb_state_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Mrb_statePointerClass, "nil?", drb_ffi__ZTSP9mrb_state_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Function_0PointerClass = drb_api->mrb_define_class_under(state, module, "Function_0Pointer", object_class);
-    drb_api->mrb_define_class_method(state, Function_0PointerClass, "new", drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_0PointerClass, "value", drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_0PointerClass, "[]", drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Function_0PointerClass, "[]=", drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Function_0PointerClass, "nil?", drb_ffi__ZTSPFiP9mrb_stateP6RBasicPvE_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_contextPointerClass = drb_api->mrb_define_class_under(state, module, "Mrb_contextPointer", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_contextPointerClass, "new", drb_ffi__ZTSP11mrb_context_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextPointerClass, "value", drb_ffi__ZTSP11mrb_context_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextPointerClass, "[]", drb_ffi__ZTSP11mrb_context_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextPointerClass, "[]=", drb_ffi__ZTSP11mrb_context_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Mrb_contextPointerClass, "nil?", drb_ffi__ZTSP11mrb_context_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RBasicPointerClass = drb_api->mrb_define_class_under(state, module, "RBasicPointer", object_class);
-    drb_api->mrb_define_class_method(state, RBasicPointerClass, "new", drb_ffi__ZTSP6RBasic_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicPointerClass, "value", drb_ffi__ZTSP6RBasic_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicPointerClass, "[]", drb_ffi__ZTSP6RBasic_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RBasicPointerClass, "[]=", drb_ffi__ZTSP6RBasic_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RBasicPointerClass, "nil?", drb_ffi__ZTSP6RBasic_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RClassPointerClass = drb_api->mrb_define_class_under(state, module, "RClassPointer", object_class);
-    drb_api->mrb_define_class_method(state, RClassPointerClass, "new", drb_ffi__ZTSP6RClass_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RClassPointerClass, "value", drb_ffi__ZTSP6RClass_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RClassPointerClass, "[]", drb_ffi__ZTSP6RClass_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RClassPointerClass, "[]=", drb_ffi__ZTSP6RClass_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RClassPointerClass, "nil?", drb_ffi__ZTSP6RClass_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Function_1PointerClass = drb_api->mrb_define_class_under(state, module, "Function_1Pointer", object_class);
-    drb_api->mrb_define_class_method(state, Function_1PointerClass, "new", drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_1PointerClass, "value", drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_1PointerClass, "[]", drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Function_1PointerClass, "[]=", drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Function_1PointerClass, "nil?", drb_ffi__ZTSPF9mrb_valueP9mrb_stateS_E_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RObjectPointerClass = drb_api->mrb_define_class_under(state, module, "RObjectPointer", object_class);
-    drb_api->mrb_define_class_method(state, RObjectPointerClass, "new", drb_ffi__ZTSP7RObject_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectPointerClass, "value", drb_ffi__ZTSP7RObject_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectPointerClass, "[]", drb_ffi__ZTSP7RObject_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RObjectPointerClass, "[]=", drb_ffi__ZTSP7RObject_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RObjectPointerClass, "nil?", drb_ffi__ZTSP7RObject_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_valuePointerClass = drb_api->mrb_define_class_under(state, module, "Mrb_valuePointer", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_valuePointerClass, "new", drb_ffi__ZTSP9mrb_value_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_valuePointerClass, "value", drb_ffi__ZTSP9mrb_value_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_valuePointerClass, "[]", drb_ffi__ZTSP9mrb_value_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_valuePointerClass, "[]=", drb_ffi__ZTSP9mrb_value_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Mrb_valuePointerClass, "nil?", drb_ffi__ZTSP9mrb_value_IsNil, MRB_ARGS_REQ(0));
     struct RClass *Function_2PointerClass = drb_api->mrb_define_class_under(state, module, "Function_2Pointer", object_class);
-    drb_api->mrb_define_class_method(state, Function_2PointerClass, "new", drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_2PointerClass, "value", drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_2PointerClass, "[]", drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Function_2PointerClass, "[]=", drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Function_2PointerClass, "nil?", drb_ffi__ZTSPFPvP9mrb_stateS_iS_E_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RProcPointerClass = drb_api->mrb_define_class_under(state, module, "RProcPointer", object_class);
-    drb_api->mrb_define_class_method(state, RProcPointerClass, "new", drb_ffi__ZTSP5RProc_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RProcPointerClass, "value", drb_ffi__ZTSP5RProc_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RProcPointerClass, "[]", drb_ffi__ZTSP5RProc_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RProcPointerClass, "[]=", drb_ffi__ZTSP5RProc_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RProcPointerClass, "nil?", drb_ffi__ZTSP5RProc_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_poolPointerClass = drb_api->mrb_define_class_under(state, module, "Mrb_poolPointer", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_poolPointerClass, "new", drb_ffi__ZTSP8mrb_pool_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_poolPointerClass, "value", drb_ffi__ZTSP8mrb_pool_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_poolPointerClass, "[]", drb_ffi__ZTSP8mrb_pool_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_poolPointerClass, "[]=", drb_ffi__ZTSP8mrb_pool_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Mrb_poolPointerClass, "nil?", drb_ffi__ZTSP8mrb_pool_IsNil, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_class_method(state, Function_2PointerClass, "new", drb_ffi__ZTSPFvPK3$_4iE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_2PointerClass, "value", drb_ffi__ZTSPFvPK3$_4iE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_2PointerClass, "[]", drb_ffi__ZTSPFvPK3$_4iE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_2PointerClass, "[]=", drb_ffi__ZTSPFvPK3$_4iE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_2PointerClass, "nil?", drb_ffi__ZTSPFvPK3$_4iE_IsNil, MRB_ARGS_REQ(0));
     struct RClass *Function_3PointerClass = drb_api->mrb_define_class_under(state, module, "Function_3Pointer", object_class);
-    drb_api->mrb_define_class_method(state, Function_3PointerClass, "new", drb_ffi__ZTSPFvP9mrb_stateE_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_3PointerClass, "value", drb_ffi__ZTSPFvP9mrb_stateE_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_3PointerClass, "[]", drb_ffi__ZTSPFvP9mrb_stateE_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Function_3PointerClass, "[]=", drb_ffi__ZTSPFvP9mrb_stateE_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Function_3PointerClass, "nil?", drb_ffi__ZTSPFvP9mrb_stateE_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RFloatPointerClass = drb_api->mrb_define_class_under(state, module, "RFloatPointer", object_class);
-    drb_api->mrb_define_class_method(state, RFloatPointerClass, "new", drb_ffi__ZTSP6RFloat_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatPointerClass, "value", drb_ffi__ZTSP6RFloat_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatPointerClass, "[]", drb_ffi__ZTSP6RFloat_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFloatPointerClass, "[]=", drb_ffi__ZTSP6RFloat_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RFloatPointerClass, "nil?", drb_ffi__ZTSP6RFloat_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RIntegerPointerClass = drb_api->mrb_define_class_under(state, module, "RIntegerPointer", object_class);
-    drb_api->mrb_define_class_method(state, RIntegerPointerClass, "new", drb_ffi__ZTSP8RInteger_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerPointerClass, "value", drb_ffi__ZTSP8RInteger_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerPointerClass, "[]", drb_ffi__ZTSP8RInteger_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RIntegerPointerClass, "[]=", drb_ffi__ZTSP8RInteger_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RIntegerPointerClass, "nil?", drb_ffi__ZTSP8RInteger_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RCptrPointerClass = drb_api->mrb_define_class_under(state, module, "RCptrPointer", object_class);
-    drb_api->mrb_define_class_method(state, RCptrPointerClass, "new", drb_ffi__ZTSP5RCptr_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrPointerClass, "value", drb_ffi__ZTSP5RCptr_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrPointerClass, "[]", drb_ffi__ZTSP5RCptr_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RCptrPointerClass, "[]=", drb_ffi__ZTSP5RCptr_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RCptrPointerClass, "nil?", drb_ffi__ZTSP5RCptr_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_jmpbufPointerClass = drb_api->mrb_define_class_under(state, module, "Mrb_jmpbufPointer", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_jmpbufPointerClass, "new", drb_ffi__ZTSP10mrb_jmpbuf_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_jmpbufPointerClass, "value", drb_ffi__ZTSP10mrb_jmpbuf_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_jmpbufPointerClass, "[]", drb_ffi__ZTSP10mrb_jmpbuf_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_jmpbufPointerClass, "[]=", drb_ffi__ZTSP10mrb_jmpbuf_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Mrb_jmpbufPointerClass, "nil?", drb_ffi__ZTSP10mrb_jmpbuf_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Iv_tblPointerClass = drb_api->mrb_define_class_under(state, module, "Iv_tblPointer", object_class);
-    drb_api->mrb_define_class_method(state, Iv_tblPointerClass, "new", drb_ffi__ZTSP6iv_tbl_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Iv_tblPointerClass, "value", drb_ffi__ZTSP6iv_tbl_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Iv_tblPointerClass, "[]", drb_ffi__ZTSP6iv_tbl_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Iv_tblPointerClass, "[]=", drb_ffi__ZTSP6iv_tbl_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Iv_tblPointerClass, "nil?", drb_ffi__ZTSP6iv_tbl_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Symbol_namePointerClass = drb_api->mrb_define_class_under(state, module, "Symbol_namePointer", object_class);
-    drb_api->mrb_define_class_method(state, Symbol_namePointerClass, "new", drb_ffi__ZTSP11symbol_name_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Symbol_namePointerClass, "value", drb_ffi__ZTSP11symbol_name_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Symbol_namePointerClass, "[]", drb_ffi__ZTSP11symbol_name_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Symbol_namePointerClass, "[]=", drb_ffi__ZTSP11symbol_name_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Symbol_namePointerClass, "nil?", drb_ffi__ZTSP11symbol_name_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Function_3PointerPointerClass = drb_api->mrb_define_class_under(state, module, "Function_3PointerPointer", object_class);
-    drb_api->mrb_define_class_method(state, Function_3PointerPointerClass, "new", drb_ffi__ZTSPPFvP9mrb_stateE_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_3PointerPointerClass, "value", drb_ffi__ZTSPPFvP9mrb_stateE_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Function_3PointerPointerClass, "[]", drb_ffi__ZTSPPFvP9mrb_stateE_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Function_3PointerPointerClass, "[]=", drb_ffi__ZTSPPFvP9mrb_stateE_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Function_3PointerPointerClass, "nil?", drb_ffi__ZTSPPFvP9mrb_stateE_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *PointerClass = drb_api->mrb_define_class_under(state, module, "Pointer", object_class);
-    drb_api->mrb_define_class_method(state, PointerClass, "new", drb_ffi__ZTSP3$_0_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, PointerClass, "value", drb_ffi__ZTSP3$_0_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, PointerClass, "[]", drb_ffi__ZTSP3$_0_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, PointerClass, "[]=", drb_ffi__ZTSP3$_0_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, PointerClass, "nil?", drb_ffi__ZTSP3$_0_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RFiberPointerClass = drb_api->mrb_define_class_under(state, module, "RFiberPointer", object_class);
-    drb_api->mrb_define_class_method(state, RFiberPointerClass, "new", drb_ffi__ZTSP6RFiber_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberPointerClass, "value", drb_ffi__ZTSP6RFiber_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberPointerClass, "[]", drb_ffi__ZTSP6RFiber_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFiberPointerClass, "[]=", drb_ffi__ZTSP6RFiber_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RFiberPointerClass, "nil?", drb_ffi__ZTSP6RFiber_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_heap_pagePointerClass = drb_api->mrb_define_class_under(state, module, "Mrb_heap_pagePointer", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_heap_pagePointerClass, "new", drb_ffi__ZTSP13mrb_heap_page_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pagePointerClass, "value", drb_ffi__ZTSP13mrb_heap_page_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pagePointerClass, "[]", drb_ffi__ZTSP13mrb_heap_page_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pagePointerClass, "[]=", drb_ffi__ZTSP13mrb_heap_page_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, Mrb_heap_pagePointerClass, "nil?", drb_ffi__ZTSP13mrb_heap_page_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *RBasicPointerPointerClass = drb_api->mrb_define_class_under(state, module, "RBasicPointerPointer", object_class);
-    drb_api->mrb_define_class_method(state, RBasicPointerPointerClass, "new", drb_ffi__ZTSPP6RBasic_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicPointerPointerClass, "value", drb_ffi__ZTSPP6RBasic_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicPointerPointerClass, "[]", drb_ffi__ZTSPP6RBasic_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RBasicPointerPointerClass, "[]=", drb_ffi__ZTSPP6RBasic_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, RBasicPointerPointerClass, "nil?", drb_ffi__ZTSPP6RBasic_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *REnvPointerClass = drb_api->mrb_define_class_under(state, module, "REnvPointer", object_class);
-    drb_api->mrb_define_class_method(state, REnvPointerClass, "new", drb_ffi__ZTSP4REnv_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, REnvPointerClass, "value", drb_ffi__ZTSP4REnv_GetValue, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, REnvPointerClass, "[]", drb_ffi__ZTSP4REnv_GetAt, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, REnvPointerClass, "[]=", drb_ffi__ZTSP4REnv_SetAt, MRB_ARGS_REQ(2));
-    drb_api->mrb_define_method(state, REnvPointerClass, "nil?", drb_ffi__ZTSP4REnv_IsNil, MRB_ARGS_REQ(0));
-    struct RClass *Mrb_value_Class = drb_api->mrb_define_class_under(state, module, "Mrb_value_", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_value_Class, "new", drb_ffi__ZTS10mrb_value__New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "p", drb_ffi__ZTS10mrb_value__p_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "p=", drb_ffi__ZTS10mrb_value__p_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "bp", drb_ffi__ZTS10mrb_value__bp_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "bp=", drb_ffi__ZTS10mrb_value__bp_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "fp", drb_ffi__ZTS10mrb_value__fp_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "fp=", drb_ffi__ZTS10mrb_value__fp_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "ip", drb_ffi__ZTS10mrb_value__ip_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "ip=", drb_ffi__ZTS10mrb_value__ip_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "vp", drb_ffi__ZTS10mrb_value__vp_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "vp=", drb_ffi__ZTS10mrb_value__vp_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "w", drb_ffi__ZTS10mrb_value__w_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "w=", drb_ffi__ZTS10mrb_value__w_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "value", drb_ffi__ZTS10mrb_value__value_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_value_Class, "value=", drb_ffi__ZTS10mrb_value__value_Set, MRB_ARGS_REQ(1));
-    struct RClass *Mrb_valueClass = drb_api->mrb_define_class_under(state, module, "Mrb_value", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_valueClass, "new", drb_ffi__ZTS9mrb_value_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_valueClass, "w", drb_ffi__ZTS9mrb_value_w_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_valueClass, "w=", drb_ffi__ZTS9mrb_value_w_Set, MRB_ARGS_REQ(1));
-    struct RClass *Mrb_stateClass = drb_api->mrb_define_class_under(state, module, "Mrb_state", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_stateClass, "new", drb_ffi__ZTS9mrb_state_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "jmp", drb_ffi__ZTS9mrb_state_jmp_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "jmp=", drb_ffi__ZTS9mrb_state_jmp_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "allocf", drb_ffi__ZTS9mrb_state_allocf_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "allocf=", drb_ffi__ZTS9mrb_state_allocf_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "allocf_ud", drb_ffi__ZTS9mrb_state_allocf_ud_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "allocf_ud=", drb_ffi__ZTS9mrb_state_allocf_ud_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "c", drb_ffi__ZTS9mrb_state_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "c=", drb_ffi__ZTS9mrb_state_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "root_c", drb_ffi__ZTS9mrb_state_root_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "root_c=", drb_ffi__ZTS9mrb_state_root_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "globals", drb_ffi__ZTS9mrb_state_globals_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "globals=", drb_ffi__ZTS9mrb_state_globals_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "exc", drb_ffi__ZTS9mrb_state_exc_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "exc=", drb_ffi__ZTS9mrb_state_exc_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "top_self", drb_ffi__ZTS9mrb_state_top_self_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "top_self=", drb_ffi__ZTS9mrb_state_top_self_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "object_class", drb_ffi__ZTS9mrb_state_object_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "object_class=", drb_ffi__ZTS9mrb_state_object_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "class_class", drb_ffi__ZTS9mrb_state_class_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "class_class=", drb_ffi__ZTS9mrb_state_class_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "module_class", drb_ffi__ZTS9mrb_state_module_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "module_class=", drb_ffi__ZTS9mrb_state_module_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "proc_class", drb_ffi__ZTS9mrb_state_proc_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "proc_class=", drb_ffi__ZTS9mrb_state_proc_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "string_class", drb_ffi__ZTS9mrb_state_string_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "string_class=", drb_ffi__ZTS9mrb_state_string_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "array_class", drb_ffi__ZTS9mrb_state_array_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "array_class=", drb_ffi__ZTS9mrb_state_array_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "hash_class", drb_ffi__ZTS9mrb_state_hash_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "hash_class=", drb_ffi__ZTS9mrb_state_hash_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "range_class", drb_ffi__ZTS9mrb_state_range_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "range_class=", drb_ffi__ZTS9mrb_state_range_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "float_class", drb_ffi__ZTS9mrb_state_float_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "float_class=", drb_ffi__ZTS9mrb_state_float_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "integer_class", drb_ffi__ZTS9mrb_state_integer_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "integer_class=", drb_ffi__ZTS9mrb_state_integer_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "true_class", drb_ffi__ZTS9mrb_state_true_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "true_class=", drb_ffi__ZTS9mrb_state_true_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "false_class", drb_ffi__ZTS9mrb_state_false_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "false_class=", drb_ffi__ZTS9mrb_state_false_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "nil_class", drb_ffi__ZTS9mrb_state_nil_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "nil_class=", drb_ffi__ZTS9mrb_state_nil_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symbol_class", drb_ffi__ZTS9mrb_state_symbol_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symbol_class=", drb_ffi__ZTS9mrb_state_symbol_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "kernel_module", drb_ffi__ZTS9mrb_state_kernel_module_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "kernel_module=", drb_ffi__ZTS9mrb_state_kernel_module_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "gc", drb_ffi__ZTS9mrb_state_gc_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "gc=", drb_ffi__ZTS9mrb_state_gc_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "cache", drb_ffi__ZTS9mrb_state_cache_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "cache=", drb_ffi__ZTS9mrb_state_cache_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symidx", drb_ffi__ZTS9mrb_state_symidx_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symidx=", drb_ffi__ZTS9mrb_state_symidx_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symtbl", drb_ffi__ZTS9mrb_state_symtbl_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symtbl=", drb_ffi__ZTS9mrb_state_symtbl_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symhash", drb_ffi__ZTS9mrb_state_symhash_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symhash=", drb_ffi__ZTS9mrb_state_symhash_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symcapa", drb_ffi__ZTS9mrb_state_symcapa_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symcapa=", drb_ffi__ZTS9mrb_state_symcapa_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "sym_default", drb_ffi__ZTS9mrb_state_sym_default_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "sym_default=", drb_ffi__ZTS9mrb_state_sym_default_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "sym_initialize", drb_ffi__ZTS9mrb_state_sym_initialize_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "sym_initialize=", drb_ffi__ZTS9mrb_state_sym_initialize_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symbuf", drb_ffi__ZTS9mrb_state_symbuf_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "symbuf=", drb_ffi__ZTS9mrb_state_symbuf_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "eException_class", drb_ffi__ZTS9mrb_state_eException_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "eException_class=", drb_ffi__ZTS9mrb_state_eException_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "eStandardError_class", drb_ffi__ZTS9mrb_state_eStandardError_class_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "eStandardError_class=", drb_ffi__ZTS9mrb_state_eStandardError_class_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "nomem_err", drb_ffi__ZTS9mrb_state_nomem_err_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "nomem_err=", drb_ffi__ZTS9mrb_state_nomem_err_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "stack_err", drb_ffi__ZTS9mrb_state_stack_err_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "stack_err=", drb_ffi__ZTS9mrb_state_stack_err_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "ud", drb_ffi__ZTS9mrb_state_ud_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "ud=", drb_ffi__ZTS9mrb_state_ud_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "atexit_stack", drb_ffi__ZTS9mrb_state_atexit_stack_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "atexit_stack=", drb_ffi__ZTS9mrb_state_atexit_stack_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "atexit_stack_len", drb_ffi__ZTS9mrb_state_atexit_stack_len_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_stateClass, "atexit_stack_len=", drb_ffi__ZTS9mrb_state_atexit_stack_len_Set, MRB_ARGS_REQ(1));
-    struct RClass *Mrb_contextClass = drb_api->mrb_define_class_under(state, module, "Mrb_context", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_contextClass, "new", drb_ffi__ZTS11mrb_context_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "prev", drb_ffi__ZTS11mrb_context_prev_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "prev=", drb_ffi__ZTS11mrb_context_prev_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "stbase", drb_ffi__ZTS11mrb_context_stbase_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "stbase=", drb_ffi__ZTS11mrb_context_stbase_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "stend", drb_ffi__ZTS11mrb_context_stend_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "stend=", drb_ffi__ZTS11mrb_context_stend_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "ci", drb_ffi__ZTS11mrb_context_ci_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "ci=", drb_ffi__ZTS11mrb_context_ci_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "cibase", drb_ffi__ZTS11mrb_context_cibase_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "cibase=", drb_ffi__ZTS11mrb_context_cibase_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "ciend", drb_ffi__ZTS11mrb_context_ciend_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "ciend=", drb_ffi__ZTS11mrb_context_ciend_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "status", drb_ffi__ZTS11mrb_context_status_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "status=", drb_ffi__ZTS11mrb_context_status_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "vmexec", drb_ffi__ZTS11mrb_context_vmexec_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "vmexec=", drb_ffi__ZTS11mrb_context_vmexec_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "fib", drb_ffi__ZTS11mrb_context_fib_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_contextClass, "fib=", drb_ffi__ZTS11mrb_context_fib_Set, MRB_ARGS_REQ(1));
-    struct RClass *RBasicClass = drb_api->mrb_define_class_under(state, module, "RBasic", object_class);
-    drb_api->mrb_define_class_method(state, RBasicClass, "new", drb_ffi__ZTS6RBasic_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicClass, "c", drb_ffi__ZTS6RBasic_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicClass, "c=", drb_ffi__ZTS6RBasic_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RBasicClass, "gcnext", drb_ffi__ZTS6RBasic_gcnext_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicClass, "gcnext=", drb_ffi__ZTS6RBasic_gcnext_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RBasicClass, "tt", drb_ffi__ZTS6RBasic_tt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicClass, "tt=", drb_ffi__ZTS6RBasic_tt_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RBasicClass, "color", drb_ffi__ZTS6RBasic_color_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicClass, "color=", drb_ffi__ZTS6RBasic_color_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RBasicClass, "flags", drb_ffi__ZTS6RBasic_flags_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RBasicClass, "flags=", drb_ffi__ZTS6RBasic_flags_Set, MRB_ARGS_REQ(1));
-    struct RClass *RObjectClass = drb_api->mrb_define_class_under(state, module, "RObject", object_class);
-    drb_api->mrb_define_class_method(state, RObjectClass, "new", drb_ffi__ZTS7RObject_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "c", drb_ffi__ZTS7RObject_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "c=", drb_ffi__ZTS7RObject_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RObjectClass, "gcnext", drb_ffi__ZTS7RObject_gcnext_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "gcnext=", drb_ffi__ZTS7RObject_gcnext_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RObjectClass, "tt", drb_ffi__ZTS7RObject_tt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "tt=", drb_ffi__ZTS7RObject_tt_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RObjectClass, "color", drb_ffi__ZTS7RObject_color_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "color=", drb_ffi__ZTS7RObject_color_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RObjectClass, "flags", drb_ffi__ZTS7RObject_flags_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "flags=", drb_ffi__ZTS7RObject_flags_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RObjectClass, "iv", drb_ffi__ZTS7RObject_iv_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RObjectClass, "iv=", drb_ffi__ZTS7RObject_iv_Set, MRB_ARGS_REQ(1));
-    struct RClass *RFloatClass = drb_api->mrb_define_class_under(state, module, "RFloat", object_class);
-    drb_api->mrb_define_class_method(state, RFloatClass, "new", drb_ffi__ZTS6RFloat_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "c", drb_ffi__ZTS6RFloat_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "c=", drb_ffi__ZTS6RFloat_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFloatClass, "gcnext", drb_ffi__ZTS6RFloat_gcnext_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "gcnext=", drb_ffi__ZTS6RFloat_gcnext_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFloatClass, "tt", drb_ffi__ZTS6RFloat_tt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "tt=", drb_ffi__ZTS6RFloat_tt_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFloatClass, "color", drb_ffi__ZTS6RFloat_color_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "color=", drb_ffi__ZTS6RFloat_color_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFloatClass, "flags", drb_ffi__ZTS6RFloat_flags_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "flags=", drb_ffi__ZTS6RFloat_flags_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFloatClass, "f", drb_ffi__ZTS6RFloat_f_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFloatClass, "f=", drb_ffi__ZTS6RFloat_f_Set, MRB_ARGS_REQ(1));
-    struct RClass *RIntegerClass = drb_api->mrb_define_class_under(state, module, "RInteger", object_class);
-    drb_api->mrb_define_class_method(state, RIntegerClass, "new", drb_ffi__ZTS8RInteger_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "c", drb_ffi__ZTS8RInteger_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "c=", drb_ffi__ZTS8RInteger_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RIntegerClass, "gcnext", drb_ffi__ZTS8RInteger_gcnext_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "gcnext=", drb_ffi__ZTS8RInteger_gcnext_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RIntegerClass, "tt", drb_ffi__ZTS8RInteger_tt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "tt=", drb_ffi__ZTS8RInteger_tt_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RIntegerClass, "color", drb_ffi__ZTS8RInteger_color_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "color=", drb_ffi__ZTS8RInteger_color_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RIntegerClass, "flags", drb_ffi__ZTS8RInteger_flags_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "flags=", drb_ffi__ZTS8RInteger_flags_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RIntegerClass, "i", drb_ffi__ZTS8RInteger_i_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RIntegerClass, "i=", drb_ffi__ZTS8RInteger_i_Set, MRB_ARGS_REQ(1));
-    struct RClass *RCptrClass = drb_api->mrb_define_class_under(state, module, "RCptr", object_class);
-    drb_api->mrb_define_class_method(state, RCptrClass, "new", drb_ffi__ZTS5RCptr_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "c", drb_ffi__ZTS5RCptr_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "c=", drb_ffi__ZTS5RCptr_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RCptrClass, "gcnext", drb_ffi__ZTS5RCptr_gcnext_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "gcnext=", drb_ffi__ZTS5RCptr_gcnext_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RCptrClass, "tt", drb_ffi__ZTS5RCptr_tt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "tt=", drb_ffi__ZTS5RCptr_tt_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RCptrClass, "color", drb_ffi__ZTS5RCptr_color_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "color=", drb_ffi__ZTS5RCptr_color_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RCptrClass, "flags", drb_ffi__ZTS5RCptr_flags_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "flags=", drb_ffi__ZTS5RCptr_flags_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RCptrClass, "p", drb_ffi__ZTS5RCptr_p_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RCptrClass, "p=", drb_ffi__ZTS5RCptr_p_Set, MRB_ARGS_REQ(1));
-    struct RClass *Mrb_gcClass = drb_api->mrb_define_class_under(state, module, "Mrb_gc", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_gcClass, "new", drb_ffi__ZTS6mrb_gc_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "heaps", drb_ffi__ZTS6mrb_gc_heaps_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "heaps=", drb_ffi__ZTS6mrb_gc_heaps_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "sweeps", drb_ffi__ZTS6mrb_gc_sweeps_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "sweeps=", drb_ffi__ZTS6mrb_gc_sweeps_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "free_heaps", drb_ffi__ZTS6mrb_gc_free_heaps_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "free_heaps=", drb_ffi__ZTS6mrb_gc_free_heaps_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "live", drb_ffi__ZTS6mrb_gc_live_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "live=", drb_ffi__ZTS6mrb_gc_live_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "arena", drb_ffi__ZTS6mrb_gc_arena_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "arena=", drb_ffi__ZTS6mrb_gc_arena_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "arena_capa", drb_ffi__ZTS6mrb_gc_arena_capa_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "arena_capa=", drb_ffi__ZTS6mrb_gc_arena_capa_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "arena_idx", drb_ffi__ZTS6mrb_gc_arena_idx_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "arena_idx=", drb_ffi__ZTS6mrb_gc_arena_idx_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "state", drb_ffi__ZTS6mrb_gc_state_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "state=", drb_ffi__ZTS6mrb_gc_state_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "current_white_part", drb_ffi__ZTS6mrb_gc_current_white_part_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "current_white_part=", drb_ffi__ZTS6mrb_gc_current_white_part_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "gray_list", drb_ffi__ZTS6mrb_gc_gray_list_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "gray_list=", drb_ffi__ZTS6mrb_gc_gray_list_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "atomic_gray_list", drb_ffi__ZTS6mrb_gc_atomic_gray_list_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "atomic_gray_list=", drb_ffi__ZTS6mrb_gc_atomic_gray_list_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "live_after_mark", drb_ffi__ZTS6mrb_gc_live_after_mark_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "live_after_mark=", drb_ffi__ZTS6mrb_gc_live_after_mark_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "threshold", drb_ffi__ZTS6mrb_gc_threshold_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "threshold=", drb_ffi__ZTS6mrb_gc_threshold_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "interval_ratio", drb_ffi__ZTS6mrb_gc_interval_ratio_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "interval_ratio=", drb_ffi__ZTS6mrb_gc_interval_ratio_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "step_ratio", drb_ffi__ZTS6mrb_gc_step_ratio_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "step_ratio=", drb_ffi__ZTS6mrb_gc_step_ratio_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "iterating", drb_ffi__ZTS6mrb_gc_iterating_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "iterating=", drb_ffi__ZTS6mrb_gc_iterating_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "disabled", drb_ffi__ZTS6mrb_gc_disabled_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "disabled=", drb_ffi__ZTS6mrb_gc_disabled_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "full", drb_ffi__ZTS6mrb_gc_full_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "full=", drb_ffi__ZTS6mrb_gc_full_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "generational", drb_ffi__ZTS6mrb_gc_generational_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "generational=", drb_ffi__ZTS6mrb_gc_generational_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "out_of_memory", drb_ffi__ZTS6mrb_gc_out_of_memory_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "out_of_memory=", drb_ffi__ZTS6mrb_gc_out_of_memory_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "majorgc_old_threshold", drb_ffi__ZTS6mrb_gc_majorgc_old_threshold_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_gcClass, "majorgc_old_threshold=", drb_ffi__ZTS6mrb_gc_majorgc_old_threshold_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_class_method(state, Function_3PointerClass, "new", drb_ffi__ZTSPFvPK3$_4iPvE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_3PointerClass, "value", drb_ffi__ZTSPFvPK3$_4iPvE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_3PointerClass, "[]", drb_ffi__ZTSPFvPK3$_4iPvE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_3PointerClass, "[]=", drb_ffi__ZTSPFvPK3$_4iPvE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_3PointerClass, "nil?", drb_ffi__ZTSPFvPK3$_4iPvE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_4PointerClass = drb_api->mrb_define_class_under(state, module, "Function_4Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_4PointerClass, "new", drb_ffi__ZTSPFvvE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_4PointerClass, "value", drb_ffi__ZTSPFvvE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_4PointerClass, "[]", drb_ffi__ZTSPFvvE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_4PointerClass, "[]=", drb_ffi__ZTSPFvvE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_4PointerClass, "nil?", drb_ffi__ZTSPFvvE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_5PointerClass = drb_api->mrb_define_class_under(state, module, "Function_5Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_5PointerClass, "new", drb_ffi__ZTSPFvPvE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_5PointerClass, "value", drb_ffi__ZTSPFvPvE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_5PointerClass, "[]", drb_ffi__ZTSPFvPvE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_5PointerClass, "[]=", drb_ffi__ZTSPFvPvE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_5PointerClass, "nil?", drb_ffi__ZTSPFvPvE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_6PointerClass = drb_api->mrb_define_class_under(state, module, "Function_6Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_6PointerClass, "new", drb_ffi__ZTSPFPvS_E_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_6PointerClass, "value", drb_ffi__ZTSPFPvS_E_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_6PointerClass, "[]", drb_ffi__ZTSPFPvS_E_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_6PointerClass, "[]=", drb_ffi__ZTSPFPvS_E_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_6PointerClass, "nil?", drb_ffi__ZTSPFPvS_E_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_7PointerClass = drb_api->mrb_define_class_under(state, module, "Function_7Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_7PointerClass, "new", drb_ffi__ZTSPFviE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_7PointerClass, "value", drb_ffi__ZTSPFviE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_7PointerClass, "[]", drb_ffi__ZTSPFviE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_7PointerClass, "[]=", drb_ffi__ZTSPFviE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_7PointerClass, "nil?", drb_ffi__ZTSPFviE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_8PointerClass = drb_api->mrb_define_class_under(state, module, "Function_8Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_8PointerClass, "new", drb_ffi__ZTSPFviPvE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_8PointerClass, "value", drb_ffi__ZTSPFviPvE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_8PointerClass, "[]", drb_ffi__ZTSPFviPvE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_8PointerClass, "[]=", drb_ffi__ZTSPFviPvE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_8PointerClass, "nil?", drb_ffi__ZTSPFviPvE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_9PointerClass = drb_api->mrb_define_class_under(state, module, "Function_9Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_9PointerClass, "new", drb_ffi__ZTSPFviiE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_9PointerClass, "value", drb_ffi__ZTSPFviiE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_9PointerClass, "[]", drb_ffi__ZTSPFviiE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_9PointerClass, "[]=", drb_ffi__ZTSPFviiE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_9PointerClass, "nil?", drb_ffi__ZTSPFviiE_IsNil, MRB_ARGS_REQ(0));
+    struct RClass *Function_10PointerClass = drb_api->mrb_define_class_under(state, module, "Function_10Pointer", object_class);
+    drb_api->mrb_define_class_method(state, Function_10PointerClass, "new", drb_ffi__ZTSPFviiPvE_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_10PointerClass, "value", drb_ffi__ZTSPFviiPvE_GetValue, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Function_10PointerClass, "[]", drb_ffi__ZTSPFviiPvE_GetAt, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Function_10PointerClass, "[]=", drb_ffi__ZTSPFviiPvE_SetAt, MRB_ARGS_REQ(2));
+    drb_api->mrb_define_method(state, Function_10PointerClass, "nil?", drb_ffi__ZTSPFviiPvE_IsNil, MRB_ARGS_REQ(0));
     struct RClass *Class = drb_api->mrb_define_class_under(state, module, "", object_class);
-    drb_api->mrb_define_class_method(state, Class, "new", drb_ffi__ZTS3$_0_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "mid", drb_ffi__ZTS3$_0_mid_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "mid=", drb_ffi__ZTS3$_0_mid_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Class, "argc", drb_ffi__ZTS3$_0_argc_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "argc=", drb_ffi__ZTS3$_0_argc_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Class, "acc", drb_ffi__ZTS3$_0_acc_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "acc=", drb_ffi__ZTS3$_0_acc_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Class, "proc", drb_ffi__ZTS3$_0_proc_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "proc=", drb_ffi__ZTS3$_0_proc_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Class, "stack", drb_ffi__ZTS3$_0_stack_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "stack=", drb_ffi__ZTS3$_0_stack_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Class, "pc", drb_ffi__ZTS3$_0_pc_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "pc=", drb_ffi__ZTS3$_0_pc_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Class, "u", drb_ffi__ZTS3$_0_u_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Class, "u=", drb_ffi__ZTS3$_0_u_Set, MRB_ARGS_REQ(1));
-    struct RClass *RFiberClass = drb_api->mrb_define_class_under(state, module, "RFiber", object_class);
-    drb_api->mrb_define_class_method(state, RFiberClass, "new", drb_ffi__ZTS6RFiber_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "c", drb_ffi__ZTS6RFiber_c_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "c=", drb_ffi__ZTS6RFiber_c_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFiberClass, "gcnext", drb_ffi__ZTS6RFiber_gcnext_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "gcnext=", drb_ffi__ZTS6RFiber_gcnext_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFiberClass, "tt", drb_ffi__ZTS6RFiber_tt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "tt=", drb_ffi__ZTS6RFiber_tt_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFiberClass, "color", drb_ffi__ZTS6RFiber_color_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "color=", drb_ffi__ZTS6RFiber_color_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFiberClass, "flags", drb_ffi__ZTS6RFiber_flags_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "flags=", drb_ffi__ZTS6RFiber_flags_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, RFiberClass, "cxt", drb_ffi__ZTS6RFiber_cxt_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, RFiberClass, "cxt=", drb_ffi__ZTS6RFiber_cxt_Set, MRB_ARGS_REQ(1));
-    struct RClass *Mrb_heap_pageClass = drb_api->mrb_define_class_under(state, module, "Mrb_heap_page", object_class);
-    drb_api->mrb_define_class_method(state, Mrb_heap_pageClass, "new", drb_ffi__ZTS13mrb_heap_page_New, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "freelist", drb_ffi__ZTS13mrb_heap_page_freelist_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "freelist=", drb_ffi__ZTS13mrb_heap_page_freelist_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "prev", drb_ffi__ZTS13mrb_heap_page_prev_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "prev=", drb_ffi__ZTS13mrb_heap_page_prev_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "next", drb_ffi__ZTS13mrb_heap_page_next_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "next=", drb_ffi__ZTS13mrb_heap_page_next_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "free_next", drb_ffi__ZTS13mrb_heap_page_free_next_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "free_next=", drb_ffi__ZTS13mrb_heap_page_free_next_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "free_prev", drb_ffi__ZTS13mrb_heap_page_free_prev_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "free_prev=", drb_ffi__ZTS13mrb_heap_page_free_prev_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "old", drb_ffi__ZTS13mrb_heap_page_old_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "old=", drb_ffi__ZTS13mrb_heap_page_old_Set, MRB_ARGS_REQ(1));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "objects", drb_ffi__ZTS13mrb_heap_page_objects_Get, MRB_ARGS_REQ(0));
-    drb_api->mrb_define_method(state, Mrb_heap_pageClass, "objects=", drb_ffi__ZTS13mrb_heap_page_objects_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_class_method(state, Class, "new", drb_ffi__ZTS3$_7_New, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "botCB", drb_ffi__ZTS3$_7_botCB_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "botCB=", drb_ffi__ZTS3$_7_botCB_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "topCB", drb_ffi__ZTS3$_7_topCB_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "topCB=", drb_ffi__ZTS3$_7_topCB_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "botOOL", drb_ffi__ZTS3$_7_botOOL_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "botOOL=", drb_ffi__ZTS3$_7_botOOL_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "topOOL", drb_ffi__ZTS3$_7_topOOL_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "topOOL=", drb_ffi__ZTS3$_7_topOOL_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "deleted", drb_ffi__ZTS3$_7_deleted_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "deleted=", drb_ffi__ZTS3$_7_deleted_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "numCB", drb_ffi__ZTS3$_7_numCB_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "numCB=", drb_ffi__ZTS3$_7_numCB_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "numBOOL", drb_ffi__ZTS3$_7_numBOOL_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "numBOOL=", drb_ffi__ZTS3$_7_numBOOL_Set, MRB_ARGS_REQ(1));
+    drb_api->mrb_define_method(state, Class, "numTOOL", drb_ffi__ZTS3$_7_numTOOL_Get, MRB_ARGS_REQ(0));
+    drb_api->mrb_define_method(state, Class, "numTOOL=", drb_ffi__ZTS3$_7_numTOOL_Set, MRB_ARGS_REQ(1));
 }
