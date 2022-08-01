@@ -1,5 +1,6 @@
 #include <pigpio.h>
-#include "pigpio-bridge.h"
+//#include "pigpio-bridge.h"
+#include "dragonruby.h"
 
 DRB_FFI
 int bridge_gpio_initialise(void) {
@@ -7,8 +8,11 @@ int bridge_gpio_initialise(void) {
 }
 
 DRB_FFI
-void bridge_gpio_terminate(void) {
+//void bridge_gpio_terminate(void) {
+int bridge_gpio_terminate(void) {
   gpioTerminate();
+
+  return 1;
 }
 
 DRB_FFI
